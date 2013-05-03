@@ -1,0 +1,68 @@
+
+Layout:
+
+- 1 x Layout für alles (Header, Footer) -> Layout.java / .tml
+
+-------------------------------------------------------------
+
+Pages:
+
+- Login-Page (Logo/Title, Username, Password, Button) -> Login.java / .tml
+
+- Account erstellen (Userdaten) -> CreateAccount.java / .tml
+
+- Home (siehe Grafik) -> Home.java / .tml
+
+- Profilansicht anderer User (siehe Grafik) -> ViewProfile.java / .tml
+
+- eigenes Profil bearbeiten (siehe Grafik) -> EditProfile.java / .tml
+
+- Listenansicht für "gefundene Profile", Idols, Fans, eingehende Einladungen (siehe Grafik) -> ViewList.java / .tml
+
+-------------------------------------------------------------
+
+Components:
+
+- Profil Details (Bild, Name, usw. + Buttons) -> ProfileDetails.java / .tml
+
+- Profil Listen Eintrag (Thumbnail, Name, Buttons) -> ProfileListItem.java / .tml
+
+- Nachricht erstekllen (Textfield, Button) -> CreateMessage.java / .tml
+
+- Benutzer Menu (View Fans, Idols, Invites; Home, Search, Logout) -> UserMenu.java / .tml
+
+- Nachricht (Bild, Name, Nachricht) -> SingleMessage.java / .tml
+
+-------------------------------------------------------------
+
+Entities:
+
+- User:
+	long Id (auto-generated)
+	String Username
+	String Email
+	String Password (MD5-Hash)
+	Blob picture
+	Calendar timeCreated
+	Calendar timeModified
+	Calendar timeLastLogin
+	
+	List<Message> messages (OneToMany)
+
+	List<User> FollowingUsers (ManyToMany)
+	List<User> FollowedUsers (ManyToMany)
+
+	List<User> InvitedUsers (ManyToMany)
+	List<User> InvitingUsers (ManyToMany)
+
+- Messages:
+	long Id (auto-generated)
+	User author (ManyToOne)
+	String content
+	Calendar timeCreated;
+
+-------------------------------------------------------------
+
+
+
+
