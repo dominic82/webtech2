@@ -10,10 +10,17 @@
         <!-- Too set up an application with a database, change the artifactId below to
              tapestry-hibernate, and add a dependency on your JDBC driver. You'll also
              need to add Hibernate configuration files, such as hibernate.cfg.xml. -->
-        <dependency>
+
+	<dependency>
             <groupId>org.apache.tapestry</groupId>
-            <artifactId>tapestry-core</artifactId>
+            <artifactId>tapestry-hibernate</artifactId>
             <version>${tapestry-release-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>1.8.0.7</version>
         </dependency>
 
         <!-- This adds automatic compression of JavaScript and CSS when in production mode. -->
@@ -23,7 +30,7 @@
             <version>${tapestry-release-version}</version>
         </dependency>
 
-        <!-- Uncomment this to add support for file uploads:
+        <!-- Uncomment this to add support for file uploads: -->
 
          <dependency>
             <groupId>org.apache.tapestry</groupId>
@@ -31,7 +38,7 @@
             <version>${tapestry-release-version}</version>
         </dependency>
 
-        -->
+        
 
         <!-- A dependency on either JUnit or TestNG is required, or the surefire plugin (which runs the tests)
 will fail, preventing Maven from packaging the WAR. Tapestry includes a large number
