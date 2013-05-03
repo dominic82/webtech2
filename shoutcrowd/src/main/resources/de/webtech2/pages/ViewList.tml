@@ -1,0 +1,7 @@
+<html t:type="layout" title="About shoutcrowd"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <p>About shoutcrowd application ...</p>
+
+</html>
