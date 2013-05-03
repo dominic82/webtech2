@@ -2,18 +2,34 @@ package de.webtech2.entities;
 
 import java.util.Calendar;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.apache.tapestry5.beaneditor.NonVisual;
+
+@Entity
 public class Message {
 	private static final int MAX_LENGTH = 140;
-	long id;
-	String content;
-	User author;
-	Calendar timeCreated;
 
-	public Message(long id, String content, User author, Calendar created) {
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@NonVisual
+	private long id;
+	
+	private String content;
+	
+	private Calendar timeCreated;
+	
+	@ManyToOne
+	private User author;
+	
+	public Message(String content, User author, Calendar created) {
 		checkInput(content, author, created);
 		this.author = author;
 		this.content = content;
-		this.id = id;
 		this.timeCreated = created;
 	}
 
