@@ -54,8 +54,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="1196.5817"
-     inkscape:cy="-29.982659"
+     inkscape:cx="1010.8674"
+     inkscape:cy="-26.875947"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -65,7 +65,7 @@
      fit-margin-bottom="0"
      inkscape:window-width="959"
      inkscape:window-height="744"
-     inkscape:window-x="1665"
+     inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
      showguides="true"
@@ -953,7 +953,7 @@
        x="-722.7428"
        y="782.61884" />
     <rect
-       style="opacity:0.98000004;fill:#ff0000;fill-opacity:1;stroke:none"
+       style="opacity:0.98000003999999996;fill:#ff00ff;fill-opacity:1;stroke:none"
        id="rect3155-0-3"
        width="804.23944"
        height="116.51926"
@@ -1083,7 +1083,7 @@
            id="tspan3198-9-8">Home</tspan></text>
     </g>
     <rect
-       style="opacity:0.98000004;fill:#ff0000;fill-opacity:1;stroke:none"
+       style="opacity:0.98000003999999996;fill:#ff00ff;fill-opacity:1;stroke:none"
        id="rect3155-0-3-5"
        width="804.23944"
        height="116.51926"
@@ -1127,7 +1127,7 @@
       </g>
     </g>
     <rect
-       style="opacity:0.98000004;fill:#ff0000;fill-opacity:1;stroke:none"
+       style="opacity:0.98000003999999996;fill:#ff00ff;fill-opacity:1;stroke:none"
        id="rect3155-0"
        width="804.23944"
        height="116.51926"
@@ -1671,7 +1671,7 @@
        inkscape:connector-curvature="0"
        transform="translate(-791.0625,-58.84375)" />
     <g
-       transform="matrix(0.87814165,0,0,0.87814165,181.48834,-970.87958)"
+       transform="matrix(0.87814165,0,0,0.87814165,258.6312,-1342.3082)"
        id="g3202-5-5">
       <rect
          ry="15.714286"
@@ -1697,7 +1697,7 @@
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Lend)"
-       d="m -593.9196,359.15625 17.14282,614.28576"
+       d="M -559.63389,-12.272321 -576.77678,973.44201"
        id="path4512-6"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
