@@ -1,7 +1,39 @@
-<html t:type="layout" title="About shoutcrowd"
+<html t:type="layout" title="${message:title}"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-    <p>About shoutcrowd application ...</p>
+    <p>${message:greeting}</p>
 
+<center>
+	
+	<form t:type="form" t:id="entryForm">
+		
+		
+		<t:passwordfield t:id="password" t:validate="required" placeholder="password"/>
+		<br/>
+		<t:textfield t:id="email" t:validate="required" placeholder="email"/>
+		<br/>
+		
+		
+		<!--div class="floatright">
+			${message:email}: <input type="text" t:validate="required" placeholder="${message:emailplaceholder}" name="email"/>
+		</div><br/>
+		
+		<div class="floatright">
+			${message:username}: <input type="text" placeholder="${message:usernameplaceholder}" name="username"/>
+		</div><br/>
+		
+		<div class="floatright">
+			${message:password}: <input type="password" name="password"/>
+		</div><br/>
+		
+		<div class="floatright">
+			${message:passwordrepeat}: <input type="password" name="password2"/>
+		</div><br/>
+		
+		<div class="floatright">
+			<input type="submit" value="${message:submit}"/>
+		</div-->
+	</form> 
+</center>
 </html>

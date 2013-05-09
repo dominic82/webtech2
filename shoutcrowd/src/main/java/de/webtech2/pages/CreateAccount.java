@@ -1,50 +1,34 @@
 package de.webtech2.pages;
 
-import java.util.Date;
-import org.apache.tapestry5.annotations.*;
-import org.apache.tapestry5.ioc.annotations.*;
-import org.apache.tapestry5.corelib.components.*;
-import org.apache.tapestry5.SymbolConstants;
-import org.apache.tapestry5.alerts.AlertManager;
+import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.InjectComponent;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Form;
+import org.apache.tapestry5.corelib.components.PasswordField;
+
 
 /**
  * Start page of application shoutcrowd.
  */
 public class CreateAccount
 {
-    @Property
-    @Inject
-    @Symbol(SymbolConstants.TAPESTRY_VERSION)
-    private String tapestryVersion;
+	@Property
+	String username;
+	@Property
+	String password;
+	@Property
+	String passwordRepeat;
+	@Property
+	String email;
+	
+	@Component
+	Form entryForm;
+	@InjectComponent(value="password")
+	private PasswordField passwordField;
 
-    @InjectComponent
-    private Zone zone;
+	
+	void onValidateFromEntryForm() {
+		entryForm.recordError("noooo!");
+	}
 
-    @Persist
-    @Property
-    private int clickCount;
-
-    @Inject
-    private AlertManager alertManager;
-
-    public Date getCurrentTime()
-    {
-        return new Date();
-    }
-
-    void onActionFromIncrement()
-    {
-        alertManager.info("Increment clicked");
-
-        clickCount++;
-    }
-
-    Object onActionFromIncrementAjax()
-    {
-        clickCount++;
-
-        alertManager.info("Increment (via Ajax) clicked");
-
-        return zone;
-    }
 }
