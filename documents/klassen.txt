@@ -11,7 +11,7 @@ Pages:
 
 - Login-Page (Logo/Title, Username, Password, Button) -> Login.java / .tml -->> (macht Nico, in Arbeit...)
 
-- Account erstellen (Userdaten) -> CreateAccount.java / .tml -->> (macht Dennis, in Arbeit...)
+- [done] Account erstellen (Userdaten) -> CreateAccount.java / .tml
 
 - Home/Dashboard (siehe Grafik) -> Home.java / .tml 
 

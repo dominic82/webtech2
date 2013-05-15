@@ -30,7 +30,8 @@
             <version>${tapestry-release-version}</version>
         </dependency>
 
-        <!-- Uncomment this to add support for file uploads: -->
+
+         <!-- Uncomment this to add support for file uploads: -->
 
          <dependency>
             <groupId>org.apache.tapestry</groupId>

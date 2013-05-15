@@ -1,8 +1,5 @@
 package de.webtech2.pages;
 
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
@@ -84,12 +81,7 @@ public class CreateAccount {
 
 	private boolean isValidEmailAddress(String email) {
 		boolean result = true;
-		try {
-			InternetAddress emailAddr = new InternetAddress(email);
-			emailAddr.validate();
-		} catch (AddressException ex) {
-			result = false;
-		}
+		
 		return result;
 	}
 
