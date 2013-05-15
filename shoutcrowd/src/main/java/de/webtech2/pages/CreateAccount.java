@@ -1,5 +1,8 @@
 package de.webtech2.pages;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
@@ -13,6 +16,11 @@ import org.apache.tapestry5.ioc.annotations.Inject;
  * Start page of application shoutcrowd.
  */
 public class CreateAccount {
+	
+	private static final String EMAIL_PATTERN = 
+			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	
 	@Inject
 	Messages messages;
 	
@@ -78,11 +86,11 @@ public class CreateAccount {
 			// TODO: email already in use?
 		}
 	}
-
-	private boolean isValidEmailAddress(String email) {
-		boolean result = true;
-		
-		return result;
+	
+	public boolean isValidEmailAddress(final String hex) {
+		Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+		Matcher matcher = pattern.matcher(hex);
+		return matcher.matches();
 	}
 
 	private Object onSuccess() {
