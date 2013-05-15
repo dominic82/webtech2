@@ -10,7 +10,7 @@ import org.apache.tapestry5.SymbolConstants;
  * Layout component for pages of application shoutcrowd.
  */
 @Import(stylesheet = "context:layout/layout.css")
-public class Layout
+public class CheckLogin
 {
     /**
      * The page title, for the <title> element and the <h1> element.
@@ -48,6 +48,6 @@ public class Layout
 
     public String[] getPageNames()
     {
-        return new String[]{"Index", "CreateAccount", "Login"};
+        return new String[]{"Index"};
     }
 }

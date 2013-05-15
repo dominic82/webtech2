@@ -73,7 +73,7 @@ public class CreateAccount {
 			// TODO: username already exists?
 		}
 	}
-
+	
 	private void validateEmail() {
 		if (!isValidEmailAddress(email)) {
 			entryForm.recordError(emailField, messages.get("error-emailinvalid"));
