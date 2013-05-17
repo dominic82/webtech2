@@ -1,6 +1,6 @@
 Layout: -->> (macht Nico, in Arbeit...)
 
-- [] 1 x Layout für alles (Header, Footer) -> Layout.java / .tml
+- [Nico] 1 x Layout für alles (Header, Footer) -> Layout.java / .tml
 
 -------------------------------------------------------------
 
