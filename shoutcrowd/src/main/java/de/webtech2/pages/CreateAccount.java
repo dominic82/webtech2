@@ -5,12 +5,20 @@ import java.util.regex.Pattern;
 
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectComponent;
+import org.apache.tapestry5.annotations.PageActivationContext;
+import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.annotations.SessionAttribute;
+import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.PasswordField;
 import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
+
+import com.thoughtworks.selenium.condition.ConditionRunner.Context;
+
+import de.webtech2.entities.User;
 
 /**
  * Start page of application shoutcrowd.
@@ -20,6 +28,10 @@ public class CreateAccount {
 	private static final String EMAIL_PATTERN = 
 			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	
+	@SessionState
+	@PageActivationContext
+	User user;
 	
 	@Inject
 	Messages messages;
@@ -94,6 +106,10 @@ public class CreateAccount {
 	}
 
 	private Object onSuccess() {
+		user = new User();
+		user.setEmail(email);
+		user.setPassword(password);
+		user.setUsername(username);
 		return Index.class;
 	}
 }

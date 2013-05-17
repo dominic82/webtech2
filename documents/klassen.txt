@@ -13,7 +13,7 @@ Pages:
 
 - [done] Account erstellen (Userdaten) -> CreateAccount.java / .tml
 
-- Home/Dashboard (siehe Grafik) -> Home.java / .tml 
+- [Dennis] Home/Dashboard (siehe Grafik) -> Home.java / .tml 
 
 - Profilansicht anderer User (siehe Grafik) -> ViewProfile.java / .tml 
 
