@@ -31,6 +31,8 @@ public class CreateAccount {
 	@PageActivationContext
 	User user;
 	
+	
+	
 	@Inject
 	Messages messages;
 	
@@ -103,7 +105,7 @@ public class CreateAccount {
 		return matcher.matches();
 	}
 
-	private Object onSuccess() {
+	private Object onSuccessFromEntryForm() {
 		user = new User();
 		user.setEmail(email);
 		user.setPassword(password);
