@@ -8,6 +8,44 @@
 
     <p>${message:greeting}</p>
 
+
+    <!-- Dominic Test Begin -->
+    <p>
+        <h1>User List (grid):</h1>
+        <t:grid source="users" row="user" add="following">
+            <p:followingCell>
+                <t:loop source="user.followingUsers" value="followingUser">
+                    ${followingUser.username}
+                </t:loop>
+            </p:followingCell>
+        </t:grid>
+    </p>
+    <p>
+        <h1>Test File Upload</h1>
+        <t:form>
+            <input t:type="upload" t:id="file" t:value="file" validate="required"/>
+            <t:submit t:id="UploadPicture" value="UploadPicture"/>
+        </t:form>
+        <img src="test.png" />
+    </p>
+    <p>
+        <h1>new user add:</h1>
+        <t:beaneditform 
+		t:id="userForm"
+		object="user">
+	</t:beaneditform>
+    </p>
+    <p>
+        <h1>following user add:</h1>
+        <t:form>
+            <t:select t:id="userMenuFrom" value="followingUserFrom" model="userSelectModel" />
+            <t:select t:id="userMenuTo" value="followingUserTo" model="userSelectModel" />
+            <t:submit t:id="AddFollowingUser" value="AddFollowingUser"/>
+        </t:form>
+    </p>
+    <!-- Dominic Test End -->
+    
+
     <p>The current time is: <strong>${currentTime}</strong></p>
 
     <!-- A Zone is a component that can be updated in place, triggered by other components. -->

@@ -1,23 +1,22 @@
-
 Layout: -->> (macht Nico, in Arbeit...)
 
-- 1 x Layout für alles (Header, Footer) -> Layout.java / .tml
+- [Nico] 1 x Layout für alles (Header, Footer) -> Layout.java / .tml
 
 -------------------------------------------------------------
 
 Pages:
 
-- Index-Page (leitet den Besucher jeweils auf Login-Page bzw. Home/Dashboard weiter) -> Index.java / .tml
+- [Nico] Index-Page (leitet den Besucher jeweils auf Login-Page bzw. Home/Dashboard weiter) -> Index.java / .tml
 
-- Login-Page (Logo/Title, Username, Password, Button) -> Login.java / .tml -->> (macht Nico, in Arbeit...)
+- [Nico] Login-Page (Logo/Title, Username, Password, Button) -> Login.java / .tml -->> (macht Nico, in Arbeit...)
 
-- [done] Account erstellen (Userdaten) -> CreateAccount.java / .tml
+- [Dennis, done] Account erstellen (Userdaten) -> CreateAccount.java / .tml
 
 - [Dennis] Home/Dashboard (siehe Grafik) -> Home.java / .tml 
 
 - Profilansicht anderer User (siehe Grafik) -> ViewProfile.java / .tml 
 
-- eigenes Profil bearbeiten (siehe Grafik) -> EditProfile.java / .tml
+- [Benni] eigenes Profil bearbeiten (siehe Grafik) -> EditProfile.java / .tml
 
 - Listenansicht für "gefundene Profile", Idols, Fans, eingehende Einladungen (siehe Grafik) -> ViewList.java / .tml
 
@@ -25,15 +24,15 @@ Pages:
 
 Components:
 
-- Profil Details (Bild, Name, usw. + Buttons) -> ProfileDetails.java / .tml -->> (macht Dominic, in Arbeit...)
+- [Dominic] Profil Details (Bild, Name, usw. + Buttons) -> ProfileDetails.java / .tml -->> (macht Dominic, in Arbeit...)
 
-- Profil Listen Eintrag (Thumbnail, Name, Buttons) -> ProfileListItem.java / .tml -->> (macht Dominic, in Arbeit...)
+- [Dominic] Profil Listen Eintrag (Thumbnail, Name, Buttons) -> ProfileListItem.java / .tml -->> (macht Dominic, in Arbeit...)
 
-- Nachricht erstellen (Textfield, Button) -> CreateMessage.java / .tml
+- [Dominik] Nachricht erstellen (Textfield, Button) -> CreateMessage.java / .tml
 
-- Benutzer Menu (View Fans, Idols, Invites; Home, Search, Logout) -> UserMenu.java / .tml
+- [Benni] Benutzer Menu (View Fans, Idols, Invites; Home, Search, Logout) -> UserMenu.java / .tml
 
-- Nachricht (Bild, Name, Nachricht) -> SingleMessage.java / .tml
+- [Dominik] Nachricht (Bild, Name, Nachricht) -> SingleMessage.java / .tml
 
 -------------------------------------------------------------
 
