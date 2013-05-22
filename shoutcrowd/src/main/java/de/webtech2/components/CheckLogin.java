@@ -1,53 +1,34 @@
 package de.webtech2.components;
 
-import org.apache.tapestry5.*;
-import org.apache.tapestry5.annotations.*;
-import org.apache.tapestry5.ioc.annotations.*;
-import org.apache.tapestry5.BindingConstants;
-import org.apache.tapestry5.SymbolConstants;
+import java.io.IOException;
+
+import org.apache.tapestry5.EventConstants;
+import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.OnEvent;
+import org.apache.tapestry5.annotations.PageActivationContext;
+import org.apache.tapestry5.annotations.SessionState;
+
+import de.webtech2.entities.User;
 
 /**
  * Layout component for pages of application shoutcrowd.
  */
 @Import(stylesheet = "context:layout/layout.css")
-public class CheckLogin
-{
-    /**
-     * The page title, for the <title> element and the <h1> element.
-     */
-    @Property
-    @Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
-    private String title;
+public class CheckLogin {
+	@SessionState
+	@PageActivationContext
+	User user;
 
-    @Property
-    private String pageName;
+	public String onActivate() throws IOException { 
+		if (!isLoggedIn()) {
+			return "Login";
+		} else {
+			return "CreateAccount";
+		}
+	}
 
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private String sidebarTitle;
-
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private Block sidebar;
-
-    @Inject
-    private ComponentResources resources;
-
-    @Property
-    @Inject
-    @Symbol(SymbolConstants.APPLICATION_VERSION)
-    private String appVersion;
-
-
-    public String getClassForPageName()
-    {
-        return resources.getPageName().equalsIgnoreCase(pageName)
-                ? "current_page_item"
-                : null;
-    }
-
-    public String[] getPageNames()
-    {
-        return new String[]{"Index"};
-    }
+	private boolean isLoggedIn() {
+		// TODO: implement
+		return false;
+	}
 }
