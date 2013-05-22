@@ -114,7 +114,7 @@ public class Index {
                 }
             }
         } else if (uploadPicture) {
-            File copied = new File(file.getFileName());
+            File copied = new File("src/main/webapp/userpics/" + file.getFileName());
             file.write(copied);
         } else {
             session.persist(user);

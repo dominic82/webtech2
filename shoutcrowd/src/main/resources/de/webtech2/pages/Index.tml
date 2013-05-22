@@ -24,7 +24,8 @@
             <input t:type="upload" t:id="file" t:value="file" validate="required"/>
             <t:submit t:id="UploadPicture" value="UploadPicture"/>
         </t:form>
-        <img src="test.png" />
+        <h3>Uploaded File</h3>
+        <img src="target/pics/test2.png" />
     </p>
     <p>
         <h1>new user add:</h1>
