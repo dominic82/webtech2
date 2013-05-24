@@ -1,4 +1,15 @@
-Layout: -->> (macht Nico, in Arbeit...)
+Tapestry/Hibernate Befehle: http://crudsqbe.wordpress.com/2012/04/29/tapestry/
+
+-------------------------------------------------------------
+
+UserSession:
+
+- Entität User user (=null wenn nicht eingeloggt
+- function isLoggedIn (prüft ob is_null(user))
+
+-------------------------------------------------------------
+
+Layout: -->> (fertig)
 
 - [Nico] 1 x Layout für alles (Header, Footer) -> Layout.java / .tml
 
