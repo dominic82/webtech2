@@ -1,0 +1,14 @@
+hallo leute,
+hier findet ihr das projektdesign (html, css und bilder)
+farbwahl ist wie gesagt noch nicht feste und kann mittels css einfach geändert werden.
+Bitte sucht euch aus den entsprechenden exampleX.html eure komponenten raus
+und benutzt diese für eure TMLs. Es müssen natürlich anpassungen durchgeführt werden,
+wie beispielsweise input-error-meldungen und t:form anstelle von form etc..
+bei designtechnischen fragen bitte direkt an mich wenden (Nico).
+die entsprechenden teile sind im html quelltext mittels kommentaren voneinander getrennt
+und unterscheidbar. Denkt bitte auch daran, dass verschiedene komponenten
+ähnlich sind (beispielsweise createAccount und editProfile), aber nicht identisch.
+es müssen also bei einigen components diverse inputfelder entfernt werden (je nach context).
+
+man sieht sich, 
+Gruß Nico
