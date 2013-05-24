@@ -1,5 +1,6 @@
 package de.webtech2.pages;
 
+import de.webtech2.entities.Message;
 import de.webtech2.entities.User;
 import java.io.File;
 
@@ -65,6 +66,13 @@ public class Index {
     private User user;
     @InjectComponent
     private BeanEditForm userForm;
+    @Property
+    private Message message;
+    @Property
+    private User messageAuthor; 
+    @InjectComponent
+    private BeanEditForm messageForm;
+    
     /// Grid Beispiel
     @Property
     private User currentUser;
@@ -74,6 +82,11 @@ public class Index {
     public List<User> getUsers() {
         return session.createCriteria(User.class).list();
     }
+    
+    public List<Message> getMessages() {
+        return session.createCriteria(Message.class).list();
+    }
+    
     /// Das folgende ist für das Select Following Beispiel
     @Property
     private SelectModel userSelectModel;
@@ -108,10 +121,10 @@ public class Index {
     Object onSuccess() throws IOException {
         if (addFollowingUser) {
             for (User userToChange : this.getUsers()) {
-                if (userToChange.getUsername().equals(followingUserFrom.getUsername())) {
+                //if (userToChange.getUsername().equals(followingUserFrom.getUsername())) {
                     userToChange.getFollowingUsers().add(followingUserTo);
                     session.persist(userToChange);
-                }
+                //}
             }
         } else if (uploadPicture) {
             File copied = new File("src/main/webapp/userpics/" + file.getFileName());

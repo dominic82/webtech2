@@ -27,7 +27,7 @@
             <t:submit t:id="UploadPicture" value="UploadPicture"/>
         </t:form>
         <h3>Uploaded File</h3>
-        <img src="target/pics/test2.png" />
+        <img src="userpics/test2.png" />
     </p>
     <p>
         <h1>new user add:</h1>
@@ -43,6 +43,24 @@
             <t:select t:id="userMenuTo" value="followingUserTo" model="userSelectModel" />
             <t:submit t:id="AddFollowingUser" value="AddFollowingUser"/>
         </t:form>
+    </p>
+
+    <p>
+        <h1>Message List (grid):</h1>
+        <t:grid source="messages" row="message" add="author">
+            <p:authorCell>
+                <t:loop source="message.author" value="messageAuthor">
+                    ${messageAuthor.username}
+                </t:loop>
+            </p:authorCell>
+        </t:grid>
+    </p>
+    <p>
+        <h1>new message add:</h1>
+        <t:beaneditform 
+		t:id="messageForm"
+		object="message">
+	</t:beaneditform>
     </p>
     <!-- Dominic Test End -->
     

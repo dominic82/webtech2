@@ -1,4 +1,4 @@
-<html t:type="layout" title="Shoutcrowd Index"
+<html title="Shoutcrowd Index"
       t:sidebarTitle="Framework Version"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
