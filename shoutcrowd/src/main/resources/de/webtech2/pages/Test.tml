@@ -73,6 +73,9 @@
     <p>
         <h1>Message List (grid):</h1>
         <t:grid source="messages" row="message" add="author">
+            <p:timeCreatedCell>
+                <t:output format="message:dateFormat" value="message.timeCreated" />
+            </p:timeCreatedCell>
             <p:authorCell>
                 <t:loop source="message.author" value="messageAuthor">
                     ${messageAuthor.username}
@@ -84,7 +87,6 @@
         <h1>Message add:</h1>
         <t:form>
             <t:select t:id="userMessageFrom" value="userFrom" model="userSelectModel" />
-            <input t:type="DateField" t:id="dateValue"/>
             <textarea t:type="TextArea" t:id="messageValue"></textarea>
             <t:submit t:id="CreateMessage" value="CreateMessage"/>
         </t:form>
