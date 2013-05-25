@@ -2,31 +2,112 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-    <p>${message:greeting}</p>
-    
-	<form t:type="form" t:id="entryForm">
-	
-		<t:errors/>
-	
-		<div class="fields">
-			<div class="floating">
-				${message:username}<br/>
-				<t:textfield t:id="username" value="username" t:validate="required" minlength="4" placeholder="${message:usernameplaceholder}"/>
-			</div>
-			<div class="floating">
-				${message:email}<br/>
-				<t:textfield t:id="email" value="email" t:validate="required" placeholder="${message:emailplaceholder}"/>
-			</div>
-			<div class="floating">
-				${message:password}<br/>
-				<t:passwordfield t:id="password" value="password" t:validate="required" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
-				${message:passwordrepeat}<br/>
-				<t:passwordfield t:id="passwordRepeat" value="passwordRepeat" t:validate="required" minlength="6" placeholder="${message:passwordrepeatplaceholder}"/>
-			</div>
-		</div> 
-		<br/>
-		
-		<input type="submit" value="${message:submit}"/>
-		
-	</form>
+    <body>
+        <p>${message:greeting}</p>
+        <form t:type="form" t:id="entryForm">
+
+                <t:errors/>
+
+                <div class="fields">
+                        <div class="floating">
+                                ${message:username}<br/>
+                                <t:textfield t:id="username" value="username" t:validate="required" minlength="4" placeholder="${message:usernameplaceholder}"/>
+                        </div>
+                        <div class="floating">
+                                ${message:email}<br/>
+                                <t:textfield t:id="email" value="email" t:validate="required" placeholder="${message:emailplaceholder}"/>
+                        </div>
+                        <div class="floating">
+                                ${message:password}<br/>
+                                <t:passwordfield t:id="password" value="password" t:validate="required" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
+                                ${message:passwordrepeat}<br/>
+                                <t:passwordfield t:id="passwordRepeat" value="passwordRepeat" t:validate="required" minlength="6" placeholder="${message:passwordrepeatplaceholder}"/>
+                        </div>
+                </div> 
+                <br/>
+
+                <input type="submit" value="${message:submit}"/>
+
+        </form>
+
+        <h1>Edit Profile / Create Account</h1>
+        <form action="#" method="POST">
+            <table border="0" id="account_table">
+                <tr>
+                    <td>
+                        firstname:
+                    </td>
+                    <td>
+                        <input type="text" size="40" placeholder="firstname"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        lastname:
+                    </td>
+                    <td>
+                        <input type="text" size="40" placeholder="lastname"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        nickname*:
+                    </td>
+                    <td>
+                        <input type="text" size="40" placeholder="nickname"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        eMail*:
+                    </td>
+                    <td>
+                        <input type="text" size="40" placeholder="email"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        password*:
+                    </td>
+                    <td>
+                        <input type="password" size="40"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        repeat password*:
+                    </td>
+                    <td>
+                        <input type="password" size="40"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Avatar:
+                    </td>
+                    <td>
+                        <input type="file"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        I've read the license agreement and fucked ya mommy!*
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Fields marked with an * must be filled
+                    </td>
+                    <td>
+                        <input type="submit"  value="save/create"/>
+                    </td>
+                </tr>
+            </table>
+
+
+        </form>
+    </body>
 </html>

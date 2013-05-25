@@ -2,25 +2,20 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-     <p>${message:greeting}</p>
-    
-	<form t:type="form" t:id="entryForm">
-	
-		<t:errors/>
-	
-		<div class="fields">
-			<div class="floating">
-				${message:mailorname}<br/>
-				<t:textfield t:id="namemail" value="namemail" t:validate="required" minlength="4" placeholder="${message:nameormailplaceholder}"/>
-			</div>
-			<div class="floating">
-				${message:password}<br/>
-				<t:passwordfield t:id="password" value="password" t:validate="required" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
-			</div>
-		</div> 
-		<br/>
-		
-		<input type="submit" value="${message:submit}"/>
-		
-	</form>
+    <body>
+        <div id="login">
+            <h1>
+                Login now!
+            </h1>
+            <form action="#" method="POST">
+                <input type="text" placeholder="name/email" size="60"/><br/>
+                <input type="password" placeholder="password" size="60"/><br/>
+                <input type="submit" value="login"/><br/>
+            </form>
+        </div>
+        <div id="login_fail">
+            Your login failed! Please try again.<br/>
+            <a href="example2.html">register now!</a>
+        </div>
+    </body>
 </html>

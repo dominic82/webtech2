@@ -2,95 +2,95 @@
       t:sidebarTitle="Framework Version"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
-        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
 
-    <!-- Dominic Test Begin -->
-    <p>
-        <h1>Test File Upload</h1>
-        <t:form>
-            <input t:type="upload" t:id="file" t:value="file" validate="required"/>
-            <t:submit t:id="UploadPicture" value="UploadPicture"/>
-        </t:form>
-        <h3>Uploaded File</h3>
-        <img src="userpics/test2.png" />
-    </p>
-    <p>
-        <h1>User List (grid):</h1>
-        <t:grid source="users" row="user" add="following,followed,inviting,invited,messages">
-            <p:followingCell>
-                <t:loop source="user.followingUsers" value="followingUser">
-                    ${followingUser.username}
-                </t:loop>
-            </p:followingCell>
-            <p:followedCell>
-                <t:loop source="user.followedUsers" value="followedUser">
-                    ${followedUser.username}
-                </t:loop>
-            </p:followedCell>
+    <body>
+        <!-- Dominic Test Begin -->
+        <p>
+            <h1>Test File Upload</h1>
+            <t:form>
+                <input t:type="upload" t:id="file" t:value="file" validate="required"/>
+                <t:submit t:id="UploadPicture" value="UploadPicture"/>
+            </t:form>
+            <h3>Uploaded File</h3>
+            <img src="userpics/test2.png" />
+        </p>
+        <p>
+            <h1>User List (grid):</h1>
+            <t:grid source="users" row="user" add="following,followed,inviting,invited,messages">
+                <p:followingCell>
+                    <t:loop source="user.followingUsers" value="followingUser">
+                        ${followingUser.username}
+                    </t:loop>
+                </p:followingCell>
+                <p:followedCell>
+                    <t:loop source="user.followedUsers" value="followedUser">
+                        ${followedUser.username}
+                    </t:loop>
+                </p:followedCell>
 
-            <p:invitedCell>
-                <t:loop source="user.invitedUsers" value="invitedUser">
-                    ${invitedUser.username}
-                </t:loop>
-            </p:invitedCell>
-            <p:invitingCell>
-                <t:loop source="user.invitingUsers" value="invitingUser">
-                    ${invitingUser.username}
-                </t:loop>
-            </p:invitingCell>
+                <p:invitedCell>
+                    <t:loop source="user.invitedUsers" value="invitedUser">
+                        ${invitedUser.username}
+                    </t:loop>
+                </p:invitedCell>
+                <p:invitingCell>
+                    <t:loop source="user.invitingUsers" value="invitingUser">
+                        ${invitingUser.username}
+                    </t:loop>
+                </p:invitingCell>
 
-            <p:messagesCell>
-                <t:loop source="user.messages" value="usermessage">
-                    ${usermessage.id}
-                </t:loop>
-            </p:messagesCell>
-        </t:grid>
-    </p>
-    <p>
-        <h1>new user add:</h1>
-        <t:beaneditform 
-		t:id="userForm"
-		object="user">
-	</t:beaneditform>
-    </p>
-    <p>
-        <h1>following user add:</h1>
-        <t:form>
-            <t:select t:id="userMenuFrom" value="followingUserFrom" model="userSelectModel" />
-            <t:select t:id="userMenuTo" value="followingUserTo" model="userSelectModel" />
-            <t:submit t:id="AddFollowingUser" value="AddFollowingUser"/>
-        </t:form>
-    </p>
-    <p>
-        <h1>invited user add:</h1>
-        <t:form>
-            <t:select t:id="userIMenuFrom" value="invitingUserFrom" model="userSelectModel" />
-            <t:select t:id="userIMenuTo" value="invitingUserTo" model="userSelectModel" />
-            <t:submit t:id="AddInvitingUser" value="AddInvitingUser"/>
-        </t:form>
-    </p>
+                <p:messagesCell>
+                    <t:loop source="user.messages" value="usermessage">
+                        ${usermessage.id}
+                    </t:loop>
+                </p:messagesCell>
+            </t:grid>
+        </p>
+        <p>
+            <h1>new user add:</h1>
+            <t:beaneditform 
+                    t:id="userForm"
+                    object="user">
+            </t:beaneditform>
+        </p>
+        <p>
+            <h1>following user add:</h1>
+            <t:form>
+                <t:select t:id="userMenuFrom" value="followingUserFrom" model="userSelectModel" />
+                <t:select t:id="userMenuTo" value="followingUserTo" model="userSelectModel" />
+                <t:submit t:id="AddFollowingUser" value="AddFollowingUser"/>
+            </t:form>
+        </p>
+        <p>
+            <h1>invited user add:</h1>
+            <t:form>
+                <t:select t:id="userIMenuFrom" value="invitingUserFrom" model="userSelectModel" />
+                <t:select t:id="userIMenuTo" value="invitingUserTo" model="userSelectModel" />
+                <t:submit t:id="AddInvitingUser" value="AddInvitingUser"/>
+            </t:form>
+        </p>
 
-    <p>
-        <h1>Message List (grid):</h1>
-        <t:grid source="messages" row="message" add="author">
-            <p:timeCreatedCell>
-                <t:output format="message:dateFormat" value="message.timeCreated" />
-            </p:timeCreatedCell>
-            <p:authorCell>
-                <t:loop source="message.author" value="messageAuthor">
-                    ${messageAuthor.username}
-                </t:loop>
-            </p:authorCell>
-        </t:grid>
-    </p>
-    <p>
-        <h1>Message add:</h1>
-        <t:form>
-            <t:select t:id="userMessageFrom" value="userFrom" model="userSelectModel" />
-            <textarea t:type="TextArea" t:id="messageValue"></textarea>
-            <t:submit t:id="CreateMessage" value="CreateMessage"/>
-        </t:form>
-    </p>
-    <!-- Dominic Test End -->
-
+        <p>
+            <h1>Message List (grid):</h1>
+            <t:grid source="messages" row="message" add="author">
+                <p:timeCreatedCell>
+                    <t:output format="message:dateFormat" value="message.timeCreated" />
+                </p:timeCreatedCell>
+                <p:authorCell>
+                    <t:loop source="message.author" value="messageAuthor">
+                        ${messageAuthor.username}
+                    </t:loop>
+                </p:authorCell>
+            </t:grid>
+        </p>
+        <p>
+            <h1>Message add:</h1>
+            <t:form>
+                <t:select t:id="userMessageFrom" value="userFrom" model="userSelectModel" />
+                <textarea t:type="TextArea" t:id="messageValue"></textarea>
+                <t:submit t:id="CreateMessage" value="CreateMessage"/>
+            </t:form>
+        </p>
+        <!-- Dominic Test End -->
+    </body>
 </html>

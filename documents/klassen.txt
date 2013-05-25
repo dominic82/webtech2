@@ -23,9 +23,9 @@ Pages:
 
 - [Dennis, done] Account erstellen (Userdaten) -> CreateAccount.java / .tml
 
-- [Dennis] Home/Dashboard (siehe Grafik) -> Home.java / .tml 
+- [Dominic] Home/Dashboard (siehe Grafik) -> Home.java / .tml 
 
-- Profilansicht anderer User (siehe Grafik) -> ViewProfile.java / .tml 
+- [Dominic] Profilansicht anderer User (siehe Grafik) -> ViewProfile.java / .tml 
 
 - [Benni] eigenes Profil bearbeiten (siehe Grafik) -> EditProfile.java / .tml
 

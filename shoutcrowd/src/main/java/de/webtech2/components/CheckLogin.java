@@ -2,13 +2,11 @@ package de.webtech2.components;
 
 import java.io.IOException;
 
-import org.apache.tapestry5.EventConstants;
 import org.apache.tapestry5.annotations.Import;
-import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.PageActivationContext;
 import org.apache.tapestry5.annotations.SessionState;
 
-import de.webtech2.entities.User;
+import de.webtech2.utils.UserSession;
 
 /**
  * Layout component for pages of application shoutcrowd.
@@ -17,10 +15,10 @@ import de.webtech2.entities.User;
 public class CheckLogin {
 	@SessionState
 	@PageActivationContext
-	User user;
+	       UserSession userSession;
 
 	public String onActivate() throws IOException { 
-		if (!isLoggedIn()) {
+		if (!userSession.isLoggedIn()) {
 			return "Login";
 		} else {
 			return "CreateAccount";

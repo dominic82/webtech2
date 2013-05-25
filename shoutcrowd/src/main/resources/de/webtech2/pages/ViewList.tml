@@ -2,6 +2,20 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-    <p>About shoutcrowd application ...</p>
+    <body>
+        <div id="cwrapper">
+            <div class="cline" style="text-align: center;">
+                <h1>Search / Idols / Fans / Invitations</h1>
+                <form action="#" method="POST">
+                    <input type="text" placeholder="search for..." size="80"/>
+                    <input type="button" value="Search"/>
+                </form>
+            </div>
+
+            <div class="cline">
+                <t:ProfileListItem/>
+            </div>
+        </div>
+    </body>
 
 </html>
