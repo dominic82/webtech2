@@ -1,24 +1,39 @@
 package de.webtech2.entities;
 
-import java.util.Calendar;
-
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
-import org.apache.tapestry5.beaneditor.NonVisual;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Message{
 
-    public long getId() {
-        return id;
+    public static final int MAX_LENGTH = 140;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private long id;
+    
+    private String content;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date timeCreated;
+    
+    @ManyToOne
+    private User author;
+
+    public Message() {
+        this.author = new User();
+        this.content = "";
+        this.timeCreated = new Date();
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public long getId() {
+        return id;
     }
 
     public String getContent() {
@@ -29,6 +44,14 @@ public class Message{
         this.content = content;
     }
 
+    public Date getTimeCreated() {
+        return timeCreated;
+    }
+
+    public void setTimeCreated(Date timeCreated) {
+        this.timeCreated = timeCreated;
+    }
+
     public User getAuthor() {
         return author;
     }
@@ -36,19 +59,5 @@ public class Message{
     public void setAuthor(User author) {
         this.author = author;
     }
-
-    private static final int MAX_LENGTH = 140;
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @NonVisual
-    private long id;
-    private String content;
-    @ManyToOne
-    private User author;
-
-    public Message() {
-        this.author = new User();
-        this.content = "";
-    }
-
+    
 }

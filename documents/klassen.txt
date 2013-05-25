@@ -2,7 +2,7 @@ Tapestry/Hibernate Befehle: http://crudsqbe.wordpress.com/2012/04/29/tapestry/
 
 -------------------------------------------------------------
 
-UserSession:
+UserSession: [Dominic] (fertig)
 
 - Entität User user (=null wenn nicht eingeloggt
 - function isLoggedIn (prüft ob is_null(user))
@@ -55,9 +55,9 @@ Entities: -->> (macht Dominic, in Arbeit...)
 	String Email
 	String Password (MD5-Hash)
 	Blob picture
-	Calendar timeCreated
-	Calendar timeModified
-	Calendar timeLastLogin
+	Date timeCreated
+	Date timeModified
+	Date timeLastLogin
 	
 	List<Message> messages (OneToMany)
 
@@ -71,7 +71,7 @@ Entities: -->> (macht Dominic, in Arbeit...)
 	long Id (auto-generated)
 	User author (ManyToOne)
 	String content
-	Calendar timeCreated;
+	Date timeCreated;
 
 -------------------------------------------------------------
 
