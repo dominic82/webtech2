@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -22,6 +21,10 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="USER")
 public class User {
+    
+    public static final String EMAIL_PATTERN = 
+			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
     @Id
     @Column(name="USER_ID")
@@ -41,7 +44,7 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     private Date timeLastLogin;
     
-    @OneToMany
+    @OneToMany(mappedBy="author")  
     private List<Message> messages;
     
     @ManyToMany(cascade = {CascadeType.ALL})

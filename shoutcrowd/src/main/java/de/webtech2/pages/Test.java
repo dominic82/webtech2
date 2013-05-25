@@ -122,19 +122,11 @@ public class Test {
     @CommitAfter
     Object onSuccess() throws IOException {
         if (addFollowingUser) {
-            for (User userToChange : this.getUsers()) {
-                if (userToChange.getUsername().equals(followingUserFrom.getUsername())) {
-                    userToChange.getFollowingUsers().add(followingUserTo);
-                    session.persist(userToChange);
-                }
-            }
+            followingUserFrom.getFollowingUsers().add(followingUserTo);
+            session.persist(followingUserFrom);
         } else if (addInvitingUser) {
-            for (User userToChange : this.getUsers()) {
-                if (userToChange.getUsername().equals(invitingUserFrom.getUsername())) {
-                    userToChange.getInvitedUsers().add(invitingUserTo);
-                    session.persist(userToChange);
-                }
-            }
+            invitingUserFrom.getInvitedUsers().add(invitingUserTo);
+            session.persist(invitingUserFrom);
         } else if (uploadPicture) {
             File copied = new File("src/main/webapp/userpics/" + file.getFileName());
             file.write(copied);
@@ -144,10 +136,6 @@ public class Test {
             newMessage.setContent(messageValue);
             newMessage.setTimeCreated(dateValue);
             session.persist(newMessage);
-            
-            User aUser = (User) session.get(User.class, userFrom.getId());
-            aUser.getMessages().add(newMessage);
-            session.persist(aUser);
         } else {
             session.persist(user);
         }

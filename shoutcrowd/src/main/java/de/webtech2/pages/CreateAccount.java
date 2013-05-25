@@ -15,21 +15,16 @@ import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import de.webtech2.entities.User;
+import de.webtech2.utils.UserSession;
 
 /**
  * Start page of application shoutcrowd.
  */
 public class CreateAccount {
 	
-	private static final String EMAIL_PATTERN = 
-			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-	
 	@SessionState
 	@PageActivationContext
-	User user;
-	
-	
+        UserSession userSession;
 	
 	@Inject
 	Messages messages;
@@ -98,16 +93,18 @@ public class CreateAccount {
 	}
 	
 	public boolean isValidEmailAddress(final String hex) {
-		Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+		Pattern pattern = Pattern.compile(User.EMAIL_PATTERN);
 		Matcher matcher = pattern.matcher(hex);
 		return matcher.matches();
 	}
 
 	private Object onSuccessFromEntryForm() {
+                User user = userSession.getUser();
 		user = new User();
 		user.setEmail(email);
 		user.setPassword(password);
 		user.setUsername(username);
+                userSession.setUser(user);
 		return Index.class;
 	}
 }
