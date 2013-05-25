@@ -120,7 +120,7 @@ public class Test {
     // globale After Commit Methode
     @SuppressWarnings("unchecked")
     @CommitAfter
-    Object onSuccess() throws IOException {
+    Object onSuccess() {
         if (addFollowingUser) {
             followingUserFrom.getFollowingUsers().add(followingUserTo);
             session.persist(followingUserFrom);

@@ -18,7 +18,7 @@
                 <input type="text" placeholder="search for..." size="20"/>
                 <input type="button" value="Search"/>
             </form>
-            <a href="#" class="button_link">Logout</a>
+            <a href="#" class="button_link" t:type="actionlink" t:id="logout" id="logout">Logout</a>
         </div>
     </body>
 </html>

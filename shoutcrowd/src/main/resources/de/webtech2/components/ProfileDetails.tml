@@ -11,8 +11,8 @@
             </div>
             <div id="profile_name">
 
-                <h1>Der_Mustermaxxe</h1>
-                <b>Name:  </b>Max Mustermann<br/>
+                <h1>${user.username}</h1>
+                <b>Email:  </b>${user.email}<br/>
                 <b>Status: </b> Admin/Regular<br/>
                 <b>Shouts: </b> 42<br/>
             </div>

@@ -13,14 +13,25 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.annotations.NaturalId;
 
 @Entity
+@NamedQueries(
+{
+    @NamedQuery(name = User.BY_USERNAME_OR_EMAIL, query = "Select u from User u where u.username = :username or u.email = :email"),
+    @NamedQuery(name = User.BY_CREDENTIALS, query = "Select u from User u where u.username = :username and u.password = :password") })
 @Table(name="USER")
 public class User {
+    
+    public static final String BY_USERNAME_OR_EMAIL = "User.byUserNameOrEmail";
+
+    public static final String BY_CREDENTIALS = "User.byCredentials";
     
     public static final String EMAIL_PATTERN = 
 			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
@@ -30,9 +41,14 @@ public class User {
     @Column(name="USER_ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
-
+    
+    @NaturalId
+    @Column(nullable = false, unique = true)
     private String username;
+    
+    @Column(nullable = false, unique = true)
     private String email;
+    
     private String password; //TODO: (MD5-Hash)
     
     @Temporal(TemporalType.TIMESTAMP)
@@ -44,7 +60,7 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     private Date timeLastLogin;
     
-    @OneToMany(mappedBy="author")  
+    @OneToMany(mappedBy="author",cascade = {CascadeType.ALL})  
     private List<Message> messages;
     
     @ManyToMany(cascade = {CascadeType.ALL})
