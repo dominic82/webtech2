@@ -6,9 +6,7 @@ import de.webtech2.services.Authenticator;
 import java.util.List;
 import org.apache.tapestry5.Link;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
-import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.annotations.RequestParameter;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 import org.hibernate.Query;
@@ -32,6 +30,9 @@ public class ViewList {
     @ActivationRequestParameter(value = "view")
     private String view;
     
+    @Property
+    private String viewMode;
+    
     private List<User> userList;
     
     @Property
@@ -45,12 +46,13 @@ public class ViewList {
 
     
     void onActivate() {
-        if (view.equals("idols")) {
+        this.viewMode = view;
+        if (view.equals("following")) {
             User user = (User) session.get(User.class, authenticator.getLoggedUser().getId());
             this.userList = user.getFollowingUsers();
             return;
         }
-        if (view.equals("fans")) {
+        if (view.equals("followed")) {
             User user = (User) session.get(User.class, authenticator.getLoggedUser().getId());
             this.userList = user.getFollowedUsers();
             return;

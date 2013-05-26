@@ -4,16 +4,11 @@
 
     <body>
         <div id="cwrapper">
-            <div class="cline" style="text-align: center;">
-                <h1>Search / Idols / Fans / Invitations</h1>
-                <form action="#" method="POST">
-                    <input type="text" placeholder="search for..." size="80"/>
-                    <input type="button" value="Search"/>
-                </form>
-            </div>
+            <h1>ViewMode: ${viewMode}</h1>
+            <h1>View: ${view}</h1>
 
             <t:Loop t:source="userList" t:value="userEntry"> 
-                <t:ProfileListItem userId="userEntry.id" />
+                <t:ProfileListItem userId="userEntry.id" view="viewMode" />
             </t:Loop>
         </div>
     </body>

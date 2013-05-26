@@ -9,8 +9,8 @@
             <t:pagelink id="logo" class="button_link" page="Index"><img src="layout/images/logo.png" alt="logo" /></t:pagelink>
         </div>
         <div id="header_center">
-            <a href="${idolsPageLink}" class="button_link">Idols</a>
-            <a href="${fansPageLink}" class="button_link">Fans</a>
+            <a href="${followingPageLink}" class="button_link">Idols</a>
+            <a href="${followedPageLink}" class="button_link">Fans</a>
             <t:pagelink class="button_link" page="Home">Home</t:pagelink>
         </div>
         <div id="header_right">

@@ -22,13 +22,13 @@ public class UserMenu {
     @InjectPage
     private ViewList viewListPage;
     
-    public Link getIdolsPageLink() {
-        Link link = viewListPage.set("idols", "");
+    public Link getFollowingPageLink() {
+        Link link = viewListPage.set("following", "");
         return link;
     }
     
-    public Link getFansPageLink() {
-        Link link = viewListPage.set("fans", "");
+    public Link getFollowedPageLink() {
+        Link link = viewListPage.set("followed", "");
         return link;
     }
     

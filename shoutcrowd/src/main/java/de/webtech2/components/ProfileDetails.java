@@ -1,7 +1,6 @@
 package de.webtech2.components;
 
 import de.webtech2.entities.User;
-import de.webtech2.pages.EditProfile;
 import de.webtech2.pages.ViewList;
 import de.webtech2.services.Authenticator;
 import org.apache.tapestry5.Link;

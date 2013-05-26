@@ -1,7 +1,5 @@
 package de.webtech2.components;
 
-import de.webtech2.pages.Imprint;
-import de.webtech2.pages.Licence;
 import org.apache.tapestry5.annotations.*;
 import org.apache.tapestry5.BindingConstants;
 
