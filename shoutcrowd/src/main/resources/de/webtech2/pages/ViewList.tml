@@ -12,9 +12,9 @@
                 </form>
             </div>
 
-            <div class="cline">
-                <t:ProfileListItem/>
-            </div>
+            <t:Loop t:source="userList" t:value="userEntry"> 
+                <t:ProfileListItem userId="userEntry.id" />
+            </t:Loop>
         </div>
     </body>
 

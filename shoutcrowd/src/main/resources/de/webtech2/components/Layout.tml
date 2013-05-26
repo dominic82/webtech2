@@ -27,8 +27,8 @@
             <img src="layout/images/unifak.png" alt=""/><p>
                 ShoutCrowd &copy; 2013 - Dennis K&uuml;hn, Nicolai Henczi, Dominik Mues, Dominic Wirkner, Benedikt Kleinh&uuml;ckelkoten</p>
             <br/>
-            <a href="#" class="button_link" style="width: 300px;">impressum</a>
-            <a href="#" class="button_link" style="width: 300px;">license agreement</a><br/>
+            <t:pagelink class="button_link" style="width: 300px;" page="imprint">imprint</t:pagelink>
+            <t:pagelink class="button_link" style="width: 300px;" page="licence">license agreement</t:pagelink>
         </div>
         <!-- end footer -->
 

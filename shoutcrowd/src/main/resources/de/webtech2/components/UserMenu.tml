@@ -6,17 +6,17 @@
 
     <body>
         <div id="header_left">
-            <a href="/" id="logo"><img src="layout/images/logo.png" alt="logo" /></a>
+            <t:pagelink id="logo" class="button_link" page="Index"><img src="layout/images/logo.png" alt="logo" /></t:pagelink>
         </div>
         <div id="header_center">
-            <a href="example1.html" class="button_link">Idols</a>
-            <a href="example2.html" class="button_link">Fans</a>
-            <a href="example3.html" class="button_link">Home</a>
+            <a href="${idolsPageLink}" class="button_link">Idols</a>
+            <a href="${fansPageLink}" class="button_link">Fans</a>
+            <t:pagelink class="button_link" page="Home">Home</t:pagelink>
         </div>
         <div id="header_right">
-            <form action="#" method="POST" style="float:left;">
-                <input type="text" placeholder="search for..." size="20"/>
-                <input type="button" value="Search"/>
+            <form t:type="form" t:id="searchForm" style="float:left;">
+                <input t:type="TextField" t:id="searchText" t:value="searchText" validate="required" placeholder="search for..." size="20" />
+                <t:submit t:id="searchSubmit" value="Search"/>
             </form>
             <a href="#" class="button_link" t:type="actionlink" t:id="logout" id="logout">Logout</a>
         </div>

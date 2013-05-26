@@ -7,19 +7,18 @@
     <body>
         <div class="cline" style="height:150px;">
             <div id="profile_img">
-                <img src="sample_avatar_big1.jpg" alt="avt"/>
+                <img src="layout/images/sample_noavatar_big.jpg" alt="avt"/>
             </div>
             <div id="profile_name">
 
                 <h1>${user.username}</h1>
                 <b>Email:  </b>${user.email}<br/>
-                <b>Status: </b> Admin/Regular<br/>
-                <b>Shouts: </b> 42<br/>
+                <b>Shouts: </b>${shoutcount}<br/>
             </div>
             <div id="profile_functions">
-                <a href="#">eine Funktion</a><br/>
-                <a href="#">weitere Funktion</a><br/>
-                <a href="#">weitere Funktion</a><br/>
+                <t:pagelink class="button_link" page="EditProfile">editProfile</t:pagelink><br/>
+                <a href="${outInvitesPageLink}" class="button_link">gesendete Einladungen</a><br/>
+                <a href="${inInvitesPageLink}" class="button_link">empfangene Einladungen</a>
             </div>
         </div>
     </body>

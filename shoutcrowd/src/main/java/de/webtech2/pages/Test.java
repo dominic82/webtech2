@@ -4,7 +4,6 @@ import de.webtech2.entities.Message;
 import de.webtech2.entities.User;
 import java.io.File;
 
-import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 

@@ -20,8 +20,7 @@
             </form>
         </div>
         <div id="login_fail">
-            Your login failed! Please try again.<br/>
-            <a href="example2.html">register now!</a>
+            <t:pagelink class="button_link" page="createAccount">register now!</t:pagelink>
         </div>
     </body>
 </html>

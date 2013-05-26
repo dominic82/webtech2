@@ -2,26 +2,7 @@ Tapestry/Hibernate Befehle: http://crudsqbe.wordpress.com/2012/04/29/tapestry/
 
 -------------------------------------------------------------
 
-UserSession: [Dominic] (fertig)
-
-- Entität User user (=null wenn nicht eingeloggt
-- function isLoggedIn (prüft ob is_null(user))
-
--------------------------------------------------------------
-
-Layout: -->> (fertig)
-
-- [Nico] 1 x Layout für alles (Header, Footer) -> Layout.java / .tml
-
--------------------------------------------------------------
-
 Pages:
-
-- [Nico] Index-Page (leitet den Besucher jeweils auf Login-Page bzw. Home/Dashboard weiter) -> Index.java / .tml
-
-- [Nico] Login-Page (Logo/Title, Username, Password, Button) -> Login.java / .tml -->> (macht Nico, in Arbeit...)
-
-- [Dennis, done] Account erstellen (Userdaten) -> CreateAccount.java / .tml
 
 - [Dominic] Home/Dashboard (siehe Grafik) -> Home.java / .tml 
 
@@ -29,7 +10,7 @@ Pages:
 
 - [Benni] eigenes Profil bearbeiten (siehe Grafik) -> EditProfile.java / .tml
 
-- Listenansicht für "gefundene Profile", Idols, Fans, eingehende Einladungen (siehe Grafik) -> ViewList.java / .tml
+- [Dominic] Listenansicht für "gefundene Profile", Idols, Fans, eingehende Einladungen (siehe Grafik) -> ViewList.java / .tml
 
 -------------------------------------------------------------
 
@@ -41,39 +22,9 @@ Components:
 
 - [Dominik] Nachricht erstellen (Textfield, Button) -> CreateMessage.java / .tml
 
-- [Benni] Benutzer Menu (View Fans, Idols, Invites; Home, Search, Logout) -> UserMenu.java / .tml
-
 - [Dominik] Nachricht (Bild, Name, Nachricht) -> SingleMessage.java / .tml
 
--------------------------------------------------------------
 
-Entities: -->> (macht Dominic, in Arbeit...)
-
-- User:
-	long Id (auto-generated)
-	String Username
-	String Email
-	String Password (MD5-Hash)
-	Blob picture
-	Date timeCreated
-	Date timeModified
-	Date timeLastLogin
-	
-	List<Message> messages (OneToMany)
-
-	List<User> FollowingUsers (ManyToMany)
-	List<User> FollowedUsers (ManyToMany)
-
-	List<User> InvitedUsers (ManyToMany)
-	List<User> InvitingUsers (ManyToMany)
-
-- Messages:
-	long Id (auto-generated)
-	User author (ManyToOne)
-	String content
-	Date timeCreated;
-
--------------------------------------------------------------
 
 
 

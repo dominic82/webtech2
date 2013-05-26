@@ -41,7 +41,7 @@ public class Login
         {
         }
 
-        return Index.class;
+        return Home.class;
     }
     
 }
