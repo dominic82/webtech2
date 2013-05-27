@@ -17,8 +17,8 @@
             </div>
             <div id="profile_functions">
                 <t:pagelink class="button_link" page="EditProfile">editProfile</t:pagelink><br/>
-                <t:pagelink class="button_link" page="ViewList" context="['outInvites','']">sentInvites</t:pagelink><br/>
-                <t:pagelink class="button_link" page="ViewList" context="['inInvites','']">recievedInvites</t:pagelink><br/>
+                <a href="#" class="button_link" t:type="actionlink" t:id="sentInvites" id="sentInvites">sentInvites</a><br/>
+                <a href="#" class="button_link" t:type="actionlink" t:id="recievedInvites" id="recievedInvites">recievedInvites</a><br/>
             </div>
         </div>
     </body>

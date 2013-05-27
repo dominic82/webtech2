@@ -124,8 +124,8 @@ public class Test {
             followingUserFrom.getFollowingUsers().add(followingUserTo);
             session.persist(followingUserFrom);
         } else if (addInvitingUser) {
-            invitingUserTo.getInvitingUsers().add(invitingUserFrom);
-            session.persist(invitingUserTo);
+            invitingUserFrom.getInvitingUsers().add(invitingUserTo);
+            session.persist(invitingUserFrom);
         } else if (uploadPicture) {
             File copied = new File("src/main/webapp/userpics/" + file.getFileName());
             file.write(copied);

@@ -1,5 +1,9 @@
 package de.webtech2.services;
 
+import de.webtech2.dao.MessageDAO;
+import de.webtech2.dao.MessageDAOImpl;
+import de.webtech2.dao.UserDAO;
+import de.webtech2.dao.UserDAOImpl;
 import de.webtech2.security.AuthenticationFilter;
 import java.io.IOException;
 
@@ -26,6 +30,8 @@ public class AppModule
     public static void bind(ServiceBinder binder)
     {
         binder.bind(Authenticator.class, BasicAuthenticator.class);
+        binder.bind(UserDAO.class, UserDAOImpl.class);
+        binder.bind(MessageDAO.class, MessageDAOImpl.class);
         
         // binder.bind(MyServiceInterface.class, MyServiceImpl.class);
 

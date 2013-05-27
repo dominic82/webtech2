@@ -17,10 +17,10 @@
                 </div>
                 <div class="shout_functions">
                     <t:if test="viewFollowing">
-                        <a href="#" t:type="actionlink" t:id="doUnfollowFollowing" id="doUnfollowFollowing" t:context="user.id">Unfollow</a>
+                        <a href="#" t:type="actionlink" t:id="doDeleteFollowing" id="doDeleteFollowing" t:context="user.id">Unfollow</a>
                     </t:if>
                     <t:if test="viewFollowed">
-                        <a href="#" t:type="actionlink" t:id="doUnfollowFollowed" id="doUnfollowFollowed" t:context="user.id">Unfollow</a>
+                        <a href="#" t:type="actionlink" t:id="doDeleteFollowed" id="doDeleteFollowed" t:context="user.id">Unfollow</a>
                     </t:if>
                     <t:if test="viewInInvites">
                         <t:actionlink t:id="doAcceptInInvite" id="doAcceptInInvite" t:context="user.id">Accept Invite</t:actionlink>
