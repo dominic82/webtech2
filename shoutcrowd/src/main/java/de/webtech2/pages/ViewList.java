@@ -1,22 +1,20 @@
 package de.webtech2.pages;
 
 import de.webtech2.annotations.RequiresLogin;
+import de.webtech2.dao.UserDAO;
 import de.webtech2.entities.User;
 import de.webtech2.services.Authenticator;
 import java.util.List;
-import org.apache.tapestry5.Link;
-import org.apache.tapestry5.annotations.ActivationRequestParameter;
+import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.PageRenderLinkSource;
-import org.hibernate.Query;
-import org.hibernate.Session;
 
 @RequiresLogin
 public class ViewList {
 
     @Inject
-    private Session session;
+    private UserDAO userDAO;
     
     @Inject
     private Authenticator authenticator;
@@ -24,49 +22,46 @@ public class ViewList {
     @Inject
     private PageRenderLinkSource pageRenderLinkSource;
     
+    @Persist
     private String searchText;
+    
+    @Persist
     private String view;
+    
     private List<User> userList;
     
     @Property
     User userEntry;
     
-    public Link getLink(String view, String searchText) {
-        Link link = pageRenderLinkSource.createPageRenderLink(this.getClass());
-        link.addParameter("searchText", searchText);
-        link.addParameter("view", view);
-        return link;
-    }
-
-    void onActivate(String view, String searchText) {
+    public void onActivate(String view, String searchText) {
         this.view = view;
         this.searchText = searchText;
+    }
         
-        if (view.equals("following")) {
-            User user = (User) session.get(User.class, authenticator.getLoggedUser().getId());
+    private void setupRender() {
+        User user = userDAO.getById(authenticator.getLoggedUser().getId());
+        
+        if (this.view.equals("following")) {
             this.userList = user.getFollowingUsers();
             return;
         }
-        if (view.equals("followed")) {
-            User user = (User) session.get(User.class, authenticator.getLoggedUser().getId());
+        if (this.view.equals("followed")) {
             this.userList = user.getFollowedUsers();
             return;
         }
-        if (view.equals("inInvites")) {
-            User user = (User) session.get(User.class, authenticator.getLoggedUser().getId());
-            this.userList = user.getInvitingUsers();
-            return;
-        }
-        if (view.equals("outInvites")) {
-            User user = (User) session.get(User.class, authenticator.getLoggedUser().getId());
+        if (this.view.equals("inInvites")) {
             this.userList = user.getInvitedUsers();
             return;
         }
-        if (view.equals("search")) {
-            Query query = session.getNamedQuery("User.likeUsername")
-                .setString("username", "%" + this.searchText + "%");
-            this.userList = query.list();
+        if (this.view.equals("outInvites")) {
+            this.userList = user.getInvitingUsers();
+            return;
         }
+        if (this.view.equals("search")) {
+            this.userList = userDAO.searchByUsername(this.searchText);
+        }
+        
+        this.userList.remove(userDAO.getById(this.authenticator.getLoggedUser().getId()));
     }
     
     public List<User> getUserList() {

@@ -1,79 +1,63 @@
 package de.webtech2.components;
 
+import de.webtech2.dao.UserDAO;
 import de.webtech2.entities.User;
-import de.webtech2.pages.ViewList;
 import de.webtech2.services.Authenticator;
-import org.apache.tapestry5.Link;
-import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.hibernate.Session;
 
 public class ProfileListItem {
     
     @Inject
-    private Session session;
-    
-    @Inject
     private Authenticator authenticator;
     
-    @InjectPage
-    private ViewList viewListPage;
+    @Inject
+    private UserDAO userDAO;
     
     @Parameter(required = true)
     private Long userId;
-    
-    @Parameter(required = true)
-    private String view;
     
     @Property
     User user;
     
     void setupRender() {
-        this.user = (User) session.get(User.class, userId);
+        this.user = userDAO.getById(userId);
     }
     
     private User getLoggedUser() {
-        return (User) session.get(User.class, authenticator.getLoggedUser().getId());
+        return userDAO.getById(authenticator.getLoggedUser().getId());
     }
     
     public boolean isViewFollowing() {
-        if (this.view.equals("following")) {
+        if (this.getLoggedUser().getFollowingUsers().contains(this.user)) {
             return true;
         }
         return false;
     }
     
     @CommitAfter
-    public Object onActionFromDoUnfollowFollowing(Long id) {
-        User tempUser = (User) session.get(User.class, id);
-        User loggedUser = this.getLoggedUser();
-        loggedUser.getFollowingUsers().remove(tempUser);
-        session.persist(loggedUser);
-        
-        Link link = viewListPage.getLink("following", "");
-        return link;
+    public Object onActionFromDoDeleteFollowing(Long id) {
+        userDAO.deleteFollowing(this.getLoggedUser(), userDAO.getById(id));
+        return null;
     }
     
     public boolean isViewFollowed() {
-        if (this.view.equals("followed")) {
+        if (this.getLoggedUser().getFollowedUsers().contains(this.user)) {
             return true;
         }
         return false;
     }
     
     @CommitAfter
-    public void onActionFromDoUnfollowFollowed(Long id) {
-        User tempUser = (User) session.get(User.class, id);
-        User loggedUser = this.getLoggedUser();
-        tempUser.getFollowingUsers().remove(loggedUser);
-        session.persist(tempUser);
+    public Object onActionFromDoDeleteFollowed(Long id) {
+        userDAO.deleteFollowing(userDAO.getById(id), this.getLoggedUser());
+        return null;
     }
     
     public boolean isViewInInvites() {
-        if (this.view.equals("inInvites")) {
+        if (this.getLoggedUser().getInvitedUsers().contains(this.user)) {
             return true;
         }
         return false;
@@ -81,51 +65,42 @@ public class ProfileListItem {
     
     @CommitAfter
     public Object onActionFromDoAcceptInInvite(Long id) {
-        User tempUser = (User) session.get(User.class, id);
-        User loggedUser = this.getLoggedUser();
-        loggedUser.getInvitingUsers().remove(tempUser);
-        loggedUser.getFollowingUsers().add(tempUser);
-        session.persist(loggedUser);
-        
-        Link link = viewListPage.getLink("inInvites", "");
-        return link;
+        userDAO.acceptInvite(this.getLoggedUser(), userDAO.getById(id));
+        return null;
     }
     
     @CommitAfter
-    public void onActionFromDoCancelInInvite(Long id) {
-        User tempUser = (User) session.get(User.class, id);
-        User loggedUser = this.getLoggedUser();
-        loggedUser.getInvitingUsers().remove(tempUser);
-        session.persist(loggedUser);
+    public Object onActionFromDoCancelInInvite(Long id) {
+        userDAO.cancelInvite(this.getLoggedUser(), userDAO.getById(id));
+        return null;
     }
     
     public boolean isViewOutInvites() {
-        if (this.view.equals("outInvites")) {
+        if (this.getLoggedUser().getInvitingUsers().contains(this.user)) {
             return true;
         }
         return false;
     }
     
     @CommitAfter
-    public void onActionFromDoCancelOutInvite(Long id) {
-        User tempUser = (User) session.get(User.class, id);
-        User loggedUser = this.getLoggedUser();
-        tempUser.getInvitingUsers().remove(loggedUser);
-        session.persist(tempUser);
+    public Object onActionFromDoCancelOutInvite(Long id) {
+        userDAO.cancelInvite(userDAO.getById(id), this.getLoggedUser());
+        return null;
     }
     
     public boolean isViewSearch() {
-        if (this.view.equals("search")) {
+        if (!this.isViewFollowed()
+                && !this.isViewFollowing()
+                && !this.isViewInInvites()
+                && !this.isViewOutInvites()) {
             return true;
         }
         return false;
     }
     
     @CommitAfter
-    public void onActionFromDoSendInvite(Long id) {
-        User tempUser = (User) session.get(User.class, id);
-        User loggedUser = this.getLoggedUser();
-        tempUser.getInvitingUsers().add(loggedUser);
-        session.persist(loggedUser);
+    public Object onActionFromDoSendInvite(Long id) {
+        userDAO.sendInvite(this.getLoggedUser(), userDAO.getById(id));
+        return null;
     }
 }
