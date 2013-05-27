@@ -3,6 +3,14 @@
     font-family: arial, helvetica, sans-serif;
     font-size:14px;
 }
+
+td {
+    padding-right: 10px;
+    text-align: right;
+    color: #000000;
+}
+
+
 html,body {
     background-color: #F2F2F2;
     margin: 0px;

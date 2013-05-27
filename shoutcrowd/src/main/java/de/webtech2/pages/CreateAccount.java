@@ -13,6 +13,8 @@ import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import de.webtech2.entities.User;
+import de.webtech2.security.AuthenticationException;
+import de.webtech2.services.Authenticator;
 
 /**
  * Start page of application shoutcrowd.
@@ -21,6 +23,8 @@ public class CreateAccount {
 	
 	@Inject
 	Messages messages;
+	@Inject
+    private Authenticator authenticator;
 	
 	@Property
 	private String email;
@@ -45,7 +49,6 @@ public class CreateAccount {
 
 	
 	void onValidateFromEntryForm() {
-		
 		validatePassword();
 		validateEmail();
 		validateUsername();
@@ -92,12 +95,14 @@ public class CreateAccount {
 	}
 
 	private Object onSuccessFromEntryForm() {
-//                User user = userSession.getUser();
-//		user = new User();
-//		user.setEmail(email);
-//		user.setPassword(password);
-//		user.setUsername(username);
-//                userSession.setUser(user);
-		return Index.class;
+        try
+        {
+            authenticator.login(username, password);
+    		return Index.class;
+        }
+        catch (AuthenticationException ex)
+        {
+        	return Login.class;
+        }
 	}
 }
