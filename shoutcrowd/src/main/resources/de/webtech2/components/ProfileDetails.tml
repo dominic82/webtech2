@@ -12,13 +12,13 @@
             <div id="profile_name">
 
                 <h1>${user.username}</h1>
-                <b>Email:  </b>${user.email}<br/>
-                <b>Shouts: </b>${shoutcount}<br/>
+                <b>userEmail:  </b>${user.email}<br/>
+                <b>userShoutCount: </b>${shoutcount}<br/>
             </div>
             <div id="profile_functions">
                 <t:pagelink class="button_link" page="EditProfile">editProfile</t:pagelink><br/>
-                <a href="${outInvitesPageLink}" class="button_link">gesendete Einladungen</a><br/>
-                <a href="${inInvitesPageLink}" class="button_link">empfangene Einladungen</a>
+                <t:pagelink class="button_link" page="ViewList" context="['outInvites','']">sentInvites</t:pagelink><br/>
+                <t:pagelink class="button_link" page="ViewList" context="['inInvites','']">recievedInvites</t:pagelink><br/>
             </div>
         </div>
     </body>

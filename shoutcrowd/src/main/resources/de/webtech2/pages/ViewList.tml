@@ -4,11 +4,10 @@
 
     <body>
         <div id="cwrapper">
-            <h1>ViewMode: ${viewMode}</h1>
             <h1>View: ${view}</h1>
 
             <t:Loop t:source="userList" t:value="userEntry"> 
-                <t:ProfileListItem userId="userEntry.id" view="viewMode" />
+                <t:ProfileListItem userId="userEntry.id" view="view" />
             </t:Loop>
         </div>
     </body>

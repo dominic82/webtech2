@@ -17,20 +17,20 @@
                 </div>
                 <div class="shout_functions">
                     <t:if test="viewFollowing">
-                        <a href="#" t:type="actionlink" t:id="doUnfollowFollowing" id="doUnfollowFollowing">Unfollow</a>
+                        <a href="#" t:type="actionlink" t:id="doUnfollowFollowing" id="doUnfollowFollowing" t:context="user.id">Unfollow</a>
                     </t:if>
                     <t:if test="viewFollowed">
-                        <a href="#" t:type="actionlink" t:id="doUnfollowFollowed" id="doUnfollowFollowed">Unfollow</a>
+                        <a href="#" t:type="actionlink" t:id="doUnfollowFollowed" id="doUnfollowFollowed" t:context="user.id">Unfollow</a>
                     </t:if>
                     <t:if test="viewInInvites">
-                        <a href="#" t:type="actionlink" t:id="doAcceptInInvite" id="doAcceptInInvite">Accept Invite</a>
-                        <a href="#" t:type="actionlink" t:id="doCancelInInvite" id="doCancelInInvite">Cancel Invite</a>
+                        <t:actionlink t:id="doAcceptInInvite" id="doAcceptInInvite" t:context="user.id">Accept Invite</t:actionlink>
+                        <a href="#" t:type="actionlink" t:id="doCancelInInvite" id="doCancelInInvite" t:context="user.id">Cancel Invite</a>
                     </t:if>
                     <t:if test="viewOutInvites">
-                        <a href="#" t:type="actionlink" t:id="doCancelOutInvite" id="doCancelOutInvite">Cancel Invite</a>
+                        <a href="#" t:type="actionlink" t:id="doCancelOutInvite" id="doCancelOutInvite" t:context="user.id">Cancel Invite</a>
                     </t:if>
                     <t:if test="viewSearch">
-                        <a href="#" t:type="actionlink" t:id="doSendInvite" id="doSendInvite">Send Invite</a>
+                        <a href="#" t:type="actionlink" t:id="doSendInvite" id="doSendInvite" t:context="user.id">Send Invite</a>
                     </t:if>
                 </div>
             </div>

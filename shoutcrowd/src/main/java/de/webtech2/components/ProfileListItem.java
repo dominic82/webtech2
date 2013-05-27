@@ -7,6 +7,7 @@ import org.apache.tapestry5.Link;
 import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.hibernate.Session;
 
@@ -20,7 +21,7 @@ public class ProfileListItem {
     
     @InjectPage
     private ViewList viewListPage;
-
+    
     @Parameter(required = true)
     private Long userId;
     
@@ -45,12 +46,14 @@ public class ProfileListItem {
         return false;
     }
     
-    public Link onActionFromDoUnfollowFollowing() {
+    @CommitAfter
+    public Object onActionFromDoUnfollowFollowing(Long id) {
+        User tempUser = (User) session.get(User.class, id);
         User loggedUser = this.getLoggedUser();
-        loggedUser.getFollowingUsers().remove(user);
+        loggedUser.getFollowingUsers().remove(tempUser);
         session.persist(loggedUser);
         
-        Link link = viewListPage.set("following", "");
+        Link link = viewListPage.getLink("following", "");
         return link;
     }
     
@@ -61,13 +64,12 @@ public class ProfileListItem {
         return false;
     }
     
-    public Link onActionFromDoUnfollowFollowed() {
+    @CommitAfter
+    public void onActionFromDoUnfollowFollowed(Long id) {
+        User tempUser = (User) session.get(User.class, id);
         User loggedUser = this.getLoggedUser();
-        loggedUser.getFollowedUsers().remove(user);
-        session.persist(loggedUser);
-        
-        Link link = viewListPage.set("followed", "");
-        return link;
+        tempUser.getFollowingUsers().remove(loggedUser);
+        session.persist(tempUser);
     }
     
     public boolean isViewInInvites() {
@@ -77,23 +79,24 @@ public class ProfileListItem {
         return false;
     }
     
-    public Link onActionFromDoAcceptInInvite() {
+    @CommitAfter
+    public Object onActionFromDoAcceptInInvite(Long id) {
+        User tempUser = (User) session.get(User.class, id);
         User loggedUser = this.getLoggedUser();
-        loggedUser.getInvitingUsers().remove(user);
-        loggedUser.getFollowingUsers().add(user);
+        loggedUser.getInvitingUsers().remove(tempUser);
+        loggedUser.getFollowingUsers().add(tempUser);
         session.persist(loggedUser);
         
-        Link link = viewListPage.set("inInvites", "");
+        Link link = viewListPage.getLink("inInvites", "");
         return link;
     }
     
-    public Link onActionFromDoCancelInInvite() {
+    @CommitAfter
+    public void onActionFromDoCancelInInvite(Long id) {
+        User tempUser = (User) session.get(User.class, id);
         User loggedUser = this.getLoggedUser();
-        loggedUser.getInvitingUsers().remove(user);
+        loggedUser.getInvitingUsers().remove(tempUser);
         session.persist(loggedUser);
-        
-        Link link = viewListPage.set("inInvites", "");
-        return link;
     }
     
     public boolean isViewOutInvites() {
@@ -103,13 +106,12 @@ public class ProfileListItem {
         return false;
     }
     
-    public Link onActionFromDoCancelOutInvite() {
+    @CommitAfter
+    public void onActionFromDoCancelOutInvite(Long id) {
+        User tempUser = (User) session.get(User.class, id);
         User loggedUser = this.getLoggedUser();
-        loggedUser.getInvitedUsers().remove(user);
-        session.persist(loggedUser);
-        
-        Link link = viewListPage.set("outInvites", "");
-        return link;
+        tempUser.getInvitingUsers().remove(loggedUser);
+        session.persist(tempUser);
     }
     
     public boolean isViewSearch() {
@@ -119,12 +121,11 @@ public class ProfileListItem {
         return false;
     }
     
-    public Link onActionFromDoSendInvite() {
+    @CommitAfter
+    public void onActionFromDoSendInvite(Long id) {
+        User tempUser = (User) session.get(User.class, id);
         User loggedUser = this.getLoggedUser();
-        loggedUser.getInvitedUsers().add(user);
+        tempUser.getInvitingUsers().add(loggedUser);
         session.persist(loggedUser);
-        
-        Link link = viewListPage.set("search", "");
-        return link;
     }
 }

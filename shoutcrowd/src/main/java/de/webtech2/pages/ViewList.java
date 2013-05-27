@@ -24,29 +24,24 @@ public class ViewList {
     @Inject
     private PageRenderLinkSource pageRenderLinkSource;
     
-    @ActivationRequestParameter(value = "searchText")
-    private String searchText = "";
-    
-    @ActivationRequestParameter(value = "view")
+    private String searchText;
     private String view;
-    
-    @Property
-    private String viewMode;
-    
     private List<User> userList;
     
     @Property
     User userEntry;
     
-    public Link set(String view, String searchText) {
-        this.view = view;
-        this.searchText = searchText;
-        return pageRenderLinkSource.createPageRenderLink(this.getClass());
+    public Link getLink(String view, String searchText) {
+        Link link = pageRenderLinkSource.createPageRenderLink(this.getClass());
+        link.addParameter("searchText", searchText);
+        link.addParameter("view", view);
+        return link;
     }
 
-    
-    void onActivate() {
-        this.viewMode = view;
+    void onActivate(String view, String searchText) {
+        this.view = view;
+        this.searchText = searchText;
+        
         if (view.equals("following")) {
             User user = (User) session.get(User.class, authenticator.getLoggedUser().getId());
             this.userList = user.getFollowingUsers();
@@ -73,12 +68,17 @@ public class ViewList {
             this.userList = query.list();
         }
     }
-
+    
     public List<User> getUserList() {
         return userList;
     }
-
+    
     public String getView() {
-        return view;
+        return this.view;
     }
+    
+    public String getSearchText() {
+        return this.searchText;
+    }
+    
 }

@@ -22,23 +22,13 @@ public class UserMenu {
     @InjectPage
     private ViewList viewListPage;
     
-    public Link getFollowingPageLink() {
-        Link link = viewListPage.set("following", "");
-        return link;
-    }
-    
-    public Link getFollowedPageLink() {
-        Link link = viewListPage.set("followed", "");
-        return link;
-    }
-    
     public Object onActionFromLogout() {
         authenticator.logout();
         return Index.class;
     }
     
     Object onSuccessFromsearchForm() {
-        Link link = viewListPage.set("search", searchText);
+        Link link = viewListPage.getLink("search", searchText);
         return link;
     }
 }

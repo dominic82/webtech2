@@ -71,17 +71,17 @@ public class User {
                 inverseJoinColumns={@JoinColumn(name="FOLLOWING_USER_ID")})
     private List<User> followingUsers;
     
-    @ManyToMany(mappedBy="followingUsers")
+    @ManyToMany(mappedBy="followingUsers",cascade = {CascadeType.ALL})
     private List<User> followedUsers;
     
     @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name="INVITED_USER",
+    @JoinTable(name="INVITING_USER",
                 joinColumns={@JoinColumn(name="USER_ID")},
-                inverseJoinColumns={@JoinColumn(name="INVITED_USER_ID")})
-    private List<User> invitedUsers;
-    
-    @ManyToMany(mappedBy="invitedUsers")
+                inverseJoinColumns={@JoinColumn(name="INVITING_USER_ID")})
     private List<User> invitingUsers;
+    
+    @ManyToMany(mappedBy="invitingUsers",cascade = {CascadeType.ALL})
+    private List<User> invitedUsers;
     
     public User() {
         this.username = "";
