@@ -13,6 +13,9 @@ public class UserDAOImpl implements UserDAO {
     private Session session;
 
     public User getById(long id) {
+    	if (session == null) {
+        	throw new IllegalStateException("The session is null!");
+        }
         return (User) session.get(User.class, id);
     }
 
@@ -50,11 +53,18 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public User getByCredentials(String username, String password) {
-        Query query = session.getNamedQuery("User.byCredentials")
+        if (session == null) {
+        	throw new IllegalStateException("The session is null!");
+        }
+    	Query query = session.getNamedQuery("User.byCredentials")
                 .setString("username", username)
                 .setString("password", password);
         
-        return (User) query.list().get(0);
+    	User user = null;
+    	if (query.list().size() > 0) {
+    		user = (User) query.list().get(0);
+    	}
+        return user;
     }
 
     public List<User> list() {
