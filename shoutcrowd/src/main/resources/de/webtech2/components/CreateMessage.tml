@@ -6,11 +6,11 @@
 
     <body>
         <div id="shoutbox">
-            <h1>Shout something awesome!</h1>
+            <h1>${message:title}</h1>
                 <t:form action="#" method="POST">
-                <textarea t:type="TextArea" t:id="messageValue" cols="80" rows="3" placeholder="140 Characters"></textarea>
+                <textarea t:type="TextArea" t:id="messageValue" cols="80" rows="3"  placeholder="${message:messageplaceholder}"></textarea>
                 <br/>
-                <t:submit t:id="CreateMessage" value="Shout it out!"/>
+                <t:submit t:id="CreateMessage" value="${message:submit}"/>
                 </t:form>
                 <br/>
         </div>
