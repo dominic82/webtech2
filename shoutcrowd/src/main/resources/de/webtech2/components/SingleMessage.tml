@@ -8,14 +8,16 @@
         <!-- ein shout-->
         <div class="cline">
             <div class="shout_img">
-                <img src="sample_avatar_small2.jpg" alt=""/>
+                <img src="${context:images/user_avatar.jpg}" alt="${context:images/sample_noavatar_small.jpg}"/>
+                <!-- <img src="sample_avatar_small2.jpg" alt=""/> -->
             </div>
             <div class="shout_name">
-                vorname nachname<br/>
-                <h1>ein_Spitzname</h1>
+                ${user.username}<br/>
+                <h1>${user.username}</h1>
             </div>
             <div class="shout_msg">
-                "Was ein sinnloser Text hier doch steht."
+                ${message:user.getMessages()[i].getTimeCreated()}
+                ${message:user.getMessages()[i].getContent()}
             </div>
         </div>
         <!-- ein shout zuende -->
