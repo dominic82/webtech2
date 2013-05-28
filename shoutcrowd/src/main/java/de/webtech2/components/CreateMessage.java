@@ -34,7 +34,6 @@ public class CreateMessage
             Message newMessage = new Message();
             newMessage.setAuthor(userFrom);
             newMessage.setContent(messageValue);
-            newMessage.setTimeCreated(new Date());
             session.persist(newMessage);
         } else {
             session.persist(user);

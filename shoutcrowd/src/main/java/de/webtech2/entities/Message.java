@@ -39,6 +39,12 @@ public class Message{
         this.content = "";
         this.timeCreated = new Date();
     }
+    
+    public Message(User author, String content) {
+    	this();
+    	this.content = content;
+    	this.author = author;
+    }
 
     public long getId() {
         return id;
