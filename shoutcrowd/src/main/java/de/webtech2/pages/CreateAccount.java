@@ -1,5 +1,7 @@
 package de.webtech2.pages;
 
+import org.apache.tapestry5.ioc.annotations.Inject;
+import org.hibernate.Session;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,6 +14,8 @@ import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+import de.webtech2.dao.MessageDAOImpl;
+import de.webtech2.dao.UserDAOImpl;
 import de.webtech2.entities.User;
 import de.webtech2.security.AuthenticationException;
 import de.webtech2.services.Authenticator;
@@ -25,6 +29,8 @@ public class CreateAccount {
 	Messages messages;
 	@Inject
     private Authenticator authenticator;
+	@Inject
+	Session session;
 	
 	@Property
 	private String email;
@@ -97,7 +103,13 @@ public class CreateAccount {
 	private Object onSuccessFromEntryForm() {
         try
         {
-            authenticator.login(username, password);
+            User newUser = new User();
+            newUser.setEmail(email);
+            newUser.setUsername(username);
+            newUser.setPassword(password);
+            session.persist(newUser);
+            
+        	authenticator.login(username, password);
     		return Index.class;
         }
         catch (AuthenticationException ex)
