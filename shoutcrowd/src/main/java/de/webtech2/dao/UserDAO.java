@@ -21,6 +21,8 @@ public interface UserDAO {
      */
     User getByCredentials(String username, String password);
     
+    void create(String username, String email, String password);
+    
     List<User> searchByUsername(String username);
     List<User> list();
 

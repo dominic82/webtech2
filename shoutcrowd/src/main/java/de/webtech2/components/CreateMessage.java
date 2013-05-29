@@ -1,44 +1,37 @@
 package de.webtech2.components;
 
-import de.webtech2.entities.Message;
+import de.webtech2.dao.MessageDAO;
+import de.webtech2.dao.UserDAO;
 import de.webtech2.entities.User;
-import java.util.Date;
+import de.webtech2.services.Authenticator;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.hibernate.Session;
 
-public class CreateMessage
-{
+public class CreateMessage {
+
     @Inject
-    private Session session;
-    @Property
-    private User user;
- 
-    @Property
-    private User userFrom;
-    @Property
-    private Date dateValue;
+    private Authenticator authenticator;
+    
+    @Inject
+    private UserDAO userDAO;
+    
+    @Inject
+    private MessageDAO messageDAO;
+    
     @Property
     private String messageValue;
+    
     @Property
-    private boolean createMessage;
-   
+    private User user;
     
-       void onSelectedFromCreateMessage() {
-        this.createMessage = true;
+    void setupRender() {
+        this.user = userDAO.getById(authenticator.getLoggedUser().getId());
     }
-    
-    
-    private Object onSuccess(){
-        if (createMessage) {
-            Message newMessage = new Message();
-            newMessage.setAuthor(userFrom);
-            newMessage.setContent(messageValue);
-            session.persist(newMessage);
-        } else {
-            session.persist(user);
-        }    
-        return CreateMessage.class;    
-    
+
+    @CommitAfter
+    private Object onSuccessFromNewMessageForm(User user) {
+        messageDAO.create(messageValue, user);
+        return null;
     }
 }

@@ -1,4 +1,3 @@
-
 package de.webtech2.dao;
 
 import de.webtech2.entities.User;
@@ -8,13 +7,13 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 public class UserDAOImpl implements UserDAO {
-    
+
     @Inject
     private Session session;
 
     public User getById(long id) {
-    	if (session == null) {
-        	throw new IllegalStateException("The session is null!");
+        if (session == null) {
+            throw new IllegalStateException("The session is null!");
         }
         return (User) session.get(User.class, id);
     }
@@ -49,26 +48,33 @@ public class UserDAOImpl implements UserDAO {
     public List<User> searchByUsername(String username) {
         Query query = session.getNamedQuery("User.likeUsername")
                 .setString("username", "%" + username + "%");
-            return query.list();
+        return query.list();
     }
 
     public User getByCredentials(String username, String password) {
         if (session == null) {
-        	throw new IllegalStateException("The session is null!");
+            throw new IllegalStateException("The session is null!");
         }
-    	Query query = session.getNamedQuery("User.byCredentials")
+        Query query = session.getNamedQuery("User.byCredentials")
                 .setString("username", username)
                 .setString("password", password);
-        
-    	User user = null;
-    	if (query.list().size() > 0) {
-    		user = (User) query.list().get(0);
-    	}
+
+        User user = null;
+        if (query.list().size() > 0) {
+            user = (User) query.list().get(0);
+        }
         return user;
     }
 
     public List<User> list() {
         return session.createCriteria(User.class).list();
     }
-    
+
+    public void create(String username, String email, String password) {
+        User newUser = new User();
+        newUser.setEmail(email);
+        newUser.setUsername(username);
+        newUser.setPassword(password);
+        session.persist(newUser);
+    }
 }

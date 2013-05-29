@@ -1,26 +1,30 @@
-
 package de.webtech2.dao;
 
 import de.webtech2.entities.Message;
 import de.webtech2.entities.User;
-import java.util.List;
+import org.apache.tapestry5.ioc.annotations.Inject;
+import org.hibernate.Session;
 
 public class MessageDAOImpl implements MessageDAO {
 
+    @Inject
+    private Session session;
+
     public Message getById(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public List<Message> searchByUser(User user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public List<Message> list() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (session == null) {
+            throw new IllegalStateException("The session is null!");
+        }
+        return (Message) session.get(Message.class, id);
     }
 
     public void delete(Message message) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        session.delete(message);
     }
-    
+
+    public void create(String content, User user) {
+        Message newMessage = new Message();
+        newMessage.setAuthor(user);
+        newMessage.setContent(content);
+        session.persist(newMessage);
+    }
 }

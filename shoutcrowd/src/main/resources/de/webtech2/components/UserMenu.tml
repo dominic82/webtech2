@@ -11,7 +11,7 @@
         <div id="header_center">
             <a href="#" class="button_link" t:type="actionlink" t:id="viewFollowing" id="viewFollowing">Idols</a>
             <a href="#" class="button_link" t:type="actionlink" t:id="viewFollowed" id="viewFollowed">Fans</a>
-            <t:pagelink class="button_link" page="Home">Home</t:pagelink>
+            <t:pagelink class="button_link" page="Home" >Home</t:pagelink>
         </div>
         <div id="header_right">
             <form t:type="form" t:id="searchForm" style="float:left;">

@@ -1,7 +1,6 @@
 package de.webtech2.pages;
 
-import org.apache.tapestry5.ioc.annotations.Inject;
-import org.hibernate.Session;
+import de.webtech2.dao.UserDAO;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,107 +13,95 @@ import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
-import de.webtech2.dao.MessageDAOImpl;
-import de.webtech2.dao.UserDAOImpl;
 import de.webtech2.entities.User;
 import de.webtech2.security.AuthenticationException;
 import de.webtech2.services.Authenticator;
+import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 
 /**
  * Start page of application shoutcrowd.
  */
 public class CreateAccount {
-	
-	@Inject
-	Messages messages;
-	@Inject
+
+    @Inject
+    private UserDAO userDAO;
+    @Inject
+    Messages messages;
+    @Inject
     private Authenticator authenticator;
-	@Inject
-	Session session;
-	
-	@Property
-	private String email;
-	@Property
-	private String username;
-	@Property
-	private String password;
-	@Property
-	private String passwordRepeat;
-	
-	@Component
-	private Form entryForm;
-	
-	@InjectComponent(value = "password")
-	private PasswordField passwordField;
-	@InjectComponent(value = "passwordRepeat")
-	private PasswordField passwordRepeatField;
-	@InjectComponent(value = "username")
-	private TextField usernameField;
-	@InjectComponent(value = "email")
-	private TextField emailField;
+    @Property
+    private String email;
+    @Property
+    private String username;
+    @Property
+    private String password;
+    @Property
+    private String passwordRepeat;
+    @Component
+    private Form entryForm;
+    @InjectComponent(value = "password")
+    private PasswordField passwordField;
+    @InjectComponent(value = "passwordRepeat")
+    private PasswordField passwordRepeatField;
+    @InjectComponent(value = "username")
+    private TextField usernameField;
+    @InjectComponent(value = "email")
+    private TextField emailField;
 
-	
-	void onValidateFromEntryForm() {
-		validatePassword();
-		validateEmail();
-		validateUsername();
-	}
+    void onValidateFromEntryForm() {
+        validatePassword();
+        validateEmail();
+        validateUsername();
+    }
 
-	private void validatePassword() {
-		if (password == null) {
-			entryForm.recordError(passwordField, messages.get("error-passwordtoshort"));
-		} else if (passwordRepeat == null) {
-			entryForm.recordError(passwordRepeatField, messages.get("error-passwordnotidentical"));
-		} else {
-			if (!password.equals(passwordRepeat)) {
-				entryForm.recordError(passwordRepeatField, messages.get("error-passwordnotidentical"));
-			}
-			if (password.length() < 6) {
-				entryForm.recordError(passwordField, messages.get("error-passwordtoshort"));
-			}
-		}
-	}
-	
-	private void validateUsername() {
-		if (username == null) {
-			entryForm.recordError(usernameField, messages.get("error-usernametoshort"));
-		} else {
-			if (username.length() < 4) {
-				entryForm.recordError(usernameField, messages.get("error-usernametoshort"));
-			}
-			// TODO: username already exists?
-		}
-	}
-	
-	private void validateEmail() {
-		if (!isValidEmailAddress(email)) {
-			entryForm.recordError(emailField, messages.get("error-emailinvalid"));
-		} else {
-			// TODO: email already in use?
-		}
-	}
-	
-	public boolean isValidEmailAddress(final String hex) {
-		Pattern pattern = Pattern.compile(User.EMAIL_PATTERN);
-		Matcher matcher = pattern.matcher(hex);
-		return matcher.matches();
-	}
-
-	private Object onSuccessFromEntryForm() {
-        try
-        {
-            User newUser = new User();
-            newUser.setEmail(email);
-            newUser.setUsername(username);
-            newUser.setPassword(password);
-            session.persist(newUser);
-            
-        	authenticator.login(username, password);
-    		return Index.class;
+    private void validatePassword() {
+        if (password == null) {
+            entryForm.recordError(passwordField, messages.get("error-passwordtoshort"));
+        } else if (passwordRepeat == null) {
+            entryForm.recordError(passwordRepeatField, messages.get("error-passwordnotidentical"));
+        } else {
+            if (!password.equals(passwordRepeat)) {
+                entryForm.recordError(passwordRepeatField, messages.get("error-passwordnotidentical"));
+            }
+            if (password.length() < 6) {
+                entryForm.recordError(passwordField, messages.get("error-passwordtoshort"));
+            }
         }
-        catch (AuthenticationException ex)
-        {
-        	return Login.class;
+    }
+
+    private void validateUsername() {
+        if (username == null) {
+            entryForm.recordError(usernameField, messages.get("error-usernametoshort"));
+        } else {
+            if (username.length() < 4) {
+                entryForm.recordError(usernameField, messages.get("error-usernametoshort"));
+            }
+            // TODO: username already exists?
         }
-	}
+    }
+
+    private void validateEmail() {
+        if (!isValidEmailAddress(email)) {
+            entryForm.recordError(emailField, messages.get("error-emailinvalid"));
+        } else {
+            // TODO: email already in use?
+        }
+    }
+
+    public boolean isValidEmailAddress(final String hex) {
+        Pattern pattern = Pattern.compile(User.EMAIL_PATTERN);
+        Matcher matcher = pattern.matcher(hex);
+        return matcher.matches();
+    }
+
+    @CommitAfter
+    private Object onSuccessFromEntryForm() {
+        try {
+            userDAO.create(username, email, password);
+            authenticator.login(username, password);
+            return Home.class;
+        } catch (AuthenticationException ex) {
+            return Login.class;
+        }
+    }
 }

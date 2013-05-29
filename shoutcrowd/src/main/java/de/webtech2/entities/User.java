@@ -65,22 +65,22 @@ public class User {
     @OneToMany(mappedBy="author",cascade = {CascadeType.ALL})  
     private List<Message> messages;
     
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany
     @JoinTable(name="FOLLOWING_USER",
                 joinColumns={@JoinColumn(name="USER_ID")},
                 inverseJoinColumns={@JoinColumn(name="FOLLOWING_USER_ID")})
     private List<User> followingUsers;
     
-    @ManyToMany(mappedBy="followingUsers",cascade = {CascadeType.ALL})
+    @ManyToMany(mappedBy="followingUsers")
     private List<User> followedUsers;
     
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany
     @JoinTable(name="INVITING_USER",
                 joinColumns={@JoinColumn(name="USER_ID")},
                 inverseJoinColumns={@JoinColumn(name="INVITING_USER_ID")})
     private List<User> invitingUsers;
     
-    @ManyToMany(mappedBy="invitingUsers",cascade = {CascadeType.ALL})
+    @ManyToMany(mappedBy="invitingUsers")
     private List<User> invitedUsers;
     
     public User() {

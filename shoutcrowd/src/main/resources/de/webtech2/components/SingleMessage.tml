@@ -8,16 +8,14 @@
         <!-- ein shout-->
         <div class="cline">
             <div class="shout_img">
-                <img src="${context:images/user_avatar.jpg}" alt="${context:images/sample_noavatar_small.jpg}"/>
-                <!-- <img src="sample_avatar_small2.jpg" alt=""/> -->
+                <img src="layout/images/sample_noavatar_small.jpg" alt="avatar"/>
             </div>
             <div class="shout_name">
-                ${user.username}<br/>
-                <h1>${user.username}</h1>
+                <h1>${message.author.username}</h1>
+                <t:output format="message:dateFormat" value="message.timeCreated" />
             </div>
             <div class="shout_msg">
-                ${message:user.getMessages()[i].getTimeCreated()}
-                ${message:user.getMessages()[i].getContent()}
+                ${message.content}
             </div>
         </div>
         <!-- ein shout zuende -->
