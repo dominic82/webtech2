@@ -1,24 +1,34 @@
 Tapestry/Hibernate Befehle: http://crudsqbe.wordpress.com/2012/04/29/tapestry/
 
 -------------------------------------------------------------
+Tests:
+
+-> [Benni]
+
+-------------------------------------------------------------
+Sonstiges:
+
+- [Dominic] Avatare in der DB als BLOB schreiben
+
+- [Dominik] MessageDAO erstellen
+
+- [Dennis] UserDAO - createUser erstellen -> CreateUser anpassen!
+
+- [Nico] Layout reparieren; Imprint, Licence und Index machen
+
+-------------------------------------------------------------
 
 Pages:
 
-- [Dominic] Home/Dashboard (siehe Grafik) -> Home.java / .tml 
-
 - [Dominic] Profilansicht anderer User (siehe Grafik) -> ViewProfile.java / .tml 
 
-- [Benni] eigenes Profil bearbeiten (siehe Grafik) -> EditProfile.java / .tml
+- [Dennis] eigenes Profil bearbeiten (siehe Grafik) -> EditProfile.java / .tml
 
-- [Dominic] Listenansicht für "gefundene Profile", Idols, Fans, eingehende Einladungen (siehe Grafik) -> ViewList.java / .tml
+- [Dennis] CreateUser
 
 -------------------------------------------------------------
 
 Components:
-
-- [Dominic] Profil Details (Bild, Name, usw. + Buttons) -> ProfileDetails.java / .tml -->> (macht Dominic, in Arbeit...)
-
-- [Dominic] Profil Listen Eintrag (Thumbnail, Name, Buttons) -> ProfileListItem.java / .tml -->> (macht Dominic, in Arbeit...)
 
 - [Dominik] Nachricht erstellen (Textfield, Button) -> CreateMessage.java / .tml
 
