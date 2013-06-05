@@ -1,5 +1,7 @@
 package de.webtech2.components;
 
+import de.webtech2.dao.UserDAO;
+import de.webtech2.entities.User;
 import de.webtech2.pages.Index;
 import de.webtech2.pages.ViewList;
 import de.webtech2.services.Authenticator;
@@ -14,12 +16,18 @@ public class UserMenu {
     
     @Inject
     private Authenticator authenticator;
+    @Inject
+    private UserDAO userDAO;
     @Property
     private String searchText;
     @Component
     private Form searchForm;
     @InjectPage
     private ViewList viewListPage;
+    
+    private User getLoggedUser() {
+        return userDAO.getById(authenticator.getLoggedUser().getId());
+    }
     
     public Object onActionFromViewFollowing() {
         viewListPage.onActivate("following", "");

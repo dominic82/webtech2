@@ -1,39 +1,30 @@
 Tapestry/Hibernate Befehle: http://crudsqbe.wordpress.com/2012/04/29/tapestry/
 
 -------------------------------------------------------------
-Tests:
+Allgemeine Aufgaben:
 
--> [Benni]
+- [Dennis] Validierung von Eingaben für die User-Entity
+- [Dennis] Validierung von Eingaben für die Message-Entity
 
--------------------------------------------------------------
-Sonstiges:
+- [Dominik] Messages absteigend sortieren
+
+- [?zum Schluss?] System-Nachrichten (zB. "Profil geändert/gespeichert", "Nachricht erstellt", "Du folgst dem User nicht mehr"
+
+- [?zum Schluss?] Kontrolle aller Templates auf Nutzung der .properties
+
+- [Dominic] die verschiedenen Datum ändern bei Login
+
+- [Dominik] Anzahl Anzeigen lassen für Fans/Idols/alle Invites
+
+- [Dominic] neue Seite für zusammengefasste Nachrichten aller gefolgten User (und verlinken auf den Home-Button)
 
 - [Dominic] Avatare in der DB als BLOB schreiben
 
-- [Dominik] MessageDAO erstellen
-
-- [Dennis] UserDAO - createUser erstellen -> CreateUser anpassen!
-
 - [Nico] Layout reparieren; Imprint, Licence und Index machen
-
--------------------------------------------------------------
-
-Pages:
 
 - [Dominic] Profilansicht anderer User (siehe Grafik) -> ViewProfile.java / .tml 
 
-- [Dennis] eigenes Profil bearbeiten (siehe Grafik) -> EditProfile.java / .tml
-
-- [Dennis] CreateUser
-
--------------------------------------------------------------
-
-Components:
-
-- [Dominik] Nachricht erstellen (Textfield, Button) -> CreateMessage.java / .tml
-
-- [Dominik] Nachricht (Bild, Name, Nachricht) -> SingleMessage.java / .tml
-
+- [Dominik] eigenes Profil bearbeiten (siehe Grafik) -> EditProfile.java / .tml (ohne Avatar)
 
 
 

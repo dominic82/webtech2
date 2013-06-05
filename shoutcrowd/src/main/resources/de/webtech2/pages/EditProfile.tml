@@ -8,22 +8,6 @@
             <table border="0" id="account_table">
                 <tr>
                     <td>
-                        firstname:
-                    </td>
-                    <td>
-                        <input type="text" size="40" placeholder="firstname"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        lastname:
-                    </td>
-                    <td>
-                        <input type="text" size="40" placeholder="lastname"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
                         nickname*:
                     </td>
                     <td>
