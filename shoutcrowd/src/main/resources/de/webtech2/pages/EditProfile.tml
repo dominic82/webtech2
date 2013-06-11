@@ -3,39 +3,40 @@
       xmlns:p="tapestry:parameter">
 
     <body>
-        <h1>Edit Profile / Create Account</h1>
-        <form action="#" method="POST">
+        <h1>${message:title}</h1>
+
+        <form t:type="form" t:id="entryForm">
+            <t:errors/>
             <table border="0" id="account_table">
-                <tr>
                     <td>
-                        nickname*:
+                        ${message:username}
                     </td>
                     <td>
-                        <input type="text" size="40" placeholder="nickname"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        eMail*:
-                    </td>
-                    <td>
-                        <input type="text" size="40" placeholder="email"/>
+                        <t:textfield t:id="username" value="username" t:validate="required" minlength="4" placeholder="${message:usernameplaceholder}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        password*:
+                        ${message:email}
                     </td>
                     <td>
-                        <input type="password" size="40"/>
+                        <t:textfield t:id="email" value="email" t:validate="required" placeholder="${message:emailplaceholder}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        repeat password*:
+                        ${message:password}
                     </td>
                     <td>
-                        <input type="password" size="40"/>
+                        <t:passwordfield t:id="password" value="password" t:validate="required" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:passwordrepeat}
+                    </td>
+                    <td>
+                        <t:passwordfield t:id="passwordRepeat" value="passwordRepeat" t:validate="required" minlength="6" placeholder="${message:passwordrepeatplaceholder}"/>
                     </td>
                 </tr>
                 <tr>
@@ -56,10 +57,7 @@
                 </tr>
                 <tr>
                     <td>
-                        Fields marked with an * must be filled
-                    </td>
-                    <td>
-                        <input type="submit"  value="save/create"/>
+                        <input type="submit" value="${message:submit}"/>
                     </td>
                 </tr>
             </table>
