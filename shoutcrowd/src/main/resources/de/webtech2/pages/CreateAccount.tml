@@ -1,32 +1,50 @@
 <html t:type="layout" title="${message:title}"
-      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-      xmlns:p="tapestry:parameter">
+xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+xmlns:p="tapestry:parameter">
 
-    <p>${message:greeting}</p>
-    
-	<form t:type="form" t:id="entryForm">
+	<body>
+		<h1>${message:title}</h1>
+		<p>${message:greeting}</p>
+		<form t:type="form" t:id="entryForm">
+			<t:errors/>
+			<table border="0" id="account_table">
+				
+				<tr>
+					<td>
+						${message:username}
+					</td>
+					<td>
+						<t:textfield t:id="username" value="username" t:validate="required" minlength="4" placeholder="${message:usernameplaceholder}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						${message:email}
+					</td>
+					<td>
+						<t:textfield t:id="email" value="email" t:validate="required" placeholder="${message:emailplaceholder}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						${message:password}
+					</td>
+					<td>
+						<t:passwordfield t:id="password" value="password" t:validate="required" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						${message:passwordrepeat}
+					</td>
+					<td>
+						<t:passwordfield t:id="passwordRepeat" value="passwordRepeat" t:validate="required" minlength="6" placeholder="${message:passwordrepeatplaceholder}"/>
 	
-		<t:errors/>
+					</td>
+				</tr>
+			</table>
+			<input type="submit" value="${message:submit}"/>
 	
-		<div class="fields">
-			<div class="floating">
-				${message:username}<br/>
-				<t:textfield t:id="username" value="username" t:validate="required" minlength="4" placeholder="${message:usernameplaceholder}"/>
-			</div>
-			<div class="floating">
-				${message:email}<br/>
-				<t:textfield t:id="email" value="email" t:validate="required" placeholder="${message:emailplaceholder}"/>
-			</div>
-			<div class="floating">
-				${message:password}<br/>
-				<t:passwordfield t:id="password" value="password" t:validate="required" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
-				${message:passwordrepeat}<br/>
-				<t:passwordfield t:id="passwordRepeat" value="passwordRepeat" t:validate="required" minlength="6" placeholder="${message:passwordrepeatplaceholder}"/>
-			</div>
-		</div> 
-		<br/>
-		
-		<input type="submit" value="${message:submit}"/>
-		
-	</form>
+		</form>
+	</body>
 </html>

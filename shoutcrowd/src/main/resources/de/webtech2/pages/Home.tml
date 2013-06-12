@@ -2,6 +2,17 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-    <p>About shoutcrowd application ...</p>
-
+    <body>
+        <div id="cwrapper">
+            <div id="cleft">
+                <t:ProfileDetails/>
+                <t:CreateMessage/>
+            </div>
+            <div id="cright">
+                <t:Loop t:source="messageList" t:value="messageEntry"> 
+                    <t:SingleMessage messageId="messageEntry.id" />
+                </t:Loop>
+            </div>
+        </div>
+    </body>
 </html>

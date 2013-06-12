@@ -2,25 +2,25 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-     <p>${message:greeting}</p>
-    
-	<form t:type="form" t:id="entryForm">
-	
-		<t:errors/>
-	
-		<div class="fields">
-			<div class="floating">
-				${message:mailorname}<br/>
-				<t:textfield t:id="namemail" value="namemail" t:validate="required" minlength="4" placeholder="${message:nameormailplaceholder}"/>
-			</div>
-			<div class="floating">
-				${message:password}<br/>
-				<t:passwordfield t:id="password" value="password" t:validate="required" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
-			</div>
-		</div> 
-		<br/>
-		
-		<input type="submit" value="${message:submit}"/>
-		
-	</form>
+    <body>
+        <div id="login">
+            <h1>
+                Login now!
+            </h1>
+            <form t:type="form" t:id="loginForm">
+                <t:errors/>
+
+                <t:label for="username"/>:
+                <input t:type="TextField" t:id="username" value="username" t:validate="required,minlength=3" size="30"/>
+                <br/>
+                <t:label for="password"/>:
+                <input t:type="PasswordField" t:id="password" value="password" t:validate="required,minlength=3" size="30"/>
+                <br/>
+                <input type="submit" value="Login"/>
+            </form>
+        </div>
+        <div id="login_fail">
+            <t:pagelink class="button_link" page="createAccount">register now!</t:pagelink>
+        </div>
+    </body>
 </html>

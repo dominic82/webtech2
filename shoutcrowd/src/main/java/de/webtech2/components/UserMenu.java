@@ -1,53 +1,51 @@
 package de.webtech2.components;
 
-import org.apache.tapestry5.*;
-import org.apache.tapestry5.annotations.*;
-import org.apache.tapestry5.ioc.annotations.*;
-import org.apache.tapestry5.BindingConstants;
-import org.apache.tapestry5.SymbolConstants;
+import de.webtech2.dao.UserDAO;
+import de.webtech2.entities.User;
+import de.webtech2.pages.Index;
+import de.webtech2.pages.ViewList;
+import de.webtech2.services.Authenticator;
+import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.InjectPage;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Form;
 
-/**
- * Layout component for pages of application shoutcrowd.
- */
-@Import(stylesheet = "context:layout/layout.css")
-public class UserMenu
-{
-    /**
-     * The page title, for the <title> element and the <h1> element.
-     */
-    @Property
-    @Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
-    private String title;
+import org.apache.tapestry5.ioc.annotations.Inject;
 
-    @Property
-    private String pageName;
-
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private String sidebarTitle;
-
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private Block sidebar;
-
+public class UserMenu {
+    
     @Inject
-    private ComponentResources resources;
-
-    @Property
+    private Authenticator authenticator;
     @Inject
-    @Symbol(SymbolConstants.APPLICATION_VERSION)
-    private String appVersion;
-
-
-    public String getClassForPageName()
-    {
-        return resources.getPageName().equalsIgnoreCase(pageName)
-                ? "current_page_item"
-                : null;
+    private UserDAO userDAO;
+    @Property
+    private String searchText;
+    @Component
+    private Form searchForm;
+    @InjectPage
+    private ViewList viewListPage;
+    
+    private User getLoggedUser() {
+        return userDAO.getById(authenticator.getLoggedUser().getId());
     }
-
-    public String[] getPageNames()
-    {
-        return new String[]{"Index"};
+    
+    public Object onActionFromViewFollowing() {
+        viewListPage.onActivate("following", "");
+        return viewListPage;
+    }
+    
+    public Object onActionFromViewFollowed() {
+        viewListPage.onActivate("followed", "");
+        return viewListPage;
+    }
+    
+    public Object onActionFromLogout() {
+        authenticator.logout();
+        return Index.class;
+    }
+    
+    Object onSuccessFromsearchForm() {
+        viewListPage.onActivate("search", searchText);
+        return viewListPage;
     }
 }

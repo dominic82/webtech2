@@ -1,53 +1,106 @@
 package de.webtech2.components;
 
-import org.apache.tapestry5.*;
-import org.apache.tapestry5.annotations.*;
-import org.apache.tapestry5.ioc.annotations.*;
-import org.apache.tapestry5.BindingConstants;
-import org.apache.tapestry5.SymbolConstants;
+import de.webtech2.dao.UserDAO;
+import de.webtech2.entities.User;
+import de.webtech2.services.Authenticator;
+import org.apache.tapestry5.annotations.Parameter;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.hibernate.annotations.CommitAfter;
+import org.apache.tapestry5.ioc.annotations.Inject;
 
-/**
- * Layout component for pages of application shoutcrowd.
- */
-@Import(stylesheet = "context:layout/layout.css")
-public class ProfileListItem
-{
-    /**
-     * The page title, for the <title> element and the <h1> element.
-     */
-    @Property
-    @Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
-    private String title;
-
-    @Property
-    private String pageName;
-
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private String sidebarTitle;
-
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private Block sidebar;
-
+public class ProfileListItem {
+    
     @Inject
-    private ComponentResources resources;
-
-    @Property
+    private Authenticator authenticator;
+    
     @Inject
-    @Symbol(SymbolConstants.APPLICATION_VERSION)
-    private String appVersion;
-
-
-    public String getClassForPageName()
-    {
-        return resources.getPageName().equalsIgnoreCase(pageName)
-                ? "current_page_item"
-                : null;
+    private UserDAO userDAO;
+    
+    @Parameter(required = true)
+    private Long userId;
+    
+    @Property
+    User user;
+    
+    void setupRender() {
+        this.user = userDAO.getById(userId);
     }
-
-    public String[] getPageNames()
-    {
-        return new String[]{"Index"};
+    
+    private User getLoggedUser() {
+        return userDAO.getById(authenticator.getLoggedUser().getId());
+    }
+    
+    public boolean isViewFollowing() {
+        if (this.getLoggedUser().getFollowingUsers().contains(this.user)) {
+            return true;
+        }
+        return false;
+    }
+    
+    @CommitAfter
+    public Object onActionFromDoDeleteFollowing(Long id) {
+        userDAO.deleteFollowing(this.getLoggedUser(), userDAO.getById(id));
+        return null;
+    }
+    
+    public boolean isViewFollowed() {
+        if (this.getLoggedUser().getFollowedUsers().contains(this.user)) {
+            return true;
+        }
+        return false;
+    }
+    
+    @CommitAfter
+    public Object onActionFromDoDeleteFollowed(Long id) {
+        userDAO.deleteFollowing(userDAO.getById(id), this.getLoggedUser());
+        return null;
+    }
+    
+    public boolean isViewInInvites() {
+        if (this.getLoggedUser().getInvitedUsers().contains(this.user)) {
+            return true;
+        }
+        return false;
+    }
+    
+    @CommitAfter
+    public Object onActionFromDoAcceptInInvite(Long id) {
+        userDAO.acceptInvite(this.getLoggedUser(), userDAO.getById(id));
+        return null;
+    }
+    
+    @CommitAfter
+    public Object onActionFromDoCancelInInvite(Long id) {
+        userDAO.cancelInvite(this.getLoggedUser(), userDAO.getById(id));
+        return null;
+    }
+    
+    public boolean isViewOutInvites() {
+        if (this.getLoggedUser().getInvitingUsers().contains(this.user)) {
+            return true;
+        }
+        return false;
+    }
+    
+    @CommitAfter
+    public Object onActionFromDoCancelOutInvite(Long id) {
+        userDAO.cancelInvite(userDAO.getById(id), this.getLoggedUser());
+        return null;
+    }
+    
+    public boolean isViewSearch() {
+        if (!this.isViewFollowed()
+                && !this.isViewFollowing()
+                && !this.isViewInInvites()
+                && !this.isViewOutInvites()) {
+            return true;
+        }
+        return false;
+    }
+    
+    @CommitAfter
+    public Object onActionFromDoSendInvite(Long id) {
+        userDAO.sendInvite(this.getLoggedUser(), userDAO.getById(id));
+        return null;
     }
 }

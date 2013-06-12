@@ -1,79 +1,31 @@
 Tapestry/Hibernate Befehle: http://crudsqbe.wordpress.com/2012/04/29/tapestry/
 
 -------------------------------------------------------------
+Allgemeine Aufgaben:
 
-UserSession:
+- [Dennis] Validierung von Eingaben für die User-Entity
+- [Dennis] Validierung von Eingaben für die Message-Entity
 
-- Entität User user (=null wenn nicht eingeloggt
-- function isLoggedIn (prüft ob is_null(user))
+- [Dominik] Messages absteigend sortieren
 
--------------------------------------------------------------
+- [?zum Schluss?] System-Nachrichten (zB. "Profil geändert/gespeichert", "Nachricht erstellt", "Du folgst dem User nicht mehr"
 
-Layout: -->> (fertig)
+- [?zum Schluss?] Kontrolle aller Templates auf Nutzung der .properties
 
-- [Nico] 1 x Layout für alles (Header, Footer) -> Layout.java / .tml
+- [Dominic] die verschiedenen Datum ändern bei Login
 
--------------------------------------------------------------
+- [Dominik] Anzahl Anzeigen lassen für Fans/Idols/alle Invites
 
-Pages:
+- [Dominic] neue Seite für zusammengefasste Nachrichten aller gefolgten User (und verlinken auf den Home-Button)
 
-- [Nico] Index-Page (leitet den Besucher jeweils auf Login-Page bzw. Home/Dashboard weiter) -> Index.java / .tml
+- [Dominic] Avatare in der DB als BLOB schreiben
 
-- [Nico] Login-Page (Logo/Title, Username, Password, Button) -> Login.java / .tml -->> (macht Nico, in Arbeit...)
+- [Nico] Layout reparieren; Imprint, Licence und Index machen
 
-- [Dennis, done] Account erstellen (Userdaten) -> CreateAccount.java / .tml
+- [Dominic] Profilansicht anderer User (siehe Grafik) -> ViewProfile.java / .tml 
 
-- [Dennis] Home/Dashboard (siehe Grafik) -> Home.java / .tml 
+- [Dominik] eigenes Profil bearbeiten (siehe Grafik) -> EditProfile.java / .tml (ohne Avatar)
 
-- Profilansicht anderer User (siehe Grafik) -> ViewProfile.java / .tml 
-
-- [Benni] eigenes Profil bearbeiten (siehe Grafik) -> EditProfile.java / .tml
-
-- Listenansicht für "gefundene Profile", Idols, Fans, eingehende Einladungen (siehe Grafik) -> ViewList.java / .tml
-
--------------------------------------------------------------
-
-Components:
-
-- [Dominic] Profil Details (Bild, Name, usw. + Buttons) -> ProfileDetails.java / .tml -->> (macht Dominic, in Arbeit...)
-
-- [Dominic] Profil Listen Eintrag (Thumbnail, Name, Buttons) -> ProfileListItem.java / .tml -->> (macht Dominic, in Arbeit...)
-
-- [Dominik] Nachricht erstellen (Textfield, Button) -> CreateMessage.java / .tml
-
-- [Benni] Benutzer Menu (View Fans, Idols, Invites; Home, Search, Logout) -> UserMenu.java / .tml
-
-- [Dominik] Nachricht (Bild, Name, Nachricht) -> SingleMessage.java / .tml
-
--------------------------------------------------------------
-
-Entities: -->> (macht Dominic, in Arbeit...)
-
-- User:
-	long Id (auto-generated)
-	String Username
-	String Email
-	String Password (MD5-Hash)
-	Blob picture
-	Calendar timeCreated
-	Calendar timeModified
-	Calendar timeLastLogin
-	
-	List<Message> messages (OneToMany)
-
-	List<User> FollowingUsers (ManyToMany)
-	List<User> FollowedUsers (ManyToMany)
-
-	List<User> InvitedUsers (ManyToMany)
-	List<User> InvitingUsers (ManyToMany)
-
-- Messages:
-	long Id (auto-generated)
-	User author (ManyToOne)
-	String content
-	Calendar timeCreated;
-
--------------------------------------------------------------
 
 
 

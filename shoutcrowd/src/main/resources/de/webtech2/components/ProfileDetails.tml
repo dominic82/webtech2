@@ -1,88 +1,25 @@
 <!DOCTYPE html>
-<!--
 
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Title      : Concrete (modified for Tapestry)
-Version    : 1.0
-Released   : 20080825
-Description: A Web 2.0 design with fluid width suitable for blogs and small websites.
--->
-        <html xmlns="http://www.w3.org/1999/xhtml"
+    <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-        <title>${title}</title>
-    </head>
+    
     <body>
-        <!-- start header -->
-        <div class="header">
-            <div class="logo">
-                <h1>
-                    <t:pagelink page="index">de.webtech2:shoutcrowd</t:pagelink>
-                    &nbsp;
-                    version ${appVersion}
-                </h1>
+        <div class="cline" style="height:150px;">
+            <div id="profile_img">
+                <img src="layout/images/sample_noavatar_big.jpg" alt="avt"/>
             </div>
-            <div class="menu">
-                <ul>
-                    <li t:type="loop" source="pageNames" value="pageName" class="prop:classForPageName">
-                        <t:pagelink page="prop:pageName">${pageName}</t:pagelink>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- end header -->
-        <!-- start page -->
-        <div class="page">
-            <!-- start sidebar -->
-            <div class="sidebar">
-                <ul>
-                    <li class="search" style="background: none;">
-                    </li>
-                    <li>
-                        <t:alerts/>
-                    </li>
-                    <li t:type="if" test="sidebar">
-                        <h2>${sidebarTitle}</h2>
+            <div id="profile_name">
 
-                        <div class="sidebar-content">
-                            <t:delegate to="sidebar"/>
-                        </div>
-                    </li>
-                </ul>
+                <h1>${user.username}</h1>
+                <b>userEmail:  </b>${user.email}<br/>
+                <b>userShoutCount: </b>${shoutcount}<br/>
             </div>
-            <!-- end sidebar -->
-            <!-- start content -->
-            <div class="content">
-                <div class="post">
-                    <div class="title">
-                        <h2>${title}</h2>
-                    </div>
-                    <div class="entry">
-                        <t:body/>
-                    </div>
-                </div>
+            <div id="profile_functions">
+                <t:pagelink class="button_link" page="EditProfile">editProfile</t:pagelink><br/>
+                <a href="#" class="button_link" t:type="actionlink" t:id="sentInvites" id="sentInvites">sentInvites</a><br/>
+                <a href="#" class="button_link" t:type="actionlink" t:id="recievedInvites" id="recievedInvites">recievedInvites</a><br/>
             </div>
-            <!-- end content -->
-            <br style="clear: both;"/>
         </div>
-        <!-- end page -->
-        <!-- start footer -->
-        <div class="footer">
-            <p class="legal">
-                &copy;2013 de.webtech2. All Rights Reserved.
-                &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                Design by
-                <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>
-                &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                Icons by
-                <a href="http://famfamfam.com/">FAMFAMFAM</a>.
-            </p>
-        </div>
-        <!-- end footer -->
     </body>
 </html>

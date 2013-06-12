@@ -1,53 +1,41 @@
 package de.webtech2.components;
 
-import org.apache.tapestry5.*;
-import org.apache.tapestry5.annotations.*;
-import org.apache.tapestry5.ioc.annotations.*;
-import org.apache.tapestry5.BindingConstants;
-import org.apache.tapestry5.SymbolConstants;
+import de.webtech2.dao.UserDAO;
+import de.webtech2.entities.User;
+import de.webtech2.pages.ViewList;
+import de.webtech2.services.Authenticator;
+import org.apache.tapestry5.annotations.InjectPage;
+import org.apache.tapestry5.ioc.annotations.Inject;
 
-/**
- * Layout component for pages of application shoutcrowd.
- */
-@Import(stylesheet = "context:layout/layout.css")
 public class ProfileDetails
 {
-    /**
-     * The page title, for the <title> element and the <h1> element.
-     */
-    @Property
-    @Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
-    private String title;
-
-    @Property
-    private String pageName;
-
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private String sidebarTitle;
-
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private Block sidebar;
-
     @Inject
-    private ComponentResources resources;
-
-    @Property
+    private UserDAO userDAO;
+    
     @Inject
-    @Symbol(SymbolConstants.APPLICATION_VERSION)
-    private String appVersion;
-
-
-    public String getClassForPageName()
+    private Authenticator authenticator;
+    
+    @InjectPage
+    private ViewList viewListPage;
+    
+    public User getUser()
     {
-        return resources.getPageName().equalsIgnoreCase(pageName)
-                ? "current_page_item"
-                : null;
+        return authenticator.isLoggedIn() ? authenticator.getLoggedUser() : null;
     }
-
-    public String[] getPageNames()
-    {
-        return new String[]{"Index"};
+    
+    public Integer getShoutCount() {
+        User user = userDAO.getById(this.getUser().getId());
+        return user.getMessages().size();
     }
+    
+    public Object onActionFromSentInvites() {
+        viewListPage.onActivate("outInvites", "");
+        return viewListPage;
+    }
+    
+    public Object onActionFromRecievedInvites() {
+        viewListPage.onActivate("inInvites", "");
+        return viewListPage;
+    }
+    
 }

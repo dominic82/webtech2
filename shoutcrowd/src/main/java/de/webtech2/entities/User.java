@@ -3,60 +3,102 @@ package de.webtech2.entities;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.apache.tapestry5.beaneditor.NonVisual;
-import org.apache.tapestry5.beaneditor.Validate;
+import org.hibernate.annotations.NaturalId;
 
 @Entity
+@NamedQueries(
+{
+    @NamedQuery(name = User.BY_USERNAME_OR_EMAIL, query = "Select u from User u where u.username = :username or u.email = :email"),
+    @NamedQuery(name = User.BY_CREDENTIALS, query = "Select u from User u where u.username = :username and u.password = :password"),
+    @NamedQuery(name = User.LIKE_USERNAME, query = "Select u from User u where u.username like :username") 
+})
+@Table(name="USER")
 public class User {
+    
+    public static final String BY_USERNAME_OR_EMAIL = "User.byUserNameOrEmail";
+    public static final String BY_CREDENTIALS = "User.byCredentials";
+    public static final String LIKE_USERNAME = "User.likeUsername";
+    
+    public static final String EMAIL_PATTERN = 
+			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
     @Id
+    @Column(name="USER_ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @NonVisual
     private long id;
-    @Validate("required")
+    
+    @NaturalId
+    @Column(nullable = false, unique = true)
     private String username;
-    @Validate("required")
+    
+    @Column(nullable = false, unique = true)
     private String email;
-    @NonVisual
-    @Validate("required")
+    
     private String password; //TODO: (MD5-Hash)
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date timeCreated;
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date timeModified;
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date timeLastLogin;
-    @OneToMany
+    
+    @OneToMany(mappedBy="author",cascade = {CascadeType.ALL})  
     private List<Message> messages;
+    
     @ManyToMany
+    @JoinTable(name="FOLLOWING_USER",
+                joinColumns={@JoinColumn(name="USER_ID")},
+                inverseJoinColumns={@JoinColumn(name="FOLLOWING_USER_ID")})
     private List<User> followingUsers;
-    @ManyToMany
+    
+    @ManyToMany(mappedBy="followingUsers")
     private List<User> followedUsers;
+    
     @ManyToMany
-    private List<User> invitedUsers;
-    @ManyToMany
+    @JoinTable(name="INVITING_USER",
+                joinColumns={@JoinColumn(name="USER_ID")},
+                inverseJoinColumns={@JoinColumn(name="INVITING_USER_ID")})
     private List<User> invitingUsers;
-
+    
+    @ManyToMany(mappedBy="invitingUsers")
+    private List<User> invitedUsers;
+    
     public User() {
-        timeCreated = new Date();
-        timeModified = new Date();
-        timeLastLogin = new Date();
+        this.username = "";
+        this.email = "";
+        this.password = "";
+        
+        this.timeCreated = new Date();
+        this.timeModified = new Date();
+        this.timeLastLogin = new Date();
 
-        messages = new LinkedList<Message>();
-        followedUsers = new LinkedList<User>();
-        followingUsers = new LinkedList<User>();
-        invitedUsers = new LinkedList<User>();
-        invitingUsers = new LinkedList<User>();
+        this.messages = new LinkedList<Message>();
+        
+        this.followingUsers = new LinkedList<User>();
+        this.followedUsers = new LinkedList<User>();
+        
+        this.invitedUsers = new LinkedList<User>();
+        this.invitingUsers = new LinkedList<User>();
     }
 
     @Override
@@ -66,10 +108,6 @@ public class User {
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getUsername() {
@@ -146,10 +184,6 @@ public class User {
         return followedUsers;
     }
 
-    public void setFollowedUsers(List<User> followedUsers) {
-        this.followedUsers = followedUsers;
-    }
-
     public List<User> getInvitedUsers() {
         return invitedUsers;
     }
@@ -162,7 +196,4 @@ public class User {
         return invitingUsers;
     }
 
-    public void setInvitingUsers(List<User> invitingUsers) {
-        this.invitingUsers = invitingUsers;
-    }
 }

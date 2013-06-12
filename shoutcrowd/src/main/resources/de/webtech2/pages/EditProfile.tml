@@ -1,7 +1,68 @@
-<html t:type="layout" title="About shoutcrowd"
+<html t:type="layout" title="${message:title}"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-    <p>About shoutcrowd application ...</p>
+    <body>
+        <h1>${message:title}</h1>
 
+        <form t:type="form" t:id="entryForm">
+            <t:errors/>
+            <table border="0" id="account_table">
+                    <td>
+                        ${message:username}
+                    </td>
+                    <td>
+                        <t:textfield t:id="username" value="username" t:validate="required" minlength="4" placeholder="${message:usernameplaceholder}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:email}
+                    </td>
+                    <td>
+                        <t:textfield t:id="email" value="email" t:validate="required" placeholder="${message:emailplaceholder}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:password}
+                    </td>
+                    <td>
+                        <t:passwordfield t:id="password" value="password" t:validate="required" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${message:passwordrepeat}
+                    </td>
+                    <td>
+                        <t:passwordfield t:id="passwordRepeat" value="passwordRepeat" t:validate="required" minlength="6" placeholder="${message:passwordrepeatplaceholder}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Avatar:
+                    </td>
+                    <td>
+                        <input type="file"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        I've read the license agreement and fucked ya mommy!*
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="${message:submit}"/>
+                    </td>
+                </tr>
+            </table>
+
+
+        </form>
+    </body>
 </html>

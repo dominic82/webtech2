@@ -5,12 +5,6 @@
         <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
 
 <body>
-    <h1>Welcome to ShoutCrowd</h1>
-    <p>
-        Please
-        <t:pagelink class="button_link" page="createAccount">register now!</t:pagelink>
-        or just
-        <t:pagelink class="button_link" page="Login">login</t:pagelink>
-    </p>
+
 </body>
 </html>

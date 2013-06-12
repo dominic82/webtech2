@@ -1,8 +1,10 @@
 package de.webtech2.pages;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
+import org.hibernate.Session;
+import de.webtech2.dao.UserDAO;
+import de.webtech2.dao.UserDAOImpl;
+import de.webtech2.security.AuthenticationException;
+import de.webtech2.services.Authenticator;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
@@ -12,68 +14,47 @@ import org.apache.tapestry5.corelib.components.TextField;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
-/**
- * Start page of application shoutcrowd.
- */
 public class Login
 {
-    private static final String EMAIL_PATTERN = 
-			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-	
-	@Inject
-	Messages messages;
-	
-	@Property
-	private String namemail;
-	@Property
-	private String password;
-	
-	@Component
-	private Form entryForm;
-	
-	@InjectComponent(value = "password")
-	private PasswordField passwordField;
-	@InjectComponent(value = "namemail")
-	private TextField namemailField;
+    @Property
+    private String username;
 
-	
-	void onValidateFromEntryForm() {
-		validatePassword();
-		validateNameMail();
+    @Property
+    private String password;
+    
+    @Inject
+    private Session session;
+    @Inject
+    private Authenticator authenticator;
+    @Inject
+    private Messages messages;
 
-	}
+    @Component
+    private Form loginForm;
+    @InjectComponent(value = "username")
+    private TextField usernameField;
+    @InjectComponent(value = "password")
+    private PasswordField passwordField;
 
-        private void validatePassword() {
-            if (password == null) {
-                entryForm.recordError(passwordField, messages.get("error-passwordtoshort"));
-            } else {
-                if (password.length() < 6) {
-                    entryForm.recordError(passwordField, messages.get("error-passwordtoshort"));
-                }
-                //ToDo: password correct?
-            }
-        }
-	
-	private void validateNameMail() {
-		if (namemail == null) {
-			entryForm.recordError(namemailField, messages.get("error-namemailtoshort"));
-		} else {
-			if (namemail.length() < 4 && !isValidEmailAddress(namemail)) {
-				entryForm.recordError(namemailField, messages.get("error-namemailtoshort"));
-			}
+
+    /**
+     * Do the cross-field validation
+     */
+    void onValidateFromLoginForm()
+    {
+        try {
+			authenticator.login(username, password);
+		} catch (AuthenticationException e) {
+			loginForm.recordError(messages.get("error-wrongcredentials"));
 		}
-                //ToDo: name/mail existing?
-	}
-	
-	
-	public boolean isValidEmailAddress(final String hex) {
-		Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-		Matcher matcher = pattern.matcher(hex);
-		return matcher.matches();
-	}
+    }
 
-	private Object onSuccess() {
-		return Index.class;
-	}
+    /**
+     * Validation passed, so we'll go to the "PostLogin" page
+     */
+    Object onSuccess()
+    {
+        return Home.class;
+    }
+    
 }

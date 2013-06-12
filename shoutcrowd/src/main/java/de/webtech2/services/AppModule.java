@@ -1,12 +1,20 @@
 package de.webtech2.services;
 
+import de.webtech2.dao.MessageDAO;
+import de.webtech2.dao.MessageDAOImpl;
+import de.webtech2.dao.UserDAO;
+import de.webtech2.dao.UserDAOImpl;
+import de.webtech2.security.AuthenticationFilter;
 import java.io.IOException;
 
 import org.apache.tapestry5.*;
 import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
+import org.apache.tapestry5.ioc.annotations.Contribute;
 import org.apache.tapestry5.ioc.annotations.Local;
+import org.apache.tapestry5.services.ComponentRequestFilter;
+import org.apache.tapestry5.services.ComponentRequestHandler;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestFilter;
 import org.apache.tapestry5.services.RequestHandler;
@@ -21,6 +29,10 @@ public class AppModule
 {
     public static void bind(ServiceBinder binder)
     {
+        binder.bind(Authenticator.class, BasicAuthenticator.class);
+        binder.bind(UserDAO.class, UserDAOImpl.class);
+        binder.bind(MessageDAO.class, MessageDAOImpl.class);
+        
         // binder.bind(MyServiceInterface.class, MyServiceImpl.class);
 
         // Make bind() calls on the binder object to define most IoC services.
@@ -113,5 +125,13 @@ public class AppModule
         // within the pipeline.
 
         configuration.add("Timing", filter);
+    }
+    
+    
+     @Contribute(ComponentRequestHandler.class)
+    public static void contributeComponentRequestHandler(
+            OrderedConfiguration<ComponentRequestFilter> configuration)
+    {
+        configuration.addInstance("RequiresLogin", AuthenticationFilter.class);
     }
 }

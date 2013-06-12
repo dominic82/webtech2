@@ -1,53 +1,23 @@
 package de.webtech2.components;
 
-import org.apache.tapestry5.*;
-import org.apache.tapestry5.annotations.*;
-import org.apache.tapestry5.ioc.annotations.*;
-import org.apache.tapestry5.BindingConstants;
-import org.apache.tapestry5.SymbolConstants;
+import de.webtech2.dao.MessageDAO;
+import de.webtech2.entities.Message;
+import org.apache.tapestry5.annotations.Parameter;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.ioc.annotations.Inject;
 
-/**
- * Layout component for pages of application shoutcrowd.
- */
-@Import(stylesheet = "context:layout/layout.css")
 public class SingleMessage
 {
-    /**
-     * The page title, for the <title> element and the <h1> element.
-     */
-    @Property
-    @Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
-    private String title;
-
-    @Property
-    private String pageName;
-
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private String sidebarTitle;
-
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private Block sidebar;
-
     @Inject
-    private ComponentResources resources;
-
-    @Property
-    @Inject
-    @Symbol(SymbolConstants.APPLICATION_VERSION)
-    private String appVersion;
-
-
-    public String getClassForPageName()
-    {
-        return resources.getPageName().equalsIgnoreCase(pageName)
-                ? "current_page_item"
-                : null;
-    }
-
-    public String[] getPageNames()
-    {
-        return new String[]{"Index"};
+    private MessageDAO messageDAO;
+    
+    @Parameter(required = true)
+    private Long messageId;
+    
+    @Property 
+    private  Message message;
+    
+    void setupRender() {
+        this.message = messageDAO.getById(messageId);
     }
 }

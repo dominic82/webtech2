@@ -1,4 +1,6 @@
+
 package de.webtech2.pages;
 
-public class Index {
+public class Licence {
+    
 }
