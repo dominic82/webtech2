@@ -8,6 +8,10 @@
         <form t:type="form" t:id="entryForm">
             <t:errors/>
             <table border="0" id="account_table">
+                <tr>
+                    <td rowspan="4">
+                        <img src="layout/images/sample_noavatar_big.jpg" alt="avt"/>
+                    </td>
                     <td>
                         ${message:username}
                     </td>
@@ -16,6 +20,7 @@
                     </td>
                 </tr>
                 <tr>
+               
                     <td>
                         ${message:email}
                     </td>
@@ -24,6 +29,7 @@
                     </td>
                 </tr>
                 <tr>
+               
                     <td>
                         ${message:password}
                     </td>
@@ -32,6 +38,7 @@
                     </td>
                 </tr>
                 <tr>
+               
                     <td>
                         ${message:passwordrepeat}
                     </td>
@@ -39,30 +46,11 @@
                         <t:passwordfield t:id="passwordRepeat" value="passwordRepeat" t:validate="required" minlength="6" placeholder="${message:passwordrepeatplaceholder}"/>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        Avatar:
-                    </td>
-                    <td>
-                        <input type="file"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        I've read the license agreement and fucked ya mommy!*
-                    </td>
-                    <td>
-                        <input type="checkbox" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" value="${message:submit}"/>
-                    </td>
-                </tr>
-            </table>
-
-
+                
+                </table>
+                <input name="Bild ändern" type="file"/>
+                <p> </p>
+                <input type="submit" value="${message:submit}"/>
         </form>
     </body>
 </html>
