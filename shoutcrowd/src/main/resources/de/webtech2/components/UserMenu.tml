@@ -6,7 +6,7 @@
 
     <body>
         <div id="header_left">
-            <t:pagelink id="logo" class="button_link" page="Index"><img src="layout/images/logo.png" alt="logo" /></t:pagelink>
+            <t:pagelink id="logo" page="Index"><img src="layout/images/logo.png" alt="logo" /></t:pagelink>
         </div>
         <div id="header_center">
             <a href="#" class="button_link" t:type="actionlink" t:id="viewFollowing" id="viewFollowing">Idols</a>
@@ -15,7 +15,7 @@
         </div>
         <div id="header_right">
             <form t:type="form" t:id="searchForm" style="float:left;">
-                <input t:type="TextField" t:id="searchText" t:value="searchText" validate="required" placeholder="search for..." size="20" />
+                <input t:type="TextField" t:id="searchText" t:value="searchText" validate="required" placeholder="search for..." size="20" style="width: 100px;" />
                 <t:submit t:id="searchSubmit" value="Search"/>
             </form>
             <a href="#" class="button_link" t:type="actionlink" t:id="logout" id="logout">Logout</a>
