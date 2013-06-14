@@ -8,6 +8,7 @@
         <form t:type="form" t:id="entryForm">
             <t:errors/>
             <table border="0" id="account_table">
+                 <tr>
                     <td>
                         ${message:username}
                     </td>
