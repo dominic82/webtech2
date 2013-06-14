@@ -4,7 +4,9 @@
 
     <body>
         <h1>${message:title}</h1>
-
+        ${message:head}
+        <p> </p>
+        <p> </p>
         <form t:type="form" t:id="entryForm">
             <t:errors/>
             <table border="0" id="account_table">

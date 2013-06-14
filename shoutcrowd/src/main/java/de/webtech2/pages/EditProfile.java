@@ -95,7 +95,7 @@ public class EditProfile{
                 if(!(userList.isEmpty())){
                     for(int i=1;i<userList.size();i++){
                         if((userList.get(i).getEmail().equals(email)) && (userList.get(i).getId() != authenticator.getLoggedUser().getId())){
-                            entryForm.recordError(usernameField, messages.get("error-doubleemail"));
+                            entryForm.recordError(emailField, messages.get("error-doubleemail"));
                         }
                     
                     }
