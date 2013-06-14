@@ -25,9 +25,6 @@ public class EditProfile{
     @Inject
     private UserDAO userDAO;
     
-    private long userId;
-    
-    private List<User> userList;
     @Inject
     Messages messages;
     @Inject
@@ -79,11 +76,13 @@ public class EditProfile{
             if (username.length() < 4) {
                 entryForm.recordError(usernameField, messages.get("error-usernametoshort"));
             }
-            userList = userDAO.list();
-            for(int i=0;i<userList.size()-1;i++){
-                if(userList.get(i).getUsername().equals(username)){
+            
+            List<User> userList = userDAO.searchByUsername(username);
+            if(!userList.isEmpty()){
+                if(!(authenticator.getLoggedUser().getUsername().equals(username))){
                     entryForm.recordError(usernameField, messages.get("error-doubleusername"));
                 }
+                
             }
         }
     }
@@ -92,12 +91,16 @@ public class EditProfile{
         if (!isValidEmailAddress(email)) {
             entryForm.recordError(emailField, messages.get("error-emailinvalid"));
         } else {
-            for(int i=0;i<userList.size()-1;i++){
-                if(userList.get(i).getEmail().equals(email)){
-                    entryForm.recordError(usernameField, messages.get("error-doubleemail"));
+                List<User> userList = userDAO.list();
+                if(!(userList.isEmpty())){
+                    for(int i=1;i<userList.size();i++){
+                        if((userList.get(i).getEmail().equals(email)) && (userList.get(i).getId() != authenticator.getLoggedUser().getId())){
+                            entryForm.recordError(emailField, messages.get("error-doubleemail"));
+                        }
+                    
+                    }
                 }
-            }
-        }
+            }     
     }
 
     public boolean isValidEmailAddress(final String hex) {
@@ -107,9 +110,9 @@ public class EditProfile{
     }
     
     
-     @CommitAfter
+    @CommitAfter
     private Object onSuccessFromEntryForm() {
-            userId = authenticator.getLoggedUser().getId();
+            long userId = authenticator.getLoggedUser().getId();
             userDAO.update(userId, username, email, password);
             return Home.class;
           
