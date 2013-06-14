@@ -1,11 +1,13 @@
 package de.webtech2.dao;
 
-import de.webtech2.entities.User;
 import java.util.Date;
 import java.util.List;
+
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.hibernate.Query;
 import org.hibernate.Session;
+
+import de.webtech2.entities.User;
 
 public class UserDAOImpl implements UserDAO {
 
@@ -85,6 +87,6 @@ public class UserDAOImpl implements UserDAO {
         user.setEmail(email);
         user.setPassword(password);
         user.setTimeModified(new Date());
-        session.persist(user);
+        session.update(user);
     }
 }

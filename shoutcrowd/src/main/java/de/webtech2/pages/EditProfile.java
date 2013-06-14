@@ -1,7 +1,6 @@
 package de.webtech2.pages;
 
-import de.webtech2.annotations.RequiresLogin;
-import de.webtech2.dao.UserDAO;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,14 +10,14 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.PasswordField;
 import org.apache.tapestry5.corelib.components.TextField;
+import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+import de.webtech2.annotations.RequiresLogin;
+import de.webtech2.dao.UserDAO;
 import de.webtech2.entities.User;
-import de.webtech2.security.AuthenticationException;
 import de.webtech2.services.Authenticator;
-import java.util.List;
-import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 
 @RequiresLogin
 public class EditProfile{
@@ -79,29 +78,33 @@ public class EditProfile{
             
             List<User> userList = userDAO.searchByUsername(username);
             if(!userList.isEmpty()){
-                if(!(authenticator.getLoggedUser().getUsername().equals(username))){
-                    entryForm.recordError(usernameField, messages.get("error-doubleusername"));
+            	String currentName = authenticator.getLoggedUser().getUsername();
+            	String newName = username;
+            	for (User userFound : userList) {
+                	String otherName = userFound.getUsername();
+                	if (otherName.equals(newName) && !currentName.equals(newName)) {
+                		entryForm.recordError(usernameField, messages.get("error-doubleusername"));
+                	}
                 }
-                
             }
         }
     }
 
-    private void validateEmail() {
-        if (!isValidEmailAddress(email)) {
-            entryForm.recordError(emailField, messages.get("error-emailinvalid"));
-        } else {
-                List<User> userList = userDAO.list();
-                if(!(userList.isEmpty())){
-                    for(int i=1;i<userList.size();i++){
-                        if((userList.get(i).getEmail().equals(email)) && (userList.get(i).getId() != authenticator.getLoggedUser().getId())){
-                            entryForm.recordError(emailField, messages.get("error-doubleemail"));
-                        }
-                    
-                    }
-                }
-            }     
-    }
+	private void validateEmail() {
+		if (!isValidEmailAddress(email)) {
+			entryForm.recordError(emailField,
+					messages.get("error-emailinvalid"));
+		} else {
+			List<User> userList = userDAO.list();
+			if (!(userList.isEmpty())) {
+				for (User userFound : userList) {
+					if ((userFound.getEmail().equals(email)) && (userFound.getId() != authenticator.getLoggedUser().getId())) {
+						entryForm.recordError(emailField, messages.get("error-doubleemail"));
+					}
+				}
+			}
+		}
+	}
 
     public boolean isValidEmailAddress(final String hex) {
         Pattern pattern = Pattern.compile(User.EMAIL_PATTERN);
@@ -115,7 +118,6 @@ public class EditProfile{
             long userId = authenticator.getLoggedUser().getId();
             userDAO.update(userId, username, email, password);
             return Home.class;
-          
         }
     }
 
