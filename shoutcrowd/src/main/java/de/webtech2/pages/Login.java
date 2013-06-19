@@ -1,8 +1,6 @@
 package de.webtech2.pages;
 
 import org.hibernate.Session;
-import de.webtech2.dao.UserDAO;
-import de.webtech2.dao.UserDAOImpl;
 import de.webtech2.security.AuthenticationException;
 import de.webtech2.services.Authenticator;
 import org.apache.tapestry5.annotations.Component;

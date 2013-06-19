@@ -17,6 +17,9 @@
         <p>
             <h1>User List (grid):</h1>
             <t:grid source="users" row="user" add="following,followed,inviting,invited,messages">
+                <p:timeLastLoginCell>
+                    <t:output format="message:dateFormat" value="user.timeLastLogin" />
+                </p:timeLastLoginCell>
                 <p:followingCell>
                     <t:loop source="user.followingUsers" value="followingUser">
                         ${followingUser.username}

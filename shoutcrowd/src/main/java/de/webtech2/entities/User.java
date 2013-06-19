@@ -25,7 +25,7 @@ import org.hibernate.annotations.NaturalId;
 @NamedQueries(
 {
     @NamedQuery(name = User.BY_USERNAME_OR_EMAIL, query = "Select u from User u where u.username = :username or u.email = :email"),
-    @NamedQuery(name = User.BY_CREDENTIALS, query = "Select u from User u where u.username = :username and u.password = :password"),
+    @NamedQuery(name = User.BY_CREDENTIALS, query = "Select u from User u where u.loginname = :loginname and u.password = :password"),
     @NamedQuery(name = User.LIKE_USERNAME, query = "Select u from User u where u.username like :username") 
 })
 @Table(name="USER")
@@ -46,13 +46,17 @@ public class User {
     
     @NaturalId
     @Column(nullable = false, unique = true)
-    private String username;
-    
+    private String loginname;
+
     @Column(nullable = false, unique = true)
     private String email;
     
+    private String username;
+    
     private String password; //TODO: (MD5-Hash)
     
+    private Integer logincount;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date timeCreated;
     
@@ -84,9 +88,11 @@ public class User {
     private List<User> invitedUsers;
     
     public User() {
+        this.loginname = "";
         this.username = "";
         this.email = "";
         this.password = "";
+        this.logincount = 0;
         
         this.timeCreated = new Date();
         this.timeModified = new Date();
@@ -109,6 +115,14 @@ public class User {
     public long getId() {
         return id;
     }
+    
+    public String getLoginname() {
+        return loginname;
+    }
+
+    public void setLoginname(String loginname) {
+        this.loginname = loginname;
+    }
 
     public String getUsername() {
         return username;
@@ -125,17 +139,19 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    public Integer getLogincount() {
+        return logincount;
+    }
 
-    /**
-     * @return The MD5 sum of the password for this user.
-     */
+    public void setLogincount(Integer logincount) {
+        this.logincount = logincount;
+    }
+
     public String getPassword() {
         return password;
     }
 
-    /**
-     * @param password The MD5 hashed password for this user.
-     */
     public void setPassword(String password) {
         this.password = password;
     }

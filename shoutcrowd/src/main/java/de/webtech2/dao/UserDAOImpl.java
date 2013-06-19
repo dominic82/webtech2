@@ -54,12 +54,12 @@ public class UserDAOImpl implements UserDAO {
         return query.list();
     }
 
-    public User getByCredentials(String username, String password) {
+    public User getByCredentials(String loginname, String password) {
         if (session == null) {
             throw new IllegalStateException("The session is null!");
         }
         Query query = session.getNamedQuery("User.byCredentials")
-                .setString("username", username)
+                .setString("loginname", loginname)
                 .setString("password", password);
 
         User user = null;
@@ -73,8 +73,9 @@ public class UserDAOImpl implements UserDAO {
         return session.createCriteria(User.class).list();
     }
 
-    public void create(String username, String email, String password) {
+    public void create(String loginname, String username, String email, String password) {
         User newUser = new User();
+        newUser.setLoginname(loginname);
         newUser.setEmail(email);
         newUser.setUsername(username);
         newUser.setPassword(password);
@@ -87,6 +88,13 @@ public class UserDAOImpl implements UserDAO {
         user.setEmail(email);
         user.setPassword(password);
         user.setTimeModified(new Date());
+        session.update(user);
+    }
+
+    public void updateLoginData(Long id) {
+        User user = this.getById(id);
+        user.setTimeLastLogin(new Date());
+        user.setLogincount(user.getLogincount() + 1);
         session.update(user);
     }
 }

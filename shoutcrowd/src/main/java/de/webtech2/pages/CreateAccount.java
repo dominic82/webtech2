@@ -32,6 +32,8 @@ public class CreateAccount {
     @Property
     private String email;
     @Property
+    private String loginname;
+    @Property
     private String username;
     @Property
     private String password;
@@ -97,8 +99,8 @@ public class CreateAccount {
     @CommitAfter
 	private Object onSuccessFromEntryForm() {
 		try {
-			userDAO.create(username, email, password);
-			authenticator.login(username, password);
+			userDAO.create(loginname, username, email, password);
+			authenticator.login(loginname, password);
 			return Home.class;
 		} catch (AuthenticationException ex) {
 			return Login.class;

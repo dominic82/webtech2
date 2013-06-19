@@ -34,7 +34,7 @@ public interface Authenticator
      * @throws AuthenticationException
      *             throw if an error occurs
      */
-    void login(String username, String password) throws AuthenticationException;
+    void login(String loginname, String password) throws AuthenticationException;
 
     /**
      * Logs out the user

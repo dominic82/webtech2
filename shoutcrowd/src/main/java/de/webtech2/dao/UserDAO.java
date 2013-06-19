@@ -19,9 +19,11 @@ public interface UserDAO {
      * @param password The password of the user to get.
      * @return Returns the {@link User} with the username and password or {@code null} if no such user was found.
      */
-    User getByCredentials(String username, String password);
+    User getByCredentials(String loginname, String password);
     
-    void create(String username, String email, String password);
+    void updateLoginData(Long id);
+    
+    void create(String loginname, String username, String email, String password);
     void update(Long id, String username, String email, String password);
     
     List<User> searchByUsername(String username);

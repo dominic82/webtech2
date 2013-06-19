@@ -8,7 +8,17 @@ xmlns:p="tapestry:parameter">
 		<form t:type="form" t:id="entryForm">
 			<t:errors/>
 			<table border="0" id="account_table">
-				
+				<tr>
+					<td>
+						${message:loginname}
+					</td>
+					<td>
+						<t:textfield t:id="loginname" value="loginname" t:validate="required" minlength="4" placeholder="${message:loginnameplaceholder}"/>
+					</td>
+				</tr>
+                                <tr>
+                                        <td></td><td>${message:loginnamehint}</td>
+                                </tr>
 				<tr>
 					<td>
 						${message:username}
