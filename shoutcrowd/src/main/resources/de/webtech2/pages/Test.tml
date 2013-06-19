@@ -20,6 +20,9 @@
                 <p:timeLastLoginCell>
                     <t:output format="message:dateFormat" value="user.timeLastLogin" />
                 </p:timeLastLoginCell>
+                <p:timeModifiedCell>
+                    <t:output format="message:dateFormat" value="user.timeModified" />
+                </p:timeModifiedCell>
                 <p:followingCell>
                     <t:loop source="user.followingUsers" value="followingUser">
                         ${followingUser.username}

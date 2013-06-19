@@ -38,4 +38,14 @@ public class ProfileDetails
         return viewListPage;
     }
     
+    public Integer getSentInviteCount() {
+        User user = userDAO.getById(this.getUser().getId());
+        return user.getInvitedUsers().size();
+    }
+        
+    public Integer getRecivedInviteCount() {
+        User user = userDAO.getById(this.getUser().getId());
+        return user.getInvitingUsers().size();
+    }
+    
 }
