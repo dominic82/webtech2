@@ -10,8 +10,8 @@
             <form t:type="form" t:id="loginForm">
                 <t:errors/>
 
-                <t:label for="username"/>:
-                <input t:type="TextField" t:id="username" value="username" t:validate="required,minlength=3" size="30"/>
+                <t:label for="loginname"/>:
+                <input t:type="TextField" t:id="loginname" value="loginname" t:validate="required,minlength=3" size="30"/>
                 <br/>
                 <t:label for="password"/>:
                 <input t:type="PasswordField" t:id="password" value="password" t:validate="required,minlength=3" size="30"/>
