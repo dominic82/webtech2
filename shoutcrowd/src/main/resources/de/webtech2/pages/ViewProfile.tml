@@ -5,10 +5,15 @@
     <body>
         <div id="cwrapper">
             <div id="cleft">
-                <t:ProfileDetails/>
+                <t:ProfileDetails userId="user.id"/>
+                <t:if test="isLoggedUser">
+                    <t:CreateMessage/>
+                </t:if>
             </div>
             <div id="cright">
-                    <t:SingleMessage/>
+                <t:Loop t:source="messageList" t:value="messageEntry"> 
+                    <t:SingleMessage messageId="messageEntry.id" />
+                </t:Loop>
             </div>
         </div>
     </body>

@@ -24,7 +24,7 @@
 
         <!-- start footer -->
         <div id="footer">
-            <img src="layout/images/unifak.png" alt=""/><p>
+            <img src="${context:layout/images/unifak.png}" alt=""/><p>
                 ShoutCrowd &copy; 2013 - Dennis K&uuml;hn, Nicolai Henczi, Dominik Mues, Dominic Wirkner, Benedikt Kleinh&uuml;ckelkoten</p>
             <br/>
             <t:pagelink class="button_link" style="width: 300px;" page="imprint">imprint</t:pagelink>

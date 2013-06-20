@@ -6,12 +6,12 @@
 
     <body>
         <div id="header_left">
-            <t:pagelink id="logo" page="Index"><img src="layout/images/logo.png" alt="logo" /></t:pagelink>
+            <t:pagelink id="logo" page="Index"><img src="${context:layout/images/logo.png}" alt="logo" /></t:pagelink>
         </div>
         <div id="header_center">
             <t:if test="userIsLoggedIn">
-                <a href="#" class="button_link" t:type="actionlink" t:id="viewFollowing" id="viewFollowing">Idols ${idolcount}</a>
-                <a href="#" class="button_link" t:type="actionlink" t:id="viewFollowed" id="viewFollowed">Fans ${fancount}</a>
+                <t:pagelink class="button_link" page="ViewList" context="['following','']">Idols ${idolcount}</t:pagelink>
+                <t:pagelink class="button_link" page="ViewList" context="['followed','']">Fans ${fancount}</t:pagelink>
                 <t:pagelink class="button_link" page="Home" >Home</t:pagelink>
             </t:if>
         </div>

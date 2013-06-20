@@ -12,7 +12,7 @@
             <table border="0" id="account_table">
                 <tr>
                     <td rowspan="4">
-                        <img src="layout/images/sample_noavatar_big.jpg" alt="avt"/>
+                        <img src="${context:layout/images/sample_noavatar_big.jpg}" alt="avt"/>
                     </td>
                     <td>
                         ${message:username}

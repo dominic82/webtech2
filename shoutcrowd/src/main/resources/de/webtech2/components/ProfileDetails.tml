@@ -7,18 +7,24 @@
     <body>
         <div class="cline" style="height:150px;">
             <div id="profile_img">
-                <img src="layout/images/sample_noavatar_big.jpg" alt="avt"/>
+                <img src="${context:layout/images/sample_noavatar_big.jpg}" alt="avt"/>
             </div>
             <div id="profile_name">
 
                 <h1>${user.username}</h1>
-                <b>userEmail:  </b>${user.email}<br/>
+                <t:if test="isLoggedUser">
+                    <b>userEmail:  </b>${user.email}<br/>
+                </t:if>
                 <b>userShoutCount: </b>${shoutcount}<br/>
             </div>
             <div id="profile_functions">
-                <t:pagelink class="button_link" page="EditProfile">editProfile</t:pagelink><br/>
-                <a href="#" class="button_link" t:type="actionlink" t:id="sentInvites" id="sentInvites">sentInvites (${sentinvitecount})</a><br/>
-                <a href="#" class="button_link" t:type="actionlink" t:id="recievedInvites" id="recievedInvites">recievedInvites (${recivedinvitecount})</a> <br/>
+                <t:if test="isLoggedUser">
+                    <t:pagelink class="button_link" page="EditProfile">editProfile</t:pagelink><br/>
+                    <t:pagelink class="button_link" page="viewProfile" context="user.id">ViewProfile</t:pagelink><br/>
+                    <br/>
+                    <t:pagelink class="button_link" page="ViewList" context="['outInvites','']">sentInvites (${sentinvitecount})</t:pagelink><br/>
+                    <t:pagelink class="button_link" page="ViewList" context="['inInvites','']">recievedInvites (${recivedinvitecount})</t:pagelink><br/>
+                </t:if>
             </div>
         </div>
     </body>

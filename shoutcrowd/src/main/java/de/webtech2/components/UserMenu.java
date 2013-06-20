@@ -36,16 +36,6 @@ public class UserMenu {
         return userDAO.getById(authenticator.getLoggedUser().getId());
     }
 
-    public Object onActionFromViewFollowing() {
-        viewListPage.onActivate("following", "");
-        return viewListPage;
-    }
-
-    public Object onActionFromViewFollowed() {
-        viewListPage.onActivate("followed", "");
-        return viewListPage;
-    }
-
     public Object onActionFromLogout() {
         authenticator.logout();
         return Index.class;

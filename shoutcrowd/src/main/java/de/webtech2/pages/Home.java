@@ -5,6 +5,7 @@ import de.webtech2.dao.UserDAO;
 import de.webtech2.entities.Message;
 import de.webtech2.entities.User;
 import de.webtech2.services.Authenticator;
+import java.util.LinkedList;
 import java.util.List;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
@@ -14,21 +15,34 @@ public class Home
 {
     @Inject
     private UserDAO userDAO;
-    
     @Inject
     private Authenticator authenticator;
-    
-    private List<Message> messageList;
-    
     @Property
-    private  Message messageEntry;
-    
-    public List<Message> getMessageList() {
-        return messageList;
+    private List<Message> messageList;
+    @Property
+    private User user;
+    @Property
+    private Message messageEntry;
+
+    void onActivate() {
+        this.user = userDAO.getById(authenticator.getLoggedUser().getId());
+    }
+
+    private void setupRender() {
+        List<Message> tmpList = new LinkedList<Message>();
+        for (User tmpUser : this.user.getFollowingUsers()) {
+            User followingUser = userDAO.getById(tmpUser.getId());
+            tmpList.addAll(followingUser.getMessages());
+            
+        }
+        this.messageList = tmpList;
     }
     
-    private void setupRender() {
-        User user = userDAO.getById(authenticator.getLoggedUser().getId());
-        this.messageList = user.getMessages();
+    public boolean getIsLoggedUser() {
+        if (authenticator.getLoggedUser().getId() == this.user.getId()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

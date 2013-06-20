@@ -11,10 +11,7 @@ Allgemeine Aufgaben:
 - [Dominik] eigenes Profil bearbeiten (siehe Grafik) -> EditProfile.java / .tml (ohne Avatar)
 
 - [Dominic] wipeAllData Seite für RESET
-- [Dominic] Profilansicht anderer User (siehe Grafik) -> ViewProfile.java / .tml 
-- [Dominic] neue Seite für zusammengefasste Nachrichten aller gefolgten User (und verlinken auf den Home-Button)
 - [Dominic] Avatare in der DB als BLOB schreiben
-- [Dominic] Suche erweitern (Anzahl der Ergebnisse +  keine Ergebnisse)
 
 - [Nico] Layout reparieren; Imprint, Licence und Index machen
 - [NIco] Erstellt die 5 einfachen Selenium-SIBs

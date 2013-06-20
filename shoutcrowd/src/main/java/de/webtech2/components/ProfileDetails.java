@@ -5,6 +5,7 @@ import de.webtech2.entities.User;
 import de.webtech2.pages.ViewList;
 import de.webtech2.services.Authenticator;
 import org.apache.tapestry5.annotations.InjectPage;
+import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 public class ProfileDetails
@@ -18,24 +19,28 @@ public class ProfileDetails
     @InjectPage
     private ViewList viewListPage;
     
+    @Parameter
+    private Long userId;
+    
     public User getUser()
     {
-        return authenticator.isLoggedIn() ? authenticator.getLoggedUser() : null;
+        if (this.userId == null) {
+            return userDAO.getById(authenticator.getLoggedUser().getId());
+        }
+        return userDAO.getById(this.userId);
+    }
+    
+    public boolean getIsLoggedUser() {
+        if (authenticator.getLoggedUser().getId() == this.userId) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
     public Integer getShoutCount() {
         User user = userDAO.getById(this.getUser().getId());
         return user.getMessages().size();
-    }
-    
-    public Object onActionFromSentInvites() {
-        viewListPage.onActivate("outInvites", "");
-        return viewListPage;
-    }
-    
-    public Object onActionFromRecievedInvites() {
-        viewListPage.onActivate("inInvites", "");
-        return viewListPage;
     }
     
     public Integer getSentInviteCount() {

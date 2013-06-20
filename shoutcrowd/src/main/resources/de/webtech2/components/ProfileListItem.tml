@@ -9,11 +9,11 @@
         <div class="cline">
             <div class="shoutercell">
                 <div class="shout_img">
-                    <img src="layout/images/sample_noavatar_small.jpg" alt=""/>
+                    <img src="${context:layout/images/sample_noavatar_small.jpg}" alt=""/>
                 </div>
                 <div class="shout_name">
                     ${user.email}<br/>
-                    <h1>${user.username}</h1>
+                    <h1><t:pagelink page="viewProfile" context="user.id">${user.username}</t:pagelink></h1>
                 </div>
                 <div class="shout_functions">
                     <t:if test="viewFollowing">
