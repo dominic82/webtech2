@@ -40,12 +40,12 @@ public class ProfileDetails
     
     public Integer getSentInviteCount() {
         User user = userDAO.getById(this.getUser().getId());
-        return user.getInvitedUsers().size();
+        return user.getInvitingUsers().size();
     }
         
     public Integer getRecivedInviteCount() {
         User user = userDAO.getById(this.getUser().getId());
-        return user.getInvitingUsers().size();
+        return user.getInvitedUsers().size();
     }
     
 }

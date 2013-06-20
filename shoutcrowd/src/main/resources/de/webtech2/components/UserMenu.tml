@@ -15,10 +15,10 @@
         </div>
         <div id="header_right">
             <form t:type="form" t:id="searchForm" style="float:left;">
-                <input t:type="TextField" t:id="searchText" t:value="searchText" validate="required" placeholder="search for..." size="20" style="width: 100px;" />
+                <input t:type="TextField" t:id="searchText" t:value="searchText" placeholder="search for..." size="20" style="width: 100px;" />
                 <t:submit t:id="searchSubmit" value="Search"/>
             </form>
-            <a href="#" class="button_link" t:type="actionlink" t:id="logout" id="logout">Logout</a>
+            <a href="#" class="button_link" t:type="actionlink" t:id="logout" id="logout">${logbuttontext}</a>
         </div>
     </body>
 </html>

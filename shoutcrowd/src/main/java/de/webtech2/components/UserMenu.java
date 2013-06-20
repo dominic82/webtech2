@@ -52,6 +52,9 @@ public class UserMenu {
     }
 
     Object onSuccessFromsearchForm() {
+        if(searchText == null){
+            searchText = "%";
+        }
         viewListPage.onActivate("search", searchText);
         return viewListPage;
     }
@@ -73,5 +76,14 @@ public class UserMenu {
             return "";
         }
 
+    }
+    
+    public String getLogButtontext(){
+        if (getLoggedUser() != null) {
+            return "Logout";
+        }
+        else{
+            return "Login";
+        }
     }
 }
