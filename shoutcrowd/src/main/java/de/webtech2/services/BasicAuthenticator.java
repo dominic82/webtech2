@@ -15,21 +15,22 @@ public class BasicAuthenticator implements Authenticator {
     
     @Inject
     private UserDAO userDAO;
-    
+     
     @Inject
     private Request request;
-
-    public void login(String loginname, String password) throws AuthenticationException {
-        
+    
+    public User checkCredentials(String loginname, String password) throws AuthenticationException {
         User user = userDAO.getByCredentials(loginname, password);
-        
         if (user == null) {
             throw new AuthenticationException("The user doesn't exist");
         }
-        
-        userDAO.updateLoginData(user.getId());
-        
+        return user;
+    }
+
+    public void login(String loginname, String password) throws AuthenticationException {
+        User user = this.checkCredentials(loginname, password);
         request.getSession(true).setAttribute(AUTH_TOKEN, user);
+        userDAO.updateLoginData(user.getId());
     }
 
     public boolean isLoggedIn() {

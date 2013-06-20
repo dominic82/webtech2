@@ -10,9 +10,7 @@ Allgemeine Aufgaben:
 - [Dominik] Anzahl Anzeigen lassen für Fans/Idols/alle Invites
 - [Dominik] eigenes Profil bearbeiten (siehe Grafik) -> EditProfile.java / .tml (ohne Avatar)
 
-- [Dominic] die verschiedenen Datum ändern bei Login
 - [Dominic] wipeAllData Seite für RESET
-- [Dominic] User-Entity anpassen für Loginname
 - [Dominic] Profilansicht anderer User (siehe Grafik) -> ViewProfile.java / .tml 
 - [Dominic] neue Seite für zusammengefasste Nachrichten aller gefolgten User (und verlinken auf den Home-Button)
 - [Dominic] Avatare in der DB als BLOB schreiben

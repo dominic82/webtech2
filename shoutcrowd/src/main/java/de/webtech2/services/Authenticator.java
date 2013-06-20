@@ -11,6 +11,8 @@ import de.webtech2.security.AuthenticationException;
  */
 public interface Authenticator
 {
+    
+    public User checkCredentials(String loginname, String password) throws AuthenticationException;
 
     /**
      * Gets the logged user

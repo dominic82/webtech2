@@ -97,13 +97,13 @@ public class CreateAccount {
     }
 
     @CommitAfter
-	private Object onSuccessFromEntryForm() {
-		try {
-			userDAO.create(loginname, username, email, password);
-			authenticator.login(loginname, password);
-			return Home.class;
-		} catch (AuthenticationException ex) {
-			return Login.class;
-		}
-	}
+    private Object onSuccessFromEntryForm() {
+        try {
+            userDAO.create(loginname, username, email, password);
+            authenticator.login(loginname, password);
+            return Home.class;
+        } catch (AuthenticationException ex) {
+            return Login.class;
+        }
+    }
 }

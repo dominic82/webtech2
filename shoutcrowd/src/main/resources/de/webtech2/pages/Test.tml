@@ -23,6 +23,9 @@
                 <p:timeModifiedCell>
                     <t:output format="message:dateFormat" value="user.timeModified" />
                 </p:timeModifiedCell>
+                <p:timeCreatedCell>
+                    <t:output format="message:dateFormat" value="user.timeCreated" />
+                </p:timeCreatedCell>
                 <p:followingCell>
                     <t:loop source="user.followingUsers" value="followingUser">
                         ${followingUser.username}
