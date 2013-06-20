@@ -13,6 +13,7 @@ Allgemeine Aufgaben:
 - [Dominic] wipeAllData Seite für RESET
 - [Dominic] Avatare in der DB als BLOB schreiben
 
+
 - [Nico] Layout reparieren; Imprint, Licence und Index machen
 - [NIco] Erstellt die 5 einfachen Selenium-SIBs
 

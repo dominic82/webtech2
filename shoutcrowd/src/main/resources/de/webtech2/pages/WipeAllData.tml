@@ -1,0 +1,19 @@
+<html t:type="layout" title="${message:title}"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <body>
+        <div id="login">
+            <h1>
+                To Delete <u><b>ALL Data</b></u> enter Reset-Code!
+            </h1>
+            <form t:type="form" t:id="resetForm">
+                <t:errors/>
+
+                <input t:type="PasswordField" t:id="resetCode" value="resetCode" t:validate="required,minlength=3" size="30"/>
+                <br/>
+                <input type="submit" value="Do Reset"/>
+            </form>
+        </div>
+    </body>
+</html>
