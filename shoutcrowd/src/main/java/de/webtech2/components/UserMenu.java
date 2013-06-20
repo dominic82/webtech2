@@ -58,6 +58,19 @@ public class UserMenu {
         viewListPage.onActivate("search", searchText);
         return viewListPage;
     }
+    
+    public boolean getUserIsLoggedIn() {
+        if (this.getLoggedUser() != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public String getUserName() {
+        User user = this.getLoggedUser();
+        return user.getUsername();
+    }
 
     public String getFanCount() {
         if (getLoggedUser() != null) {
@@ -76,14 +89,5 @@ public class UserMenu {
             return "";
         }
 
-    }
-    
-    public String getLogButtontext(){
-        if (getLoggedUser() != null) {
-            return "Logout";
-        }
-        else{
-            return "Login";
-        }
     }
 }

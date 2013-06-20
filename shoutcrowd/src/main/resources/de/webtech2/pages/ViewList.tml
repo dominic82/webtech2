@@ -6,6 +6,14 @@
         <div id="cwrapper">
             <h1>View: ${view}</h1>
 
+            
+            <t:if test="hasResults">
+                Anzahl: ${resultCount}
+                <p:else>
+                    Keine Einträge!
+                </p:else>
+            </t:if>
+
             <t:Loop t:source="userList" t:value="userEntry"> 
                 <t:ProfileListItem userId="userEntry.id" />
             </t:Loop>

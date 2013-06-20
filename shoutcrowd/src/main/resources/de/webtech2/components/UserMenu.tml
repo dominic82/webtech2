@@ -9,16 +9,23 @@
             <t:pagelink id="logo" page="Index"><img src="layout/images/logo.png" alt="logo" /></t:pagelink>
         </div>
         <div id="header_center">
-            <a href="#" class="button_link" t:type="actionlink" t:id="viewFollowing" id="viewFollowing">Idols ${idolcount}</a>
-            <a href="#" class="button_link" t:type="actionlink" t:id="viewFollowed" id="viewFollowed">Fans ${fancount}</a>
-            <t:pagelink class="button_link" page="Home" >Home</t:pagelink>
+            <t:if test="userIsLoggedIn">
+                <a href="#" class="button_link" t:type="actionlink" t:id="viewFollowing" id="viewFollowing">Idols ${idolcount}</a>
+                <a href="#" class="button_link" t:type="actionlink" t:id="viewFollowed" id="viewFollowed">Fans ${fancount}</a>
+                <t:pagelink class="button_link" page="Home" >Home</t:pagelink>
+            </t:if>
         </div>
         <div id="header_right">
-            <form t:type="form" t:id="searchForm" style="float:left;">
-                <input t:type="TextField" t:id="searchText" t:value="searchText" placeholder="search for..." size="20" style="width: 100px;" />
-                <t:submit t:id="searchSubmit" value="Search"/>
-            </form>
-            <a href="#" class="button_link" t:type="actionlink" t:id="logout" id="logout">${logbuttontext}</a>
+            <t:if test="userIsLoggedIn">
+                <form t:type="form" t:id="searchForm" style="float:left;">
+                    <input t:type="TextField" t:id="searchText" t:value="searchText" placeholder="search for..." size="20" style="width: 100px;" />
+                    <t:submit t:id="searchSubmit" value="Search"/>
+                </form>
+                <a href="#" class="button_link" t:type="actionlink" t:id="logout" id="logout">Logout</a>
+                <p:else>
+                    <t:pagelink class="button_link" page="Login">Login</t:pagelink>
+                </p:else>
+            </t:if>
         </div>
     </body>
 </html>

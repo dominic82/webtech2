@@ -76,4 +76,16 @@ public class ViewList {
         return this.searchText;
     }
     
+    public boolean getHasResults() {
+        if (this.userList.size() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public Integer getResultCount() {
+        return this.userList.size();
+    }
+    
 }
