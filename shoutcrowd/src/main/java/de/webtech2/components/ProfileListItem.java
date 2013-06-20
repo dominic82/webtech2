@@ -22,7 +22,7 @@ public class ProfileListItem {
     @Property
     User user;
     
-    void setupRender() {
+    private void setupRender() {
         this.user = userDAO.getById(userId);
     }
     
@@ -88,10 +88,8 @@ public class ProfileListItem {
         return null;
     }
     
-    public boolean isViewSearch() {
+    public boolean isViewSendInvite() {
         if (!this.isViewFollowed()
-                && !this.isViewFollowing()
-                && !this.isViewInInvites()
                 && !this.isViewOutInvites()) {
             return true;
         }

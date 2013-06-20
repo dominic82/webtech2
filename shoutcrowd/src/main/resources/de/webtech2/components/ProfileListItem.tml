@@ -29,7 +29,7 @@
                     <t:if test="viewOutInvites">
                         <a href="#" t:type="actionlink" t:id="doCancelOutInvite" id="doCancelOutInvite" t:context="user.id">Cancel sent Invite</a>
                     </t:if>
-                    <t:if test="viewSearch">
+                    <t:if test="viewSendInvite">
                         <a href="#" t:type="actionlink" t:id="doSendInvite" id="doSendInvite" t:context="user.id">Send Invite</a>
                     </t:if>
                 </div>
