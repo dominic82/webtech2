@@ -35,6 +35,7 @@
                     <td>
                         ${message:password}
                     </td>
+                        ${message:passwordhint}
                     <td>
                         <t:passwordfield t:id="password" value="password" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
                     </td>

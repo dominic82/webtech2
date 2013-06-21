@@ -15,7 +15,9 @@
                 <t:output format="message:dateFormat" value="message.timeCreated" />
             </div>
             <div class="shout_msg">
-                ${message.content}
+                <t:Loop t:source="messageLines" t:value="messageLine"> 
+                    ${messageLine} <br/> 
+                </t:Loop> 
             </div>
         </div>
         <!-- ein shout zuende -->
