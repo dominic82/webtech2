@@ -5,10 +5,31 @@
       xmlns:p="tapestry:parameter">
 
     <body>
-        <h3>Pagination-List</h3>
-        <t:Loop t:source="subList" t:value="item"> 
-            ${item.id} <br/>
-            <t:SingleMessage messageId="item.id" />
-        </t:Loop>
+        <h3>Pagination-List:</h3>
+        <p>Size = ${count}</p>
+        <p>Size(Sub) = ${subCount}</p>
+        <p>Amount = ${amount}</p>
+        <p>Page = ${page}</p>
+
+        <div class="pagination">
+            
+            <div class="paginator">
+                <t:if test="prevPossible">
+                    <span>previous</span>
+                </t:if>
+
+                <t:Loop t:source="allPages" t:value="pageItem"> 
+                    <span>${pageItem}</span>
+                </t:Loop>
+
+                <t:if test="nextPossible">
+                    <span>next</span>
+                </t:if>
+            </div>
+
+            <t:Loop t:source="subList" t:value="item"> 
+                <t:SingleMessage messageId="item.id" />
+            </t:Loop>
+        </div>
     </body>
 </html>
