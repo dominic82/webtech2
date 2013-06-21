@@ -1,5 +1,6 @@
 package de.webtech2.entities;
 
+import de.webtech2.util.PaginationItem;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -29,7 +30,7 @@ import org.hibernate.annotations.NaturalId;
     @NamedQuery(name = User.LIKE_USERNAME, query = "Select u from User u where u.username like :username") 
 })
 @Table(name="USER")
-public class User {
+public class User extends PaginationItem {
     
     public static final String BY_LOGINNAME_OR_EMAIL = "User.byLoginNameOrEmail";
     public static final String BY_CREDENTIALS = "User.byCredentials";

@@ -1,6 +1,6 @@
 package de.webtech2.entities;
 
-import java.util.Comparator;
+import de.webtech2.util.PaginationItem;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Message {
+public class Message extends PaginationItem {
 
     public static final int MAX_LENGTH = 140;
     @Id

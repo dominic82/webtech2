@@ -11,9 +11,11 @@
                 </t:if>
             </div>
             <div id="cright">
-                <t:leaf.leaf source="source" value="item">
-                    <t:SingleMessage messageId="item.id" />
-                </t:leaf.leaf>
+                <t:Pagination list="messageList" amount="'10'" page="'1'" />
+
+                <!-- <t:Loop t:source="messageList" t:value="messageEntry"> 
+                    <t:SingleMessage messageId="messageEntry.id" />
+                </t:Loop> -->
             </div>
         </div>
     </body>
