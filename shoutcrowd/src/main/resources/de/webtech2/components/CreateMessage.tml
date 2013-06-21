@@ -5,10 +5,12 @@
       xmlns:p="tapestry:parameter">
 
     <body>
+        
         <div id="shoutbox">
             <h1>${message:title}</h1>
             <form t:type="form" t:id="newMessageForm" t:context="user">
-                <textarea t:type="TextArea" t:id="messageValue" cols="80" rows="3"  placeholder="${message:messageplaceholder}"></textarea>
+             <t:errors/>
+                <textarea t:type="TextArea" t:id="messageValue" cols="80" rows="3" t:validate="required" placeholder="${message:messageplaceholder}"></textarea>
                 <br/>
                 <t:submit t:id="CreateMessage" value="${message:submit}"/>
             </form>

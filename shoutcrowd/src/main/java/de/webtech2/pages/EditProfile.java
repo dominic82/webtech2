@@ -55,7 +55,7 @@ public class EditProfile {
     }
 
     private void validatePassword() {
-        if (password.equals("") && password != null) {
+        if (password != null) {
             if (!password.equals(passwordRepeat)) {
                 entryForm.recordError(passwordRepeatField, messages.get("error-passwordnotidentical"));
             }
@@ -77,17 +77,6 @@ public class EditProfile {
                 entryForm.recordError(usernameField, messages.get("error-usernametoshort"));
             }
 
-            List<User> userList = userDAO.searchByUsername(username);
-            if (!userList.isEmpty()) {
-                String currentName = authenticator.getLoggedUser().getUsername();
-                String newName = username;
-                for (User userFound : userList) {
-                    String otherName = userFound.getUsername();
-                    if (otherName.equals(newName) && !currentName.equals(newName)) {
-                        entryForm.recordError(usernameField, messages.get("error-doubleusername"));
-                    }
-                }
-            }
         }
     }
 
