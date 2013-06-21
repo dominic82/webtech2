@@ -55,7 +55,7 @@ public class EditProfile {
     }
 
     private void validatePassword() {
-        if (password.equals("") && password != null) {
+        if (password != null) {
             if (!password.equals(passwordRepeat)) {
                 entryForm.recordError(passwordRepeatField, messages.get("error-passwordnotidentical"));
             }
