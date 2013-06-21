@@ -6,6 +6,7 @@ import de.webtech2.entities.Message;
 import de.webtech2.entities.User;
 import de.webtech2.services.Authenticator;
 import java.util.List;
+import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
@@ -19,6 +20,7 @@ public class ViewProfile {
     @Property
     private List<Message> messageList;
     @Property
+    @Persist
     private User user;
     @Property
     private Message messageEntry;
@@ -29,9 +31,6 @@ public class ViewProfile {
 
     private void setupRender() {
         this.messageList = this.user.getMessages();
-//        for (User followingUser : user.getFollowingUsers()) {
-//            this.messageList.addAll(followingUser.getMessages());
-//        }
     }
     
     public boolean getIsLoggedUser() {

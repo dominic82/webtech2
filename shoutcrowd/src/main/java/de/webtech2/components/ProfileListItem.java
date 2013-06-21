@@ -24,8 +24,4 @@ public class ProfileListItem {
     private void setupRender() {
         this.user = userDAO.getById(userId);
     }
-    
-    private User getLoggedUser() {
-        return userDAO.getById(authenticator.getLoggedUser().getId());
-    }
 }
