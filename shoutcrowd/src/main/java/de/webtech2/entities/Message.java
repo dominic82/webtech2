@@ -1,5 +1,6 @@
 package de.webtech2.entities;
 
+import java.util.Comparator;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -75,3 +76,4 @@ public class Message {
         return this.getTimeCreated().compareTo(message.getTimeCreated())*-1;
     }
 }
+
