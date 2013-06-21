@@ -20,16 +20,18 @@ public class ViewProfile {
     @Property
     private List<Message> messageList;
     @Property
-    @Persist
     private User user;
+    @Persist
+    private Long userId;
     @Property
     private Message messageEntry;
 
     void onActivate(Long userId) {
-        this.user = userDAO.getById(userId);
+        this.userId = userId;
     }
 
     private void setupRender() {
+        this.user = userDAO.getById(this.userId);
         this.messageList = this.user.getMessages();
     }
     
