@@ -11,9 +11,9 @@
                 </t:if>
             </div>
             <div id="cright">
-                <t:Loop t:source="messageList" t:value="messageEntry"> 
-                    <t:SingleMessage messageId="messageEntry.id" />
-                </t:Loop>
+                <t:leaf.leaf source="source" value="item">
+                    <t:SingleMessage messageId="item.id" />
+                </t:leaf.leaf>
             </div>
         </div>
     </body>
