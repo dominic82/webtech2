@@ -26,22 +26,7 @@
                     <t:pagelink class="button_link" page="ViewList" context="['inInvites','']">recievedInvites (${recivedinvitecount})</t:pagelink><br/>
                 </t:if>
                 <t:unless test="isLoggedUser">
-                    <t:if test="viewFollowing">
-                        <a href="#" t:type="actionlink" t:id="doDeleteFollowing" id="doDeleteFollowing" t:context="user.id">Unfollow Idol</a><br/>
-                    </t:if>
-                    <t:if test="viewFollowed">
-                        <a href="#" t:type="actionlink" t:id="doDeleteFollowed" id="doDeleteFollowed" t:context="user.id">Unfollow Fan</a><br/>
-                    </t:if>
-                    <t:if test="viewInInvites">
-                        <a href="#" t:type="actionlink" t:id="doAcceptInInvite" id="doAcceptInInvite" t:context="user.id">Accept Invite from Idol</a><br/>
-                        <a href="#" t:type="actionlink" t:id="doCancelInInvite" id="doCancelInInvite" t:context="user.id">Cancel Invite from Idol</a><br/>
-                    </t:if>
-                    <t:if test="viewOutInvites">
-                        <a href="#" t:type="actionlink" t:id="doCancelOutInvite" id="doCancelOutInvite" t:context="user.id">Cancel sent Invite</a><br/>
-                    </t:if>
-                    <t:if test="viewSendInvite">
-                        <a href="#" t:type="actionlink" t:id="doSendInvite" id="doSendInvite" t:context="user.id">Send Invite</a><br/>
-                    </t:if>
+                    <t:ProfileActions userId="user.id" />
                 </t:unless>
             </div>
         </div>

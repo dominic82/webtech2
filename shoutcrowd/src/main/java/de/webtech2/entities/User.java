@@ -25,7 +25,7 @@ import org.hibernate.annotations.NaturalId;
 @NamedQueries(
 {
     @NamedQuery(name = User.BY_LOGINNAME_OR_EMAIL, query = "Select u from User u where u.loginname = :loginname or u.email = :email"),
-    @NamedQuery(name = User.BY_CREDENTIALS, query = "Select u from User u where u.loginname = :loginname and u.password = :password"),
+    @NamedQuery(name = User.BY_CREDENTIALS, query = "Select u from User u where (u.loginname = :loginname or u.email = :loginname) and u.password = :password"),
     @NamedQuery(name = User.LIKE_USERNAME, query = "Select u from User u where u.username like :username") 
 })
 @Table(name="USER")

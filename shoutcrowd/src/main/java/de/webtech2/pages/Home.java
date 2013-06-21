@@ -30,6 +30,7 @@ public class Home
 
     private void setupRender() {
         List<Message> tmpList = new LinkedList<Message>();
+        tmpList.addAll(this.user.getMessages());
         for (User tmpUser : this.user.getFollowingUsers()) {
             User followingUser = userDAO.getById(tmpUser.getId());
             tmpList.addAll(followingUser.getMessages());
