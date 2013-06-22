@@ -26,9 +26,8 @@ public class UserMenu {
     private ViewList viewListPage;
 
     private User getLoggedUser() {
-        User tmpUser = null;
         try{
-            tmpUser = authenticator.getLoggedUser();
+            authenticator.getLoggedUser();
         }
         catch(IllegalStateException e){
             return null;

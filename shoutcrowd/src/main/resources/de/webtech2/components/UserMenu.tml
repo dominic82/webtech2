@@ -23,8 +23,8 @@
         <div id="header_right">
             <t:if test="userIsLoggedIn">
                 <form t:type="form" t:id="searchForm" style="float:left;">
-                    <input t:type="TextField" t:id="searchText" t:value="searchText" placeholder="search for..." size="20" style="width: 100px;" />
-                    <t:submit t:id="searchSubmit" value="Search"/>
+                    <input t:type="TextField" t:id="searchText" t:value="searchText" placeholder="search User" style="width: 150px;" />
+                    <t:submit t:id="searchSubmit" value="Search" style="display: none;" />
                 </form>
                 <a href="#" class="button_link" t:type="actionlink" t:id="logout" id="logout">Logout</a>
                 <p:else>

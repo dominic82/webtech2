@@ -5,17 +5,19 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import org.apache.tapestry5.ComponentResources;
+import org.apache.tapestry5.Link;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.services.PageRenderLinkSource;
 
 public class Pagination {
     
     @Inject
     private ComponentResources resources;
 
-    @Property
-    private String srcPage;
+    @Inject
+    private PageRenderLinkSource pageRenderLinkSource;
 
     @Parameter(required = true)
     private List<PaginationItem> list;
@@ -33,7 +35,13 @@ public class Pagination {
     @Property
     private Integer pageItem;
     
+    @Property
+    private int prevPage;
+    @Property
+    private int nextPage;
+    @Property
     private int lastPage;
+    
     private List subList;
     private int subListSize = 0;
     
@@ -58,6 +66,10 @@ public class Pagination {
         if (end > this.list.size()) {
             end = this.list.size();
         }
+        
+        // Calculate Previous/Next-Page
+        this.prevPage = this.page - 1;
+        this.nextPage = this.page + 1;
 
         // Generate SubList from Parameter List by start/end-Index
         this.subList = new LinkedList<PaginationItem>();
@@ -73,6 +85,13 @@ public class Pagination {
             pageList.add(new Integer(i));
         }
 
+    }
+    
+    public Link getPageLink(String destPage) {
+        Link link = this.pageRenderLinkSource.createPageRenderLink(resources.getPageName());
+        link.removeParameter("page");
+        link.addParameter("page", destPage);
+        return link;
     }
 
     void beginRender() {
@@ -141,7 +160,7 @@ public class Pagination {
     }
     
     public boolean isRenderPages() {
-        if (this.formatList.contains("pages")) {
+        if (this.formatList.contains("pages") && this.lastPage > 1) {
             return true;
         }
         return false;

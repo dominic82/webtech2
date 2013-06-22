@@ -242,6 +242,8 @@ html,body {
 }
 
 #profile_img {
+    width: 120px;
+    height: 120px;
     float:left;
     border: 1px solid #84b819;
     margin: 10px;

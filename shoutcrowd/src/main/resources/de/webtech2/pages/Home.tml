@@ -11,8 +11,9 @@
                 </t:if>
             </div>
             <div id="cright">
-                <t:pagination list="messageList" item="item" amount="'3'" page="'2'" >
-                    <t:SingleMessage messageId="item.id" />
+                <t:pagination list="messageList" item="message" page="messagePage" amount="'5'"  
+                    format="'first,previous,pages,next,last,bottom,top'" >
+                    <t:SingleMessage message="message" />
                 </t:pagination>
             </div>
         </div>

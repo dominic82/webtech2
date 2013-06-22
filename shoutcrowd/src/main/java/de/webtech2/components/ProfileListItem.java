@@ -15,13 +15,14 @@ public class ProfileListItem {
     @Inject
     private UserDAO userDAO;
     
-    @Parameter(required = true)
-    private Long userId;
-    
     @Property
+    @Parameter(required = true)
     User user;
     
-    private void setupRender() {
-        this.user = userDAO.getById(userId);
+    private boolean setupRender() {
+        if (user != null) {
+            return true;
+        } 
+        return false;
     }
 }

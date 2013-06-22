@@ -5,6 +5,7 @@ import de.webtech2.dao.UserDAO;
 import de.webtech2.entities.User;
 import de.webtech2.services.Authenticator;
 import java.util.List;
+import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
@@ -31,7 +32,11 @@ public class ViewList {
     private List<User> userList;
     
     @Property
-    User userEntry;
+    User user;
+    
+    @Property
+    @ActivationRequestParameter("page")
+    private int userPage = 1;
     
     public void onActivate(String view, String searchText) {
         this.view = view;

@@ -6,16 +6,15 @@ import de.webtech2.entities.Message;
 import de.webtech2.entities.User;
 import de.webtech2.services.Authenticator;
 import de.webtech2.util.CustomMessageDateComparator;
-import de.webtech2.util.PaginationItem;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 @RequiresLogin
 public class Home {
-
     
     @Inject
     private UserDAO userDAO;
@@ -26,7 +25,10 @@ public class Home {
     @Property
     private User user;
     @Property
-    private PaginationItem item;
+    private Message message;
+    @Property
+    @ActivationRequestParameter("page")
+    private int messagePage = 1;
 
     void onActivate() {
         this.user = userDAO.getById(authenticator.getLoggedUser().getId());

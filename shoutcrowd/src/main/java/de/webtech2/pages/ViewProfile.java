@@ -8,6 +8,7 @@ import de.webtech2.services.Authenticator;
 import de.webtech2.util.CustomMessageDateComparator;
 import java.util.Collections;
 import java.util.List;
+import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
@@ -26,7 +27,10 @@ public class ViewProfile {
     @Persist
     private Long userId;
     @Property
-    private Message messageEntry;
+    private Message message;
+    @Property
+    @ActivationRequestParameter("page")
+    private int messagePage = 1;
 
     void onActivate(Long userId) {
         this.userId = userId;

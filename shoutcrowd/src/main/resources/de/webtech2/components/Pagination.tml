@@ -7,35 +7,35 @@
     <body>
 
         <div class="pagination">
-            
+
             <t:if test="renderTopPaginator">
                 <div class="paginator">
                 
                     <t:if test="renderFirst">
-                        <span> first </span>
+                        <a href="${getPageLink('1')}" class="paginatorLink"> first </a>
                     </t:if>
 
                     <t:if test="renderPrevious">
-                        <span> previous </span>
+                        <a href="${getPageLink(prevPage)}" class="paginatorLink"> previous </a>
                     </t:if>
 
                     <t:if test="renderPages">
                         <t:Loop t:source="pageList" t:value="pageItem"> 
                             <t:if test="SelectedPage">
-                                <span> <b><u>${pageItem}</u></b> </span>
+                                <a href="${getPageLink(pageItem)}" class="paginatorLink"> <b><u>${pageItem}</u></b> </a>
                             </t:if>
                             <t:unless test="SelectedPage">
-                                <span> ${pageItem} </span>
+                                <a href="${getPageLink(pageItem)}" class="paginatorLink"> ${pageItem} </a>
                             </t:unless>
                         </t:Loop>
                     </t:if>
 
                     <t:if test="renderNext">
-                        <span> next </span>
+                        <a href="${getPageLink(nextPage)}" class="paginatorLink"> next </a>
                     </t:if>
 
                     <t:if test="renderLast">
-                        <span> last </span>
+                        <a href="${getPageLink(lastPage)}" class="paginatorLink"> last </a>
                     </t:if>
 
                 </div>
@@ -47,30 +47,30 @@
                 <div class="paginator">
                 
                     <t:if test="renderFirst">
-                        <span> first </span>
+                        <a href="${getPageLink('1')}" class="paginatorLink"> first </a>
                     </t:if>
 
                     <t:if test="renderPrevious">
-                        <span> previous </span>
+                        <a href="${getPageLink(prevPage)}" class="paginatorLink"> previous </a>
                     </t:if>
 
                     <t:if test="renderPages">
                         <t:Loop t:source="pageList" t:value="pageItem"> 
                             <t:if test="SelectedPage">
-                                <span> <b><u>${pageItem}</u></b> </span>
+                                <a href="${getPageLink(pageItem)}" class="paginatorLink"> <b><u>${pageItem}</u></b> </a>
                             </t:if>
                             <t:unless test="SelectedPage">
-                                <span> ${pageItem} </span>
+                                <a href="${getPageLink(pageItem)}" class="paginatorLink"> ${pageItem} </a>
                             </t:unless>
                         </t:Loop>
                     </t:if>
 
                     <t:if test="renderNext">
-                        <span> next </span>
+                        <a href="${getPageLink(nextPage)}" class="paginatorLink"> next </a>
                     </t:if>
 
                     <t:if test="renderLast">
-                        <span> last </span>
+                        <a href="${getPageLink(lastPage)}" class="paginatorLink"> last </a>
                     </t:if>
 
                 </div>
