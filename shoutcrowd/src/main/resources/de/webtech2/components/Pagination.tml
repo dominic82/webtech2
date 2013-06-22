@@ -5,31 +5,77 @@
       xmlns:p="tapestry:parameter">
 
     <body>
-        <h3>Pagination-List:</h3>
-        <p>Size = ${count}</p>
-        <p>Size(Sub) = ${subCount}</p>
-        <p>Amount = ${amount}</p>
-        <p>Page = ${page}</p>
 
         <div class="pagination">
             
-            <div class="paginator">
-                <t:if test="prevPossible">
-                    <span>previous</span>
-                </t:if>
+            <t:if test="renderTopPaginator">
+                <div class="paginator">
+                
+                    <t:if test="renderFirst">
+                        <span> first </span>
+                    </t:if>
 
-                <t:Loop t:source="allPages" t:value="pageItem"> 
-                    <span>${pageItem}</span>
-                </t:Loop>
+                    <t:if test="renderPrevious">
+                        <span> previous </span>
+                    </t:if>
 
-                <t:if test="nextPossible">
-                    <span>next</span>
-                </t:if>
-            </div>
+                    <t:if test="renderPages">
+                        <t:Loop t:source="pageList" t:value="pageItem"> 
+                            <t:if test="SelectedPage">
+                                <span> <b><u>${pageItem}</u></b> </span>
+                            </t:if>
+                            <t:unless test="SelectedPage">
+                                <span> ${pageItem} </span>
+                            </t:unless>
+                        </t:Loop>
+                    </t:if>
 
-            <t:Loop t:source="subList" t:value="item"> 
-                <t:SingleMessage messageId="item.id" />
-            </t:Loop>
+                    <t:if test="renderNext">
+                        <span> next </span>
+                    </t:if>
+
+                    <t:if test="renderLast">
+                        <span> last </span>
+                    </t:if>
+
+                </div>
+            </t:if>
+
+            <t:body />
+
+            <t:if test="renderBottomPaginator">
+                <div class="paginator">
+                
+                    <t:if test="renderFirst">
+                        <span> first </span>
+                    </t:if>
+
+                    <t:if test="renderPrevious">
+                        <span> previous </span>
+                    </t:if>
+
+                    <t:if test="renderPages">
+                        <t:Loop t:source="pageList" t:value="pageItem"> 
+                            <t:if test="SelectedPage">
+                                <span> <b><u>${pageItem}</u></b> </span>
+                            </t:if>
+                            <t:unless test="SelectedPage">
+                                <span> ${pageItem} </span>
+                            </t:unless>
+                        </t:Loop>
+                    </t:if>
+
+                    <t:if test="renderNext">
+                        <span> next </span>
+                    </t:if>
+
+                    <t:if test="renderLast">
+                        <span> last </span>
+                    </t:if>
+
+                </div>
+            </t:if>
+
         </div>
     </body>
 </html>

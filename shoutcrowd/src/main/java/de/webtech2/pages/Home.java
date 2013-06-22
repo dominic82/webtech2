@@ -6,6 +6,7 @@ import de.webtech2.entities.Message;
 import de.webtech2.entities.User;
 import de.webtech2.services.Authenticator;
 import de.webtech2.util.CustomMessageDateComparator;
+import de.webtech2.util.PaginationItem;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class Home {
     @Property
     private User user;
     @Property
-    private Message messageEntry;
+    private PaginationItem item;
 
     void onActivate() {
         this.user = userDAO.getById(authenticator.getLoggedUser().getId());

@@ -11,11 +11,9 @@
                 </t:if>
             </div>
             <div id="cright">
-                <t:Pagination list="messageList" amount="'5'" page="'2'" />
-
-                <!-- <t:Loop t:source="messageList" t:value="messageEntry"> 
-                    <t:SingleMessage messageId="messageEntry.id" />
-                </t:Loop> -->
+                <t:pagination list="messageList" item="item" amount="'3'" page="'2'" >
+                    <t:SingleMessage messageId="item.id" />
+                </t:pagination>
             </div>
         </div>
     </body>
