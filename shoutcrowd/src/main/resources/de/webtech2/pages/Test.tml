@@ -4,16 +4,6 @@
       xmlns:p="tapestry:parameter">
 
     <body>
-        <!-- Dominic Test Begin -->
-        <p>
-            <h1>Test File Upload</h1>
-            <t:form>
-                <input t:type="upload" t:id="file" t:value="file" validate="required"/>
-                <t:submit t:id="UploadPicture" value="UploadPicture"/>
-            </t:form>
-            <h3>Uploaded File</h3>
-            <img src="userpics/test2.png" />
-        </p>
         <p>
             <h1>User List (grid):</h1>
             <t:grid source="users" row="user" add="following,followed,inviting,invited,messages">
@@ -56,26 +46,25 @@
             </t:grid>
         </p>
         <p>
-            <h1>new user add:</h1>
-            <t:beaneditform 
-                    t:id="userForm"
-                    object="user">
-            </t:beaneditform>
+            <h1>Add Sample Users:</h1>
+            <t:form t:id="AddSampleUsers">
+                <t:submit value="AddSampleUsers"/>
+            </t:form>
         </p>
         <p>
             <h1>following user add:</h1>
-            <t:form>
+            <t:form t:id="AddFollowingUser">
                 <t:select t:id="userMenuFrom" value="followingUserFrom" model="userSelectModel" />
                 <t:select t:id="userMenuTo" value="followingUserTo" model="userSelectModel" />
-                <t:submit t:id="AddFollowingUser" value="AddFollowingUser"/>
+                <t:submit value="AddFollowingUser"/>
             </t:form>
         </p>
         <p>
             <h1>invited user add:</h1>
-            <t:form>
+            <t:form t:id="AddInvitingUser">
                 <t:select t:id="userIMenuFrom" value="invitingUserFrom" model="userSelectModel" />
                 <t:select t:id="userIMenuTo" value="invitingUserTo" model="userSelectModel" />
-                <t:submit t:id="AddInvitingUser" value="AddInvitingUser"/>
+                <t:submit value="AddInvitingUser"/>
             </t:form>
         </p>
 
@@ -94,12 +83,11 @@
         </p>
         <p>
             <h1>Message add:</h1>
-            <t:form>
+            <t:form t:id="CreateMessage">
                 <t:select t:id="userMessageFrom" value="userFrom" model="userSelectModel" />
                 <textarea t:type="TextArea" t:id="messageValue"></textarea>
-                <t:submit t:id="CreateMessage" value="CreateMessage"/>
+                <t:submit value="CreateMessage"/>
             </t:form>
         </p>
-        <!-- Dominic Test End -->
     </body>
 </html>

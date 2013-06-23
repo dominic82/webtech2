@@ -24,11 +24,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.tapestry5.annotations.InjectPage;
 import org.apache.tapestry5.upload.services.UploadedFile;
 
 @RequiresLogin
 public class EditProfile {
 
+    @InjectPage
+    private ViewUserImage viewUserImagePage;
     @Inject
     private UserDAO userDAO;
     @Inject
@@ -56,6 +59,7 @@ public class EditProfile {
     boolean newPassowrd = false;
     @Property
     private UploadedFile fileField;
+    Long userId;
 
     void onValidateFromEntryForm() {
         validatePassword();
@@ -112,7 +116,7 @@ public class EditProfile {
     }
 
     void setupRender() {
-        long userId = authenticator.getLoggedUser().getId();
+        this.userId = authenticator.getLoggedUser().getId();
         User user = userDAO.getById(userId);
         if (username == null) {
             username = user.getUsername();
@@ -131,15 +135,21 @@ public class EditProfile {
             password = user.getPassword();
         }
         userDAO.update(userId, username, email, password);
-        
-        byte[] bFile = new byte[(int) this.fileField.getSize()];
-        try {
-            this.fileField.getStream().read(bFile);
-        } catch (IOException ex) {
-            Logger.getLogger(EditProfile.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        userDAO.updateImageAvatar(userId, bFile);
-        
+
+        if (this.fileField != null) {
+            byte[] bFile = new byte[(int) this.fileField.getSize()];
+            try {
+                this.fileField.getStream().read(bFile);
+            } catch (IOException ex) {
+                Logger.getLogger(EditProfile.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            userDAO.updateImageAvatar(userId, bFile);
+        }
+
         return Home.class;
+    }
+    
+    public String getUserImage() {
+        return viewUserImagePage.getImageLink(this.userId,false).toString();
     }
 }

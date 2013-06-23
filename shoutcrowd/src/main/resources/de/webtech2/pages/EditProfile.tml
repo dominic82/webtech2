@@ -12,7 +12,7 @@
             <table border="0" id="account_table">
                 <tr>
                     <td rowspan="4">
-                        <img src="${context:layout/images/sample_noavatar_big.jpg}" alt="avt"/>
+                        <img src="${UserImage}" alt="avatar"/> 
                     </td>
                     <td>
                         ${message:username}
@@ -38,13 +38,6 @@
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td>
-                        ${message:filehint}
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
                     <td>
                         ${message:password}
                     </td>

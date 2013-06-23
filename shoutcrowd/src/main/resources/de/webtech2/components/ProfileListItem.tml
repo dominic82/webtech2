@@ -9,7 +9,7 @@
         <div class="cline">
             <div class="shoutercell">
                 <div class="shout_img">
-                    <img src="${context:layout/images/sample_noavatar_small.jpg}" alt=""/>
+                    <img src="${UserImage}" alt="avatar"/> 
                 </div>
                 <div class="shout_name">
                     ${user.email}<br/>

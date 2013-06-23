@@ -2,19 +2,16 @@ package de.webtech2.pages;
 
 import de.webtech2.entities.Message;
 import de.webtech2.entities.User;
-import java.io.File;
+import java.util.ArrayList;
 
 import java.util.Date;
 import java.util.List;
 
 import org.apache.tapestry5.SelectModel;
-import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.corelib.components.BeanEditForm;
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.SelectModelFactory;
-import org.apache.tapestry5.upload.services.UploadedFile;
 
 import org.hibernate.Session;
 
@@ -23,15 +20,12 @@ import org.hibernate.Session;
  */
 public class Test {
 
-    /// Test von Dominic - Begin ///
     /// Edit Bean Beispiel
     @Inject
     private Session session;
     
     @Property
     private User user;
-    @InjectComponent
-    private BeanEditForm userForm;
     
     @Property
     private Message message;
@@ -39,8 +33,6 @@ public class Test {
     private User messageAuthor; 
 
     /// Grid Beispiel
-    @Property
-    private User currentUser;
     @Property
     private User followingUser;
     @Property
@@ -75,36 +67,27 @@ public class Test {
     private User followingUserFrom;
     @Property
     private User followingUserTo;
-    private boolean addFollowingUser;
     
     @Property
     private User invitingUserFrom;
     @Property
     private User invitingUserTo;
-    private boolean addInvitingUser;
 
-    void onSelectedFromAddFollowingUser() {
-        this.addFollowingUser = true;
-    }
-
-    void onSelectedFromAddInvitingUser() {
-        this.addInvitingUser = true;
+    @CommitAfter
+    Object onSuccessFromAddFollowingUser() {
+        followingUserFrom.getFollowingUsers().add(followingUserTo);
+        session.persist(followingUserFrom);
+        return Test.class;
     }
     
-    // Upload Picture Beispiel
-    @Property
-    private UploadedFile file;
-    private boolean uploadPicture;
-
-    void onSelectedFromUploadPicture() {
-        this.uploadPicture = true;
+    @CommitAfter
+    Object onSuccessFromAddInvitingUser() {
+        invitingUserFrom.getInvitingUsers().add(invitingUserTo);
+        session.persist(invitingUserFrom);
+        return Test.class;
     }
     
     // Create Message Beispiel
-
-    @Property
-    private boolean createMessage;
-    
     @Property
     private User userFrom;
     @Property
@@ -112,33 +95,42 @@ public class Test {
     @Property
     private String messageValue;
     
-    void onSelectedFromCreateMessage() {
-        this.createMessage = true;
-    }
-
-    // globale After Commit Methode
-    @SuppressWarnings("unchecked")
     @CommitAfter
-    Object onSuccess() {
-        if (addFollowingUser) {
-            followingUserFrom.getFollowingUsers().add(followingUserTo);
-            session.persist(followingUserFrom);
-        } else if (addInvitingUser) {
-            invitingUserFrom.getInvitingUsers().add(invitingUserTo);
-            session.persist(invitingUserFrom);
-        } else if (uploadPicture) {
-            File copied = new File("src/main/webapp/userpics/" + file.getFileName());
-            file.write(copied);
-        } else if (createMessage) {
-            Message newMessage = new Message();
-            newMessage.setAuthor(userFrom);
-            newMessage.setContent(messageValue);
-            newMessage.setTimeCreated(new Date());
-            session.persist(newMessage);
-        } else {
-            session.persist(user);
+    Object onSuccessFromCreateMessage() {
+        Message newMessage = new Message();
+        newMessage.setAuthor(userFrom);
+        newMessage.setContent(messageValue);
+        newMessage.setTimeCreated(new Date());
+        session.persist(newMessage);
+        return Test.class;
+    }
+    
+    
+    // Add Sample Users
+    @CommitAfter
+    Object onSuccessFromAddSampleUsers() {
+        List<String> names = new ArrayList<String>();
+        names.add("Dominic");
+        names.add("Dominik");
+        names.add("Nico");
+        names.add("Dennis");
+        names.add("Benny");
+        names.add("Betty");
+        names.add("Sylvia");
+        names.add("Anna");
+        names.add("Nicole");
+        names.add("Sophie");
+        
+        int i = 0;
+        for (String name : names) {
+            i++;
+            User newUser = new User();
+            newUser.setLoginname("test" + i);
+            newUser.setEmail("test" + i + "@webtech2.de");
+            newUser.setUsername(name);
+            newUser.setPassword("testpw");
+            session.persist(newUser);
         }
         return Test.class;
     }
-    /// Test von Dominic - End ///
 }

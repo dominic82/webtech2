@@ -8,7 +8,7 @@
         <!-- ein shout-->
         <div class="cline">
             <div class="shout_img">
-                <img src="${context:layout/images/sample_noavatar_small.jpg}" alt="avatar"/>
+                <img src="${UserImage}" alt="avatar"/> 
             </div>
             <div class="shout_name">
                 <t:pagelink page="viewProfile" context="message.author.id">${message.author.username}</t:pagelink>
