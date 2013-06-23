@@ -8,11 +8,15 @@ import java.util.List;
 import org.apache.tapestry5.annotations.ActivationRequestParameter;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 
 @RequiresLogin
 public class ViewList {
+    
+    @Inject
+    private Messages messages;
 
     @Inject
     private UserDAO userDAO;
@@ -67,6 +71,25 @@ public class ViewList {
         }
         
         this.userList.remove(userDAO.getById(this.authenticator.getLoggedUser().getId()));
+    }
+    
+    public String getListTitle() {
+        if (this.view.equals("following")) {
+            return messages.format("yourFollowing", this.userList.size());
+        }
+        if (this.view.equals("followed")) {
+            return messages.format("yourFollowed", this.userList.size());
+        }
+        if (this.view.equals("inInvites")) {
+            return messages.format("yourInInvites", this.userList.size());
+        }
+        if (this.view.equals("outInvites")) {
+            return messages.format("yourOutInvites", this.userList.size());
+        }
+        if (this.view.equals("search")) {
+            return messages.format("yourSearchResults", new Object[]{this.userList.size(),this.searchText});
+        }
+        return "";
     }
     
     public List<User> getUserList() {

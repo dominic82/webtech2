@@ -1,4 +1,4 @@
-<html t:type="layout" title="About shoutcrowd"
+<html t:type="layout" title="${message:title}"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
@@ -11,7 +11,7 @@
                 </t:if>
             </div>
             <div id="cright">
-                <t:pagination list="messageList" item="message" page="messagePage" amount="'6'"  
+                <t:pagination list="messageList" item="message" page="messagePage" amount="'8'"  
                     format="'first,previous,pages,next,last,bottom,top'" >
                     <t:SingleMessage message="message" />
                 </t:pagination>

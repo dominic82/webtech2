@@ -99,36 +99,73 @@ html,body {
     text-align: left;
     background-color: #ffffff;
 }
-
+.profileList .cline {
+    background-color: #EDF3D9;
+}
+.messageList .cline {
+    margin: 5px auto;
+}
 .shoutercell {
+    background-color: #ffffff;
     clear: both;
-    height: 70px;
-    margin-left:250px;
+    height: 66px;
+    width: 450px;
+    margin: 5px auto;
+}
+.shoutercell .shout_functions a {
+    background-color: #ffffff;
+    margin-left: 0;
+}
+.shoutercell .shout_functions a:hover {
+    background-color: #ffffff;
+    margin-left: 0;
+}
+.shoutercell .shout_name {
+    width: 260px;
+    margin-right: 2px;
 }
 .shout_img {
+    border: 1px solid #84B819;
     float:left;
     margin:2px;
+    height: 60px;
+    width: 60px;
+}
+.shout_name .left {
+    float: left;
+    color: #888888;
+}
+.shout_name .right {
+    float: right;
+    color: #888888;
+}
+.shout_name .left a {
+    color: #555555;
 }
 .shout_name {
     font-size: 12px;
     margin-top:2px;
-    margin-left:10px;
     padding:2px;
-    padding-left:5px;
-    float:left;
     color: #555555;
-    height:56px;
-    width:285px;
     background-color: #fff8a3;
+    height: 16px;
+    width: 300px;
+    float: right;
 }
 .shout_msg {
     padding: 5px;
-    margin: 5px;
+    margin-left: 65px;
     color: black;
-    clear:left;
+}
+.shout_date {
+    float: right;
+    padding:2px;
+    height: 10px;
+    text-align: right;
+    font-size: 10px;
 }
 .shout_functions {
-    float:left;
+    float:right;
 }
 
 .shout_functions a{
@@ -170,11 +207,65 @@ html,body {
     margin-left: 10px;
     font-size: 11px;
 }
-
-#login {
-    margin-left:335px;
-    text-align: left;
+#editAccount {
+    margin: 0 auto;
+    width: 610px;
+    text-align: center;
     font-size: 20px;
+    color: #888888;
+}
+#editAccount table td {
+    text-align: right;
+    color: #888888;
+}
+#editAccount table .td_center {
+    text-align: center;
+}
+#editAccount h1{
+    font-size: 35px;
+}
+#editAccount form input{
+    padding: 5px;
+    width: 300px;
+    height: 30px;
+    margin:10px;
+    color:black;
+}
+#createAccount {
+    margin: 0 auto;
+    width: 495px;
+    text-align: center;
+    font-size: 20px;
+    color: #888888;
+}
+#createAccount table td {
+    text-align: right;
+    color: #888888;
+}
+#createAccount table .td_center {
+    text-align: center;
+}
+#createAccount h1{
+    font-size: 35px;
+}
+#createAccount form input{
+    padding: 5px;
+    width: 300px;
+    height: 30px;
+    margin:10px;
+    color:black;
+}
+#login {
+    margin: 0 auto;
+    width: 425px;
+    text-align: center;
+    font-size: 20px;
+}
+#login table td {
+    text-align: right;
+}
+#login table .td_center {
+    text-align: center;
 }
 #login h1{
     font-size: 35px;
@@ -187,13 +278,7 @@ html,body {
     color:black;
 }
 
-#login_fail{
-    text-align: center;
-    font-size: 15px;
-    color: red;
-}
-
-#login_fail a{
+#login .button_link {
     text-align: center;
     margin-bottom:50px;
     margin-top: 25px;
@@ -207,7 +292,7 @@ html,body {
     background-color: white;
     color: #444444;
 }
-#login_fail a:focus,#login_fail a:hover{
+#login  .button_link:focus, #login .button_link:hover {
     margin-bottom:50px;
     margin-top: 25px;
     width: 180px;
@@ -237,10 +322,6 @@ html,body {
     background-color: #fff8a3;
 }
 
-#account_table {
-    margin-left:180px;
-}
-
 #profile_img {
     width: 120px;
     height: 120px;
@@ -249,14 +330,28 @@ html,body {
     margin: 10px;
 }
 
-#profile_name {
+#profile_data {
     margin-top: 10px;
     float:left;
+    font-size: 16px;
 }
-#profile_name h1{
+#profile_data .username {
     font-size: 20px;
+    font-weight: bold;
 }
-
+#profile_data .loginname {
+    font-size: 16px;
+}
+#profile_data .label {
+    color: #888888;
+    text-align: right;
+    font-size: 14px;
+}
+#profile_data .data {
+    color: #888888;
+    text-align: left;
+    font-size: 16px;
+}
 #profile_functions {
     margin-top: 10px;
     margin-right: 10px;
@@ -357,4 +452,34 @@ html,body {
 .avatar_link:hover {
     text-decoration: none;
     color: #000000;
+}
+.paginator {
+    height: 18px;
+    margin: 10px 0;
+}
+.paginatorLink {
+    font-size: 12px;
+    text-decoration: none;
+    border: 1px solid #84B819;
+    padding: 3px;
+    margin: 0px 2px;
+    
+}
+#wipeData {
+    text-align: center;
+    margin: 0 auto;
+    width: 500px;
+}
+#wipeData h1{
+    font-size: 25px;
+}
+#wipeData form input{
+    padding: 5px;
+    width: 300px;
+    height: 30px;
+    margin:10px;
+    color:black;
+}
+.t-error-icon {
+    display: none;
 }

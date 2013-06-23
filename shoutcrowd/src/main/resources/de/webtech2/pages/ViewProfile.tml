@@ -1,9 +1,10 @@
-<html t:type="layout" title="About shoutcrowd"
+<html t:type="layout" title="${user.username}'s Profile"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
     <body>
         <div id="cwrapper">
+
             <div id="cleft">
                 <t:ProfileDetails userId="user.id"/>
                 <t:if test="isLoggedUser">
@@ -11,11 +12,14 @@
                 </t:if>
             </div>
             <div id="cright">
-                <t:pagination list="messageList" item="message" page="messagePage" amount="'5'"  
-                    format="'first,previous,pages,next,last,bottom,top'" >
-                    <t:SingleMessage message="message" />
-                </t:pagination>
+                <div class="messageList">
+                    <t:pagination list="messageList" item="message" page="messagePage" amount="'8'"  
+                                  format="'first,previous,pages,next,last,bottom,top'" >
+                        <t:SingleMessage message="message" />
+                    </t:pagination>
+                </div>
             </div>
         </div>
+
     </body>
 </html>

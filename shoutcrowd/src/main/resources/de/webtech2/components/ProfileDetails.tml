@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
-    
+
     <body>
         <div class="cline" style="height:150px;">
             <div id="profile_img">
                 <img src="${UserImage}" alt="avatar"/> 
             </div>
-            <div id="profile_name">
-                
-                <h1>${user.username}</h1>
-                <t:if test="isLoggedUser">
-                    <b>userEmail:  </b>${user.email}<br/>
-                </t:if>
-                <b>userShoutCount: </b>${shoutcount}<br/>
+            <div id="profile_data">
+                <div>
+                    <span class="username">${user.username}</span>
+                    <span class="loginname"> @${user.loginname}</span>    
+                    <br/>
+                    <br/>
+                </div>
+                <table>
+                    <t:if test="isLoggedUser">
+                        <tr>
+                            <td class="label"><b>${message:userEmail}:  </b></td>
+                            <td class="data">${user.email}</td>
+                        </tr>
+                    </t:if>
+                    <tr>
+                        <td class="label"><b>${message:timeCreated}:  </b></td>
+                        <td class="data"><t:output format="message:dateFormat" value="user.timeCreated" /></td>
+                    </tr>
+                    <tr>
+                        <td class="label"><b>${message:lastLogin}:  </b></td>
+                        <td class="data"><t:output format="message:dateFormat" value="user.timeLastLogin" /></td>
+                    </tr>
+                </table>
             </div>
             <div id="profile_functions">
                 <t:if test="isLoggedUser">
-                    <t:pagelink class="button_link" page="EditProfile">editProfile</t:pagelink><br/>
-                    <t:pagelink class="button_link" page="viewProfile" context="user.id">ViewProfile</t:pagelink><br/>
+                    <t:pagelink class="button_link" page="EditProfile">${message:editProfile}</t:pagelink><br/>
+                    <t:pagelink class="button_link" page="viewProfile" context="user.id">${message:viewShouts} (${shoutcount})</t:pagelink><br/>
                     <br/>
-                    <t:pagelink class="button_link" page="ViewList" context="['outInvites','']">sentInvites (${sentinvitecount})</t:pagelink><br/>
-                    <t:pagelink class="button_link" page="ViewList" context="['inInvites','']">recievedInvites (${recivedinvitecount})</t:pagelink><br/>
+                    <t:pagelink class="button_link" page="ViewList" context="['outInvites','']">${message:sentInvites} (${sentinvitecount})</t:pagelink><br/>
+                    <t:pagelink class="button_link" page="ViewList" context="['inInvites','']">${message:recievedInvites} (${recivedinvitecount})</t:pagelink><br/>
                 </t:if>
                 <t:unless test="isLoggedUser">
                     <t:ProfileActions userId="user.id" />
                 </t:unless>
             </div>
+            <div style="clear: both;"></div>
         </div>
     </body>
 </html>

@@ -3,9 +3,9 @@
       xmlns:p="tapestry:parameter">
 
     <body>
-        <div id="login">
+        <div id="wipeData">
             <h1>
-                To Delete <u><b>ALL Data</b></u> enter Reset-Code!
+                ${message:wipeInfo}
             </h1>
             <form t:type="form" t:id="resetForm">
                 <t:errors/>

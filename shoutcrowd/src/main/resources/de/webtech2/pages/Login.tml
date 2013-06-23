@@ -4,23 +4,29 @@
 
     <body>
         <div id="login">
-            <h1>
-                Login now!
-            </h1>
+            <h1>${message:loginHeader}</h1>
             <form t:type="form" t:id="loginForm">
                 <t:errors/>
-
-                <t:label for="loginname"/>:
-                <input t:type="TextField" t:id="loginname" value="loginname" t:validate="required,minlength=3" size="30"/>
-                <br/>
-                <t:label for="password"/>:
-                <input t:type="PasswordField" t:id="password" value="password" t:validate="required,minlength=3" size="30"/>
-                <br/>
-                <input type="submit" value="Login"/>
+                <table>
+                    <tr>
+                        <td><t:label for="loginname"/></td>
+                    <td><input t:type="TextField" t:id="loginname" value="loginname" t:validate="required,minlength=3" size="30"/></td>
+                    </tr>
+                    <tr>
+                        <td><t:label for="password"/></td>
+                    <td><input t:type="PasswordField" t:id="password" value="password" t:validate="required,minlength=3" size="30"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="td_center"><input type="submit" value="${message:LoginSubmit}"/></td>
+                    </tr>
+                    <tr>
+                        <td class="td_center" colspan="2">
+                            <t:pagelink class="button_link" page="createAccount">${message:registerNow}</t:pagelink>
+                        </td>
+                    </tr>
+                </table>
             </form>
-        </div>
-        <div id="login_fail">
-            <t:pagelink class="button_link" page="createAccount">register now!</t:pagelink>
         </div>
     </body>
 </html>

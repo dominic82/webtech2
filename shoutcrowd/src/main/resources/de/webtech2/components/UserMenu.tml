@@ -15,20 +15,20 @@
         </div>
         <div id="header_center">
             <t:if test="userIsLoggedIn">
-                <t:pagelink class="button_link" page="ViewList" context="['following','']">Idols ${idolcount}</t:pagelink>
-                <t:pagelink class="button_link" page="ViewList" context="['followed','']">Fans ${fancount}</t:pagelink>
-                <t:pagelink class="button_link" page="Home" >Home</t:pagelink>
+                <t:pagelink class="button_link" page="ViewList" context="['following','']">${message:followingList} ${idolcount}</t:pagelink>
+                <t:pagelink class="button_link" page="ViewList" context="['followed','']">${message:followedList} ${fancount}</t:pagelink>
+                <t:pagelink class="button_link" page="Home" >${message:home}</t:pagelink>
             </t:if>
         </div>
         <div id="header_right">
             <t:if test="userIsLoggedIn">
                 <form t:type="form" t:id="searchForm" style="float:left;">
-                    <input t:type="TextField" t:id="searchText" t:value="searchText" placeholder="search User" style="width: 150px;" />
+                    <input t:type="TextField" t:id="searchText" t:value="searchText" placeholder="${message:placeHolderSearch}" style="width: 150px;" />
                     <t:submit t:id="searchSubmit" value="Search" style="display: none;" />
                 </form>
-                <a href="#" class="button_link" t:type="actionlink" t:id="logout" id="logout">Logout</a>
+                <a href="#" class="button_link" t:type="actionlink" t:id="logout" id="logout">${message:logout}</a>
                 <p:else>
-                    <t:pagelink class="button_link" page="Login">Login</t:pagelink>
+                    <t:pagelink class="button_link" page="Login">${message:login}</t:pagelink>
                 </p:else>
             </t:if>
         </div>

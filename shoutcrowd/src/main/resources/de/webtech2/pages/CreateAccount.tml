@@ -1,60 +1,65 @@
 <html t:type="layout" title="${message:title}"
-xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-xmlns:p="tapestry:parameter">
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
 
-	<body>
-		<h1>${message:title}</h1>
-		<p>${message:greeting}</p>
-		<form t:type="form" t:id="entryForm">
-			<t:errors/>
-			<table border="0" id="account_table">
-				<tr>
-					<td>
-						${message:loginname}
-					</td>
-					<td>
-						<t:textfield t:id="loginname" value="loginname" t:validate="required" minlength="4" placeholder="${message:loginnameplaceholder}"/>
-					</td>
-				</tr>
-                                <tr>
-                                        <td></td><td>${message:loginnamehint}</td>
-                                </tr>
-				<tr>
-					<td>
-						${message:username}
-					</td>
-					<td>
-						<t:textfield t:id="username" value="username" t:validate="required" minlength="4" placeholder="${message:usernameplaceholder}"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						${message:email}
-					</td>
-					<td>
-						<t:textfield t:id="email" value="email" t:validate="required" placeholder="${message:emailplaceholder}"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						${message:password}
-					</td>
-					<td>
-						<t:passwordfield t:id="password" value="password" t:validate="required" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						${message:passwordrepeat}
-					</td>
-					<td>
-						<t:passwordfield t:id="passwordRepeat" value="passwordRepeat" t:validate="required" minlength="6" placeholder="${message:passwordrepeatplaceholder}"/>
-	
-					</td>
-				</tr>
-			</table>
-			<input type="submit" value="${message:submit}"/>
-	
-		</form>
-	</body>
+    <body>
+        <div id="createAccount">
+            <h1>${message:title}</h1>
+            <p>${message:greeting}</p>
+            <form t:type="form" t:id="entryForm">
+                <t:errors/>
+                <table border="0">
+                    <tr>
+                        <td><t:label for="loginname"/></td>
+                    <td>
+                    <t:textfield t:id="loginname" value="loginname" t:validate="required" minlength="4" placeholder="${message:loginnameplaceholder}"/>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: right; color: red;">${message:loginnamehint}</td>
+                    </tr>
+                    <tr>
+                        <td><t:label for="username"/></td>
+                    <td>
+                    <t:textfield t:id="username" value="username" t:validate="required" minlength="4" placeholder="${message:usernameplaceholder}"/>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td><t:label for="email"/></td>
+                    <td>
+                    <t:textfield t:id="email" value="email" t:validate="required" placeholder="${message:emailplaceholder}"/>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td><t:label for="password"/></td>
+                    <td>
+                    <t:passwordfield t:id="password" value="password" t:validate="required" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td><t:label for="passwordRepeat"/></td>
+                    <td>
+                    <t:passwordfield t:id="passwordRepeat" value="passwordRepeat" t:validate="required" minlength="6" placeholder="${message:passwordrepeatplaceholder}"/>
+
+                    </td>
+                    </tr>
+<!--                    <tr>
+                        <td></td>
+                        <td class="td_center">
+                            <t:kaptchaimage t:id="kaptcha"/>
+                            <br/>
+                            <t:kaptchafield image="kaptcha"/>
+                        </td>
+                    </tr>-->
+                    <tr>
+                        <td></td>
+                        <td class="td_center">
+                            <input type="submit" value="${message:submit}"/>
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+    </body>
 </html>

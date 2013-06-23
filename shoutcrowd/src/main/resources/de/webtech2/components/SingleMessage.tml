@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
@@ -8,10 +8,19 @@
         <!-- ein shout-->
         <div class="cline">
             <div class="shout_img">
-                <img src="${UserImage}" alt="avatar"/> 
+                <img src="${UserImage}" alt="message:avatar"/> 
             </div>
             <div class="shout_name">
-                <t:pagelink page="viewProfile" context="message.author.id">${message.author.username}</t:pagelink>
+                <div class="left">
+                    <t:pagelink page="viewProfile" context="message.author.id">${message.author.username}</t:pagelink>
+                    @${message.author.loginname}
+                </div>
+                <div class="right">
+                    ${timeDiff}
+                </div>
+                <span style="clear: both;"></span>
+            </div>
+            <div class="shout_date">
                 <t:output format="message:dateFormat" value="message.timeCreated" />
             </div>
             <div class="shout_msg">
@@ -19,6 +28,7 @@
                     ${messageLine} <br/> 
                 </t:Loop> 
             </div>
+            <div style="clear: both;"></div>
         </div>
         <!-- ein shout zuende -->
     </body>

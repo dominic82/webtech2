@@ -1,23 +1,21 @@
-<html t:type="layout" title="About shoutcrowd"
+<html t:type="layout" title="${listTitle}"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
     <body>
         <div id="cwrapper">
-            <h1>View: ${view}</h1>
+            <div class="profileList">
+                <h1>${listTitle}:</h1>
 
-            
-            <t:if test="hasResults">
-                Anzahl: ${resultCount}
-                <p:else>
-                    Keine Einträge!
-                </p:else>
-            </t:if>
+                <t:unless test="hasResults">
+                    ${message:noEntries}
+                </t:unless>
 
-            <t:pagination list="userList" item="user" page="userPage" amount="'8'"  
-                format="'first,previous,pages,next,last,bottom,top'" >
-                <t:ProfileListItem user="user" />
-            </t:pagination>
+                <t:pagination list="userList" item="user" page="userPage" amount="'6'"  
+                              format="'first,previous,pages,next,last,bottom,top'" >
+                    <t:ProfileListItem user="user" />
+                </t:pagination>
+            </div>
         </div>
     </body>
 

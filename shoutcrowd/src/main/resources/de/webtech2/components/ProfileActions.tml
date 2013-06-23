@@ -6,20 +6,20 @@
     
     <body>
         <t:if test="viewFollowing">
-            <a href="#" t:type="actionlink" t:id="doDeleteFollowing" id="doDeleteFollowing" t:context="user.id">Unfollow Idol</a><br/>
+            <div><a href="#" t:type="actionlink" t:id="doDeleteFollowing" id="doDeleteFollowing" t:context="user.id">${message:deleteFollowing}</a></div>
         </t:if>
         <t:if test="viewFollowed">
-            <a href="#" t:type="actionlink" t:id="doDeleteFollowed" id="doDeleteFollowed" t:context="user.id">Unfollow Fan</a><br/>
+            <div><a href="#" t:type="actionlink" t:id="doDeleteFollowed" id="doDeleteFollowed" t:context="user.id">${message:deleteFollowed}</a></div>
         </t:if>
         <t:if test="viewInInvites">
-            <a href="#" t:type="actionlink" t:id="doAcceptInInvite" id="doAcceptInInvite" t:context="user.id">Accept Invite from Idol</a><br/>
-            <a href="#" t:type="actionlink" t:id="doCancelInInvite" id="doCancelInInvite" t:context="user.id">Cancel Invite from Idol</a><br/>
+            <div><a href="#" t:type="actionlink" t:id="doAcceptInInvite" id="doAcceptInInvite" t:context="user.id">${message:acceptInInvite}</a></div>
+            <div><a href="#" t:type="actionlink" t:id="doCancelInInvite" id="doCancelInInvite" t:context="user.id">${message:cancelInInvite}</a></div>
         </t:if>
         <t:if test="viewOutInvites">
-            <a href="#" t:type="actionlink" t:id="doCancelOutInvite" id="doCancelOutInvite" t:context="user.id">Cancel sent Invite</a><br/>
+            <div><a href="#" t:type="actionlink" t:id="doCancelOutInvite" id="doCancelOutInvite" t:context="user.id">${message:cancelOutInvite}</a></div>
         </t:if>
         <t:if test="viewSendInvite">
-            <a href="#" t:type="actionlink" t:id="doSendInvite" id="doSendInvite" t:context="user.id">Send Invite</a><br/>
+            <div><a href="#" t:type="actionlink" t:id="doSendInvite" id="doSendInvite" t:context="user.id">${message:sendOutInvite}</a></div>
         </t:if>
     </body>
 </html>

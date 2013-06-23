@@ -3,68 +3,63 @@
       xmlns:p="tapestry:parameter">
 
     <body>
-        <h1>${message:title}</h1>
-        ${message:head}
-        <p> </p>
-        <p> </p>
-        <form t:type="form" t:id="entryForm">
-            <t:errors/>
-            <table border="0" id="account_table">
-                <tr>
+        <div id="editAccount">
+            <h1>${message:title}</h1>
+            <p>${message:head}</p>
+            <form t:type="form" t:id="entryForm">
+                <t:errors/>
+                <table border="0" id="account_table">
+                    <tr>
+
+                        <td><t:label for="username"/></td>
+                    <td>
+                    <t:textfield t:id="username" value="username" t:validate="required" minlength="4" />
+                    </td>
                     <td rowspan="4">
                         <img src="${UserImage}" alt="avatar"/> 
                     </td>
+                    </tr>
+                    <tr>
+                        <td><t:label for="email"/></td>
                     <td>
-                        ${message:username}
+                    <t:textfield t:id="email" value="email" t:validate="required" />
                     </td>
+                    </tr>
+                    <tr>
+                        <td>${message:changepicture}</td>
+                        <td>
+                            <input t:type="upload" t:id="fileField" t:value="fileField"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><t:label for="password"/></td>
                     <td>
-                        <t:textfield t:id="username" value="username" t:validate="required" minlength="4" />
+                    <t:passwordfield t:id="password" value="password" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
                     </td>
-                </tr>
-                <tr>
+                    </tr>
+                    <tr>
+                        
+                        <td><t:label for="passwordRepeat"/></td>
                     <td>
-                        ${message:email}
+                    <t:passwordfield t:id="passwordRepeat" value="passwordRepeat" minlength="6" placeholder="${message:passwordrepeatplaceholder}"/>
                     </td>
-                    <td>
-                        <t:textfield t:id="email" value="email" t:validate="required" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        ${message:changepicture}
-                    </td>
-                    <td>
-                        <input t:type="upload" t:id="fileField" t:value="fileField"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        ${message:password}
-                    </td>
-                    <td>
-                        <t:passwordfield t:id="password" value="password" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
-                    </td>
-                </tr>
-                <tr>
                     <td></td>
-                    <td>
-                        ${message:passwordrepeat}
-                    </td>
-                    <td>
-                        <t:passwordfield t:id="passwordRepeat" value="passwordRepeat" minlength="6" placeholder="${message:passwordrepeatplaceholder}"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="2">
-                        ${message:passwordhint}
-                    </td>
-                </tr>
-                
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: right; color: red;">
+                            ${message:passwordhint}
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="td_center">
+                            <input type="submit" value="${message:submit}"/>
+                        </td>
+                        <td></td>
+                    </tr>
                 </table>
-         
-                <p> </p>
-                <input type="submit" value="${message:submit}"/>
-        </form>
+            </form>
+        </div>
     </body>
 </html>

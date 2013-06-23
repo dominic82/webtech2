@@ -1,81 +1,76 @@
 <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
     <body>
+        <t:if test="renderTopPaginator">
+            <div class="paginator">
 
-        <div class="pagination">
+                <t:if test="renderFirst">
+                    <a href="${getPageLink('1')}" class="paginatorLink"> ${message:first} </a>
+                </t:if>
 
-            <t:if test="renderTopPaginator">
-                <div class="paginator">
-                
-                    <t:if test="renderFirst">
-                        <a href="${getPageLink('1')}" class="paginatorLink"> first </a>
-                    </t:if>
+                <t:if test="renderPrevious">
+                    <a href="${getPageLink(prevPage)}" class="paginatorLink"> ${message:previous} </a>
+                </t:if>
 
-                    <t:if test="renderPrevious">
-                        <a href="${getPageLink(prevPage)}" class="paginatorLink"> previous </a>
-                    </t:if>
+                <t:if test="renderPages">
+                    <t:Loop t:source="pageList" t:value="pageItem"> 
+                        <t:if test="SelectedPage">
+                            <a href="${getPageLink(pageItem)}" class="paginatorLink"> <b>${pageItem}</b> </a>
+                        </t:if>
+                        <t:unless test="SelectedPage">
+                            <a href="${getPageLink(pageItem)}" class="paginatorLink"> ${pageItem} </a>
+                        </t:unless>
+                    </t:Loop>
+                </t:if>
 
-                    <t:if test="renderPages">
-                        <t:Loop t:source="pageList" t:value="pageItem"> 
-                            <t:if test="SelectedPage">
-                                <a href="${getPageLink(pageItem)}" class="paginatorLink"> <b><u>${pageItem}</u></b> </a>
-                            </t:if>
-                            <t:unless test="SelectedPage">
-                                <a href="${getPageLink(pageItem)}" class="paginatorLink"> ${pageItem} </a>
-                            </t:unless>
-                        </t:Loop>
-                    </t:if>
+                <t:if test="renderNext">
+                    <a href="${getPageLink(nextPage)}" class="paginatorLink"> ${message:next} </a>
+                </t:if>
 
-                    <t:if test="renderNext">
-                        <a href="${getPageLink(nextPage)}" class="paginatorLink"> next </a>
-                    </t:if>
+                <t:if test="renderLast">
+                    <a href="${getPageLink(lastPage)}" class="paginatorLink"> ${message:last} </a>
+                </t:if>
 
-                    <t:if test="renderLast">
-                        <a href="${getPageLink(lastPage)}" class="paginatorLink"> last </a>
-                    </t:if>
+            </div>
+        </t:if>
+        
+        <t:body />
 
-                </div>
-            </t:if>
+        <t:if test="renderBottomPaginator">
+            <div class="paginator">
 
-            <t:body />
+                <t:if test="renderFirst">
+                    <a href="${getPageLink('1')}" class="paginatorLink"> first </a>
+                </t:if>
 
-            <t:if test="renderBottomPaginator">
-                <div class="paginator">
-                
-                    <t:if test="renderFirst">
-                        <a href="${getPageLink('1')}" class="paginatorLink"> first </a>
-                    </t:if>
+                <t:if test="renderPrevious">
+                    <a href="${getPageLink(prevPage)}" class="paginatorLink"> previous </a>
+                </t:if>
 
-                    <t:if test="renderPrevious">
-                        <a href="${getPageLink(prevPage)}" class="paginatorLink"> previous </a>
-                    </t:if>
+                <t:if test="renderPages">
+                    <t:Loop t:source="pageList" t:value="pageItem"> 
+                        <t:if test="SelectedPage">
+                            <a href="${getPageLink(pageItem)}" class="paginatorLink"> <b>${pageItem}</b> </a>
+                        </t:if>
+                        <t:unless test="SelectedPage">
+                            <a href="${getPageLink(pageItem)}" class="paginatorLink"> ${pageItem} </a>
+                        </t:unless>
+                    </t:Loop>
+                </t:if>
 
-                    <t:if test="renderPages">
-                        <t:Loop t:source="pageList" t:value="pageItem"> 
-                            <t:if test="SelectedPage">
-                                <a href="${getPageLink(pageItem)}" class="paginatorLink"> <b><u>${pageItem}</u></b> </a>
-                            </t:if>
-                            <t:unless test="SelectedPage">
-                                <a href="${getPageLink(pageItem)}" class="paginatorLink"> ${pageItem} </a>
-                            </t:unless>
-                        </t:Loop>
-                    </t:if>
+                <t:if test="renderNext">
+                    <a href="${getPageLink(nextPage)}" class="paginatorLink"> next </a>
+                </t:if>
 
-                    <t:if test="renderNext">
-                        <a href="${getPageLink(nextPage)}" class="paginatorLink"> next </a>
-                    </t:if>
+                <t:if test="renderLast">
+                    <a href="${getPageLink(lastPage)}" class="paginatorLink"> last </a>
+                </t:if>
 
-                    <t:if test="renderLast">
-                        <a href="${getPageLink(lastPage)}" class="paginatorLink"> last </a>
-                    </t:if>
-
-                </div>
-            </t:if>
-
-        </div>
+            </div>
+        </t:if>
     </body>
 </html>
