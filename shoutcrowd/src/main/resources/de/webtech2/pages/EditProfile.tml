@@ -22,7 +22,6 @@
                     </td>
                 </tr>
                 <tr>
-               
                     <td>
                         ${message:email}
                     </td>
@@ -31,22 +30,41 @@
                     </td>
                 </tr>
                 <tr>
-               
+                    <td>
+                        ${message:changepicture}
+                    </td>
+                    <td>
+                        <input t:type="upload" t:id="fileField" t:value="fileField"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        ${message:filehint}
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
                     <td>
                         ${message:password}
                     </td>
-                        ${message:passwordhint}
                     <td>
                         <t:passwordfield t:id="password" value="password" minlength="6" placeholder="${message:passwordplaceholder}"/><br/>
                     </td>
                 </tr>
                 <tr>
-               
+                    <td></td>
                     <td>
                         ${message:passwordrepeat}
                     </td>
                     <td>
                         <t:passwordfield t:id="passwordRepeat" value="passwordRepeat" minlength="6" placeholder="${message:passwordrepeatplaceholder}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2">
+                        ${message:passwordhint}
                     </td>
                 </tr>
                 

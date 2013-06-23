@@ -2,6 +2,7 @@ package de.webtech2.components;
 
 import de.webtech2.dao.UserDAO;
 import de.webtech2.entities.User;
+import de.webtech2.pages.ViewUserImage;
 import de.webtech2.pages.ViewList;
 import de.webtech2.services.Authenticator;
 import org.apache.tapestry5.annotations.InjectPage;
@@ -19,6 +20,9 @@ public class ProfileDetails
     
     @InjectPage
     private ViewList viewListPage;
+    
+    @InjectPage
+    private ViewUserImage viewUserImagePage;
     
     @Parameter
     private Long userId;
@@ -50,6 +54,8 @@ public class ProfileDetails
         return user.getInvitedUsers().size();
     }
     
-    
+    public String getUserImage() {
+        return viewUserImagePage.getImageLink(this.userId,false).toString();
+    }
     
 }

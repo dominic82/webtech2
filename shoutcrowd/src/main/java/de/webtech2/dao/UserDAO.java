@@ -25,6 +25,7 @@ public interface UserDAO {
     
     void create(String loginname, String username, String email, String password);
     void update(Long id, String username, String email, String password);
+    void updateImageAvatar(Long id, byte[] imageAvatar);
     
     List<User> searchByUsername(String username);
     List<User> list();

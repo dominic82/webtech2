@@ -97,4 +97,10 @@ public class UserDAOImpl implements UserDAO {
         user.setLogincount(user.getLogincount() + 1);
         session.update(user);
     }
+
+    public void updateImageAvatar(Long id, byte[] imageAvatar) {
+        User user = this.getById(id);
+        user.setImageAvatar(imageAvatar);
+        session.update(user);
+    }
 }

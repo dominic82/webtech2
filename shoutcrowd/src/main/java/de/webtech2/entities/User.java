@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -67,6 +68,9 @@ public class User extends PaginationItem {
     @Temporal(TemporalType.TIMESTAMP)
     private Date timeLastLogin;
     
+    @Lob
+    private byte[] imageAvatar;
+
     @OneToMany(mappedBy="author",cascade = {CascadeType.ALL})  
     private List<Message> messages;
     
@@ -94,6 +98,8 @@ public class User extends PaginationItem {
         this.email = "";
         this.password = "";
         this.logincount = 0;
+        
+        this.imageAvatar = new byte[0];
         
         this.timeCreated = new Date();
         this.timeModified = new Date();
@@ -147,6 +153,14 @@ public class User extends PaginationItem {
 
     public void setLogincount(Integer logincount) {
         this.logincount = logincount;
+    }
+    
+    public byte[] getImageAvatar() {
+        return imageAvatar;
+    }
+
+    public void setImageAvatar(byte[] imageAvatar) {
+        this.imageAvatar = imageAvatar;
     }
 
     public String getPassword() {

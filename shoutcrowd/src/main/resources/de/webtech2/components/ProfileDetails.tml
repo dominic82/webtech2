@@ -7,10 +7,10 @@
     <body>
         <div class="cline" style="height:150px;">
             <div id="profile_img">
-                <img src="${context:layout/images/sample_noavatar_big.jpg}" alt="avt"/>
+                <img src="${UserImage}" alt="avatar"/> 
             </div>
             <div id="profile_name">
-
+                
                 <h1>${user.username}</h1>
                 <t:if test="isLoggedUser">
                     <b>userEmail:  </b>${user.email}<br/>

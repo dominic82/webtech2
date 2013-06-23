@@ -18,6 +18,13 @@ import de.webtech2.annotations.RequiresLogin;
 import de.webtech2.dao.UserDAO;
 import de.webtech2.entities.User;
 import de.webtech2.services.Authenticator;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.tapestry5.upload.services.UploadedFile;
 
 @RequiresLogin
 public class EditProfile {
@@ -47,6 +54,8 @@ public class EditProfile {
     @InjectComponent(value = "email")
     private TextField emailField;
     boolean newPassowrd = false;
+    @Property
+    private UploadedFile fileField;
 
     void onValidateFromEntryForm() {
         validatePassword();
@@ -62,7 +71,7 @@ public class EditProfile {
             if (password.length() < 6) {
                 entryForm.recordError(passwordField, messages.get("error-passwordtoshort"));
             }
-            
+
             newPassowrd = true;
         } else {
             newPassowrd = false;
@@ -121,8 +130,16 @@ public class EditProfile {
         if (!newPassowrd) {
             password = user.getPassword();
         }
-
         userDAO.update(userId, username, email, password);
+        
+        byte[] bFile = new byte[(int) this.fileField.getSize()];
+        try {
+            this.fileField.getStream().read(bFile);
+        } catch (IOException ex) {
+            Logger.getLogger(EditProfile.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        userDAO.updateImageAvatar(userId, bFile);
+        
         return Home.class;
     }
 }
