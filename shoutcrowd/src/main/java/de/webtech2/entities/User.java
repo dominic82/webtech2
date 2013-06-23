@@ -28,7 +28,7 @@ import org.hibernate.annotations.NaturalId;
 {
     @NamedQuery(name = User.BY_LOGINNAME_OR_EMAIL, query = "Select u from User u where u.loginname = :loginname or u.email = :email"),
     @NamedQuery(name = User.BY_CREDENTIALS, query = "Select u from User u where (u.loginname = :loginname or u.email = :loginname) and u.password = :password"),
-    @NamedQuery(name = User.LIKE_USERNAME, query = "Select u from User u where u.username like :username") 
+    @NamedQuery(name = User.LIKE_USERNAME, query = "Select u from User u where lower(u.username) LIKE lower(:username)") 
 })
 @Table(name="USER")
 public class User extends PaginationItem {
