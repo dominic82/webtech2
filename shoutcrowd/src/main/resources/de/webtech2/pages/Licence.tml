@@ -5,6 +5,27 @@
         <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
 
 <body>
+<div class="cline" style="text-align: center;">
+    <h1 style="font-size:35px;">${message:licenceHeader}</h1>
 
+<p class="lagreement" >
+        <pre class="lagreement">${message:c1}</pre>
+     </p>
+<p class="lagreement" >
+        <pre class="lagreement">${message:c2}</pre>
+     </p>
+<p class="lagreement" >
+        <pre class="lagreement">${message:c3}</pre>
+     </p>
+<p class="lagreement">
+        <pre class="lagreement">${message:c4}</pre>
+     </p>
+<p class="lagreement">
+        <pre class="lagreement">${message:c5}</pre>
+     </p>
+<p class="lagreement">
+        <pre class="lagreement">${message:c6}</pre>
+     </p>
+</div>
 </body>
 </html>

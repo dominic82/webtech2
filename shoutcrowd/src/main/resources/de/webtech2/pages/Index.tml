@@ -4,13 +4,17 @@
       xmlns:p="tapestry:parameter">
         <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
 
-<body>
-    <h1>Welcome to ShoutCrowd</h1>
-    <p>
-        Please
-        <t:pagelink class="button_link" page="createAccount">register now!</t:pagelink>
-        or just
-        <t:pagelink class="button_link" page="Login">login</t:pagelink>
-    </p>
-</body>
+<div class="imprint">
+    <div id="loginscreen">
+        <div id="firstview">
+            <h2 style="font-size: 35px;">Welcome to ShoutCrowd</h2>
+                <t:pagelink class="button_link" page="Login" style="width:200px; height: 27px; font-size:20px;">login</t:pagelink><br/>
+                <br/>
+                <strong> OR </strong> <br/>
+                <br/>
+                <t:pagelink class="button_link" page="createAccount" style="width:200px; height: 27px; font-size:20px;">register</t:pagelink><br/>
+        </div>
+    </div>
+</div>
+
 </html>

@@ -1,5 +1,5 @@
 * {
-    color: #888888;
+    color: #334433;
     font-family: arial, helvetica, sans-serif;
     font-size:14px;
 }
@@ -55,6 +55,27 @@ html,body {
     margin-right: 20px;
     float:right;
 }
+#loginscreen {
+    margin-top: 0px;
+    background-image: url('images/loginscreen2.png'); 
+    width:1000px; 
+    height:556px;
+}
+#firstview {
+    color: black;
+    padding-top: 30px;
+    border: 2px dotted #334433; 
+    width: 500px; 
+    height: 260px; 
+    margin-top: auto;
+    margin-left: auto; 
+    margin-right: auto;
+    position: relative;
+    background: rgba(240, 255, 185, .8);
+    text-align: center;
+   
+}
+
 .button_link{
     width: 80px;
     height: 15px;
@@ -133,11 +154,11 @@ html,body {
 }
 .shout_name .left {
     float: left;
-    color: #888888;
+    color: #334433;
 }
 .shout_name .right {
     float: right;
-    color: #888888;
+    color: #334433;
 }
 .shout_name .left a {
     color: #555555;
@@ -207,16 +228,30 @@ html,body {
     margin-left: 10px;
     font-size: 11px;
 }
+
+.imprint {
+    width: 100%;
+    text-align: left;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+.lagreement {
+    width: 620px;
+    text-align: left;
+    margin-left:auto; 
+    margin-right:auto;
+}
 #editAccount {
     margin: 0 auto;
     width: 610px;
     text-align: center;
     font-size: 20px;
-    color: #888888;
+    color: #334433;
 }
 #editAccount table td {
     text-align: right;
-    color: #888888;
+    color: #334433;
 }
 #editAccount table .td_center {
     text-align: center;
@@ -236,11 +271,11 @@ html,body {
     width: 495px;
     text-align: center;
     font-size: 20px;
-    color: #888888;
+    color: #334433;
 }
 #createAccount table td {
     text-align: right;
-    color: #888888;
+    color: #334433;
 }
 #createAccount table .td_center {
     text-align: center;
@@ -343,12 +378,12 @@ html,body {
     font-size: 16px;
 }
 #profile_data .label {
-    color: #888888;
+    color: #334433;
     text-align: right;
     font-size: 14px;
 }
 #profile_data .data {
-    color: #888888;
+    color: #334433;
     text-align: left;
     font-size: 16px;
 }

@@ -5,6 +5,51 @@
         <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
 
 <body>
+<div class="cline" style="text-align: center;">
+    <h1 style="font-size:35px;">${message:ImprintHeader}</h1>
+    <p class="imprint">
+        <strong>${message:operator}</strong>
+     </p>
+     <p class="imprint" >
+        ${message:coperator}<br/>
+        ${message:coperator2}<br/>
+        ${message:coperator3}<br/>
+        ${message:coperator4}
+    </p>
+                            <p class="imprint">
+                                <strong>${message:limit}</strong>
+                            </p>
+                            <p class="imprint">
+                                ${message:climit}
+                            </p>
+                            <p class="imprint">
+                                ${message:climit2}
+                            </p>
+                            <p class="imprint">
+                                <strong>${message:external}</strong>
+                            </p>
+                            <p class="imprint">
+                                ${message:cexternal}
+                            </p>
+                            <p class="imprint">
+                                <strong>${message:copy}</strong>
+                            </p>
+                            <p class="imprint">
+                                ${message:ccopy}
+                            </p>
+                            <p class="imprint">
+                                <strong>${message:data}</strong>
+                            </p>
+                            <p class="imprint">
+                                ${message:cdata}
+                            </p>
+                            <p class="imprint">
+                                ${message:cdata2}
+                            </p>
+                            <p class="imprint">
+                                ${message:cdata3}
+                            </p>
 
+                </div>
 </body>
 </html>
