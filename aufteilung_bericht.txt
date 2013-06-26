@@ -1,0 +1,29 @@
+Aufteilung über Bereiche des Berichtes:
+
+[Dominic] 
+(Spezielles/Datanbank)
+- Authentifizierung (Annotation)
+- Datebank (Entities, DAOs, Bilder in DB)
+- Pagination
+
+
+[Dominik]
+(LeanLib-Testen)
+- warum welche Sub-Graphen, etc.
+- Probleme
+(Zusammenfassung/Schluss)
+- Zusammenfassung
+
+
+[Nico]
+(Design)
+- Usability (Design, Struktur (Links))
+- Entscheidungen warum welche Page/Component
+
+
+[Dennis] 
+(quasi Einleitendes)
+- Anfang (Vorüberlegungen, Planung, Probleme)
+- Projekt-/Team-Planung
+- bissl was zu Git/gitHub
+
