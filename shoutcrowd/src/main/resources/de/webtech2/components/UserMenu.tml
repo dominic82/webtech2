@@ -24,7 +24,7 @@
             <t:if test="userIsLoggedIn">
                 <form t:type="form" t:id="searchForm" style="float:left;">
                     <input t:type="TextField" t:id="searchText" t:value="searchText" placeholder="${message:placeHolderSearch}" style="width: 150px;" />
-                    <t:submit t:id="searchSubmit" value="Search" style="display: none;" />
+                    <t:submit t:id="searchSubmit" value="Search"/>
                 </form>
                 <a href="#" class="button_link" t:type="actionlink" t:id="logout" id="logout">${message:logout}</a>
                 <p:else>
