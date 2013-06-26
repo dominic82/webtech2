@@ -1,0 +1,92 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BITTE IN UTF-8 OEFFNEN %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[xcolor={usenames,dvipsnames}, compress, 10pt]{beamer}
+
+\usepackage[ngerman] {babel}
+\usepackage[utf8] {inputenc}
+
+\usepackage{tikz}
+\usepackage{graphics}
+\usepackage{BeamerColor}
+\usepackage{expdlist} 
+\usepackage{eurosym}
+
+\usetheme{Warsaw}
+\usefonttheme{professionalfonts}
+
+\usecolortheme[named=SteelBlue3]{structure}
+
+\usepackage{ownTheme}
+\setbeamertemplate{footline}[infolines theme]
+\setbeamertemplate{headline}[miniframes theme]
+\setbeamercovered{transparent=8}
+
+%Mehrzeilige Kommentare
+\usepackage{verbatim}
+
+%Code
+\usepackage{listings}
+%fuer fette typewriter Schrift
+\renewcommand{\ttdefault}{pcr}
+
+%Farben (benoetigt fuer listings)
+\usepackage{color}
+%\usepackage[usenames,dvipsnames]{xcolor}
+
+%vor jeder lstlisting-Umgebung aufrufen, 1. caption, 2. label
+\newcommand{\javalstset}{
+\lstset{% general command to set parameter(s)
+	basicstyle=\small\ttfamily, % print whole listing small
+	keywordstyle=\color{DarkOrchid}\bfseries,
+	% underlined bold black keywords
+	identifierstyle=, % nothing happens
+	commentstyle=\color{Gray}, % white comments
+	stringstyle=\color{Blue}, % typewriter type for strings
+	showstringspaces=false % no special string spaces 
+	tabsize=3,
+	language=Java,
+	captionpos=b,
+% 	caption={#1},
+% 	label={#2},
+% 	frame=trbl,
+	breaklines=true,
+	breakatwhitespace=true
+	}
+}
+
+\AtBeginSection[]
+{
+\begin{frame}
+\frametitle{}
+\tableofcontents[currentsection]
+\end{frame}
+}
+
+\begin{document}
+
+\title[Projekt: Shoutcrowd]{Projekt: Shoutcrowd}
+\subtitle[W2]{Vorlesung: Webtechnologien 2}
+%\date{\today} % gibt aktuelles Datum zurueck
+\date{24. Juli 2013}
+\author[Kühn, Henczi, Mues, Wirkner, Kleinhückelkoten]{Dennis Kühn, Nicolai Henczi, Dominik Mues, Dominic Wirkner, Benedikt Kleinhückelkoten\\ {\scriptsize Prof.\ Dr.\ Bernhard Steffen, Dipl.-Inf. Oliver Bauer}} 
+\institute[TU Dortmund]{Technische Universit\"at Dortmund}
+
+\nocite{*}
+
+\frame{\titlepage}
+
+\begin{frame}
+%%%%%%%%%%%%%%	Gliederung		%%%%%%%%%%%%%%
+\tableofcontents
+\end{frame}			
+
+%%% Einführung %%%
+\input{inhalt}
+
+\section*{}
+\begin{frame}{Vielen Dank f\"ur Ihre Aufmerksamkeit!}
+%%%%%%%%%%%%%%	Ende		%%%%%%%%%%%%%%
+\end{frame}
+
+\end{document}

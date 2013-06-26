@@ -1,0 +1,67 @@
+%Schriftgröße, Layout, Papierformat, Art des Dokumentes
+\documentclass[12pt,oneside,a4paper]{scrartcl}
+
+%Das Paket erzeugt ein anklickbares Verzeichnis in der PDF-Datei.
+\usepackage{hyperref}
+
+%Mathematische Unterstüzung
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+
+%Einstellungen der Seitenr�nder
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,includeheadfoot]{geometry}
+
+%Zeilenabstand
+%\renewcommand{\baselinestretch}{1.25}\normalsize %für 1,5 zeilig
+\usepackage{setspace}
+
+%Einrückung eines neuen Absatzes
+\parindent 0pt
+\parskip 6pt
+
+%neue Rechtschreibung
+\usepackage[ngerman]{babel}
+
+%Umlaute ermöglichen
+\usepackage[utf8]{inputenc}
+
+%Kopf- und Fußzeile
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+%Linie oben
+\renewcommand{\headrulewidth}{0.5pt}
+
+%Fußzeile rechts bzw. außen
+\fancyfoot[C]{\thepage}
+%Linie unten
+\renewcommand{\footrulewidth}{0.5pt}
+
+%Bilder einfuegen
+\usepackage{graphicx}
+
+%Bilter etc. positionieren
+%\usepackage{float}
+\usepackage{placeins}
+
+%Tikz-Package zum zeichnen
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning} 
+
+
+\begin{document}
+\input{titel}  
+%Inhaltsverzeichnis (aktualisiert sich erst nach dem zweiten Setzen)
+%\tableofcontents
+\thispagestyle{empty}
+%Beginn einer neuen Seite
+\clearpage
+%Anderthalbzeiliger Zeilenabstand ab hier
+%\onehalfspacing
+\input{inhalt}
+%\clearpage
+%\input{literatur}
+\end{document}
