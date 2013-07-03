@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<model version="2.1">
+  <id>bc973cce-afa7-4824-9abf-3bd148f061b7</id>
+  <name>Basic model construction</name>
+  <changecounter>39</changecounter>
+  <edge>
+    <source>b0e5c5a1-bb9b-4aed-b757-ee6947f20815</source>
+    <target>0e923077-88ff-43f2-8d3c-049c029858f3</target>
+    <point>135.0,69.0</point>
+    <point>135.0,258.0</point>
+    <labelposition>500.0,0.0</labelposition>
+    <branch>default</branch>
+  </edge>
+  <edge>
+    <source>b64d6bb1-a3a4-4751-9221-e799295db7d3</source>
+    <target>fba154fe-1271-401a-a3a1-eb5b0341cc21</target>
+    <spline/>
+    <point>153.0,365.2153846153846</point>
+    <point>310.0,220.3846153846154</point>
+    <labelposition>525.7186685074397,3.3664340256093754</labelposition>
+    <branch>query created</branch>
+  </edge>
+  <sib>
+    <id>4c3b4535-750a-4d8a-9e86-5f4c0dcd2d8e</id>
+    <name>ShowObservations</name>
+    <label>ShowObservations</label>
+    <sib-uid>jLearn/ShowObservations</sib-uid>
+    <taxonomy>de.ls5.jlearn.jabc.export.ShowObservations</taxonomy>
+    <position>77.5,513.0</position>
+    <parameter name="name">
+      <string>observations</string>
+    </parameter>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+  </sib>
+  <edge>
+    <source>1f6e480a-0cfb-47d6-afd4-e05f6ef21f2f</source>
+    <target>b64d6bb1-a3a4-4751-9221-e799295db7d3</target>
+    <spline/>
+    <point>600.0,405.0</point>
+    <point>255.0,405.0</point>
+    <labelposition>531.25,0.3857142857142663</labelposition>
+    <branch>query answered</branch>
+  </edge>
+  <edge>
+    <source>b64d6bb1-a3a4-4751-9221-e799295db7d3</source>
+    <target>4c3b4535-750a-4d8a-9e86-5f4c0dcd2d8e</target>
+    <point>255.0,405.0</point>
+    <point>255.0,540.0</point>
+    <labelposition>500.0,0.0</labelposition>
+    <branch>finished</branch>
+  </edge>
+  <sib>
+    <id>b64d6bb1-a3a4-4751-9221-e799295db7d3</id>
+    <name>LearnObservationPack</name>
+    <label>LearnAngluin</label>
+    <sib-uid>jLearn/LearnAngluin</sib-uid>
+    <taxonomy>de.ls5.jlearn.jabc.learner.LearnAngluin</taxonomy>
+    <position>94.5,363.0</position>
+    <parameter name="instance">
+      <string>61cd9a6a-34e1-40e2-876d-fd25f64ed715</string>
+    </parameter>
+    <finalbranches>error</finalbranches>
+    <finalbranches>finished</finalbranches>
+    <finalbranches>query created</finalbranches>
+  </sib>
+  <edge>
+    <source>4c3b4535-750a-4d8a-9e86-5f4c0dcd2d8e</source>
+    <target>edcc1fad-d4cc-4ea4-adba-11d90e67ca37</target>
+    <point>255.0,540.0</point>
+    <point>255.0,675.0</point>
+    <labelposition>500.0,0.0</labelposition>
+    <branch>default</branch>
+  </edge>
+  <sib>
+    <id>edcc1fad-d4cc-4ea4-adba-11d90e67ca37</id>
+    <name>ShowHypothesis</name>
+    <label>ShowHypothesis</label>
+    <sib-uid>jLearn/ShowHypothesis</sib-uid>
+    <taxonomy>de.ls5.jlearn.jabc.export.ShowHypothesis</taxonomy>
+    <position>84.0,663.0</position>
+    <parameter name="tabname">
+      <string>hypothesis</string>
+    </parameter>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+  </sib>
+  <sib>
+    <id>1f6e480a-0cfb-47d6-afd4-e05f6ef21f2f</id>
+    <name>QueryTracerOracle</name>
+    <label>QueryTracerOracle</label>
+    <sib-uid>jlearn/QueryTracerOracle</sib-uid>
+    <taxonomy>de.ls5.jlearn.jabc.oracles.QueryTracerOracle</taxonomy>
+    <position>467.0,363.0</position>
+    <parameter name="instance">
+      <string>50b1717e-c965-4ec0-80be-b24e45222a10</string>
+    </parameter>
+    <parameter name="keyset">
+      <string>driver</string>
+    </parameter>
+    <finalbranches>error</finalbranches>
+    <finalbranches>query answered</finalbranches>
+    <finalbranches>query not answered</finalbranches>
+  </sib>
+  <sib>
+    <id>b0e5c5a1-bb9b-4aed-b757-ee6947f20815</id>
+    <name>AddAlphabetFromSIBGraphModel</name>
+    <label>AddAlphabetFromSIBGraphModel</label>
+    <sib-uid>jLearn/AddAlphabetFromSIBGraphModel</sib-uid>
+    <taxonomy>de.ls5.jlearn.jabc.alphabet.AddAlphabetFromSIBGraphModel</taxonomy>
+    <position>38.0,33.0</position>
+    <parameter name="modelName">
+      <string>Selenium alphabet</string>
+    </parameter>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$START">
+      <boolean>true</boolean>
+    </userobject>
+  </sib>
+  <sib>
+    <id>0e923077-88ff-43f2-8d3c-049c029858f3</id>
+    <name>OpenBrowser</name>
+    <label>OpenBrowser</label>
+    <sib-uid>selenium/OpenBrowser</sib-uid>
+    <taxonomy>de.ls5.jlearn.jabc.sib.selenium.OpenBrowser</taxonomy>
+    <position>92.0,168.0</position>
+    <parameter name="driver">
+      <de.metaframe.common.sib.parameter.ListBox>
+        <ListBoxFoundation>
+          <list>
+            <string>org.openqa.selenium.firefox.FirefoxDriver</string>
+            <string>org.openqa.selenium.chrome.ChromeDriver</string>
+            <string>org.openqa.selenium.ie.InternetExplorerDriver</string>
+            <string>org.openqa.selenium.htmlunit.HtmlUnitDriver</string>
+          </list>
+          <selected>0</selected>
+        </ListBoxFoundation>
+      </de.metaframe.common.sib.parameter.ListBox>
+    </parameter>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+  </sib>
+  <edge>
+    <source>fba154fe-1271-401a-a3a1-eb5b0341cc21</source>
+    <target>1f6e480a-0cfb-47d6-afd4-e05f6ef21f2f</target>
+    <point>350.0,220.3846153846154</point>
+    <point>507.0,365.2153846153846</point>
+    <labelposition>500.0,0.0</labelposition>
+    <branch>default</branch>
+  </edge>
+  <edge>
+    <source>0e923077-88ff-43f2-8d3c-049c029858f3</source>
+    <target>b64d6bb1-a3a4-4751-9221-e799295db7d3</target>
+    <point>195.0,330.0</point>
+    <point>255.0,405.0</point>
+    <labelposition>500.0,0.0</labelposition>
+    <branch>default</branch>
+  </edge>
+  <sib>
+    <id>fba154fe-1271-401a-a3a1-eb5b0341cc21</id>
+    <name>GraphSIB</name>
+    <label>Reset</label>
+    <sib-uid>00000000:00000000000000000000:0000000000011</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.GraphSIB</taxonomy>
+    <position>306.0,256.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>4cec18d2-811d-4bb3-917c-4d2f67ff47ad</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>WipeAllData</string>
+    </userobject>
+    <userobject key="TRACER$BREAKPOINT">
+      <boolean>true</boolean>
+    </userobject>
+  </sib>
+  <edge>
+    <source>fba154fe-1271-401a-a3a1-eb5b0341cc21</source>
+    <target>1f6e480a-0cfb-47d6-afd4-e05f6ef21f2f</target>
+    <spline/>
+    <point>350.0,267.5</point>
+    <point>450.0,225.0</point>
+    <point>516.3461538461538,363.0</point>
+    <labelposition>356.0,-86.0</labelposition>
+    <branch>error</branch>
+  </edge>
+  <values/>
+</model>

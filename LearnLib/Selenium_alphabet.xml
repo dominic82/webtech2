@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<model version="2.1">
+  <id>b0c28bd5-a550-462b-a979-2daffc4954fc</id>
+  <name>Selenium alphabet</name>
+  <changecounter>17</changecounter>
+  <sib>
+    <id>8e85308a-c6c9-4f6a-b918-a023211a4af8</id>
+    <name>MacroSIB_3</name>
+    <label>AcceptInviteFromUser1</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>21.0,46.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>ef95503e-9158-44e3-9467-e7997c0d6ec2</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>AcceptInviteFromUser1</string>
+    </userobject>
+  </sib>
+  <sib>
+    <id>33c11fb6-da55-418b-ba23-03133395bedf</id>
+    <name>MacroSIB_1</name>
+    <label>CreateUser2</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>170.0,121.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>67faea5f-dca4-482c-8f8f-17ce86d92350</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>CreateUser2</string>
+    </userobject>
+  </sib>
+  <sib>
+    <id>a8ff0c9c-6bf9-4c4f-a45a-4405942e3f27</id>
+    <name>MacroSIB_2</name>
+    <label>CreateUser1</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>170.0,46.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>af364d44-138d-4750-93fe-f9646af81621</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>CreateUser1</string>
+    </userobject>
+  </sib>
+  <sib>
+    <id>351eab03-2f4d-4905-9308-c396954a5b31</id>
+    <name>MacroSIB_4</name>
+    <label>UnfollowUser2</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>510.0,121.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>bba04ea1-407c-412f-b9e1-802ed5695ef4</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>UnfollowUser2</string>
+    </userobject>
+  </sib>
+  <sib>
+    <id>e396813a-e59e-4145-a228-b63d1e6387c1</id>
+    <name>MacroSIB_5</name>
+    <label>UnfollowUser1</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>480.0,46.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>8cbbb552-5a9e-46d7-a2f5-980caf7f6eec</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>UnfollowUser1</string>
+    </userobject>
+  </sib>
+  <sib>
+    <id>4a8c5dcd-3eec-4085-ac83-17596821a0c9</id>
+    <name>MacroSIB_6</name>
+    <label>LogoutUser</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>203.5,271.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>0155064d-51a7-42a9-aa80-22c1b53a97dd</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>LogoutUser</string>
+    </userobject>
+  </sib>
+  <sib>
+    <id>79cb7b09-9ead-4c7b-a813-480636248183</id>
+    <name>MacroSIB_7</name>
+    <label>CreateMessage</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>86.5,271.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>e2651d54-c611-4d86-8ea1-f0fec9037308</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>CreateMessage</string>
+    </userobject>
+  </sib>
+  <sib>
+    <id>d2470496-eddf-4aee-b74e-60b2f16a850d</id>
+    <name>MacroSIB_8</name>
+    <label>LoginUser2</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>264.0,121.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>bb4bafdf-8863-488f-8068-2373c172b2e6</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>LoginUser2</string>
+    </userobject>
+  </sib>
+  <sib>
+    <id>c8a9f495-142d-417e-8d38-b18196f95ea3</id>
+    <name>MacroSIB_9</name>
+    <label>SearchInviteUser2</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>379.0,121.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>2955883f-5c47-4be5-8e31-9ddf41fba37d</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>SearchInviteUser2</string>
+    </userobject>
+  </sib>
+  <sib>
+    <id>eb1d1c7f-6228-4626-83a0-e6e8fb6e4ad5</id>
+    <name>MacroSIB_10</name>
+    <label>SearchInviteUser1</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>364.0,46.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>25410000-ab9f-4f98-99f4-52ce31c82f0d</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>SearchInviteUser1</string>
+    </userobject>
+  </sib>
+  <sib>
+    <id>89ab9b26-5c3b-49f3-981d-a40073c064ba</id>
+    <name>MacroSIB_11</name>
+    <label>LoginUser1</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>264.0,46.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>295583b2-c0ec-4186-9052-81527e9b336e</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>LoginUser1</string>
+    </userobject>
+  </sib>
+  <sib>
+    <id>d1657f24-fbb0-46dd-8e98-d7f21f38fbe3</id>
+    <name>MacroSIB</name>
+    <label>AcceptInviteFromUser2</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>21.0,121.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>8bfbc79f-0eaf-4dfb-8f30-910af5908cb6</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>AcceptInviteFromUser2</string>
+    </userobject>
+  </sib>
+  <values/>
+</model>
