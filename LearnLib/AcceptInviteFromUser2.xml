@@ -2,14 +2,14 @@
 <model version="2.1">
   <id>8bfbc79f-0eaf-4dfb-8f30-910af5908cb6</id>
   <name>AcceptInviteFromUser2</name>
-  <changecounter>5</changecounter>
+  <changecounter>9</changecounter>
   <sib>
     <id>5ad38e0c-b8d5-480f-9407-c5db0c46ee0c</id>
     <name>FindElement</name>
     <label>FindSearchInput</label>
     <sib-uid>selenium/driver/FindElement</sib-uid>
     <taxonomy>de.jabc.sib.selenium.driver.FindElement</taxonomy>
-    <position>93.5,93.0</position>
+    <position>93.5,78.0</position>
     <parameter name="argument">
       <de.metaframe.common.sib.parameter.ContextExpression>
         <ContextExpressionFoundation>
@@ -47,9 +47,6 @@
     </parameter>
     <finalbranches>default</finalbranches>
     <finalbranches>error</finalbranches>
-    <userobject key="ABC$START">
-      <boolean>true</boolean>
-    </userobject>
   </sib>
   <sib>
     <id>426081f3-b003-4177-a0af-81038e3a9903</id>
@@ -57,7 +54,7 @@
     <label>FindSearchButton</label>
     <sib-uid>selenium/driver/FindElement</sib-uid>
     <taxonomy>de.jabc.sib.selenium.driver.FindElement</taxonomy>
-    <position>163.5,198.0</position>
+    <position>88.5,198.0</position>
     <parameter name="argument">
       <de.metaframe.common.sib.parameter.ContextExpression>
         <ContextExpressionFoundation>
@@ -102,7 +99,7 @@
     <label>FindUsernameInList</label>
     <sib-uid>selenium/driver/FindElement</sib-uid>
     <taxonomy>de.jabc.sib.selenium.driver.FindElement</taxonomy>
-    <position>142.5,318.0</position>
+    <position>82.5,318.0</position>
     <parameter name="argument">
       <de.metaframe.common.sib.parameter.ContextExpression>
         <ContextExpressionFoundation>
@@ -147,7 +144,7 @@
     <label>FindAcceptInvite</label>
     <sib-uid>selenium/driver/FindElement</sib-uid>
     <taxonomy>de.jabc.sib.selenium.driver.FindElement</taxonomy>
-    <position>122.5,423.0</position>
+    <position>92.5,438.0</position>
     <parameter name="argument">
       <de.metaframe.common.sib.parameter.ContextExpression>
         <ContextExpressionFoundation>
@@ -192,7 +189,7 @@
     <label>TypeSearchString</label>
     <sib-uid>selenium/webelement/sendKeys</sib-uid>
     <taxonomy>de.jabc.sib.selenium.webelement.SendKeys</taxonomy>
-    <position>269.5,93.0</position>
+    <position>269.5,78.0</position>
     <parameter name="argument">
       <de.metaframe.common.sib.parameter.ContextExpression>
         <ContextExpressionFoundation>
@@ -220,7 +217,7 @@
     <label>ClickSearchButton</label>
     <sib-uid>selenium/webelement/click</sib-uid>
     <taxonomy>de.jabc.sib.selenium.webelement.Click</taxonomy>
-    <position>297.0,198.0</position>
+    <position>267.0,198.0</position>
     <parameter name="webelement">
       <de.metaframe.jabc.framework.sib.parameter.ContextKey>
         <ContextKeyFoundation>
@@ -236,10 +233,10 @@
   <sib>
     <id>a10dece7-0a7e-45c2-ad2b-6c92cf4474ed</id>
     <name>Click_1</name>
-    <label>ClickInvite</label>
+    <label>ClickAcceptInvite</label>
     <sib-uid>selenium/webelement/click</sib-uid>
     <taxonomy>de.jabc.sib.selenium.webelement.Click</taxonomy>
-    <position>277.5,423.0</position>
+    <position>286.0,438.0</position>
     <parameter name="webelement">
       <de.metaframe.jabc.framework.sib.parameter.ContextKey>
         <ContextKeyFoundation>
@@ -258,7 +255,7 @@
     <label>ClickUsername</label>
     <sib-uid>selenium/webelement/click</sib-uid>
     <taxonomy>de.jabc.sib.selenium.webelement.Click</taxonomy>
-    <position>263.5,318.0</position>
+    <position>278.5,318.0</position>
     <parameter name="webelement">
       <de.metaframe.jabc.framework.sib.parameter.ContextKey>
         <ContextKeyFoundation>
@@ -327,6 +324,29 @@
     <labelposition>500.0,0.0</labelposition>
     <branch>default</branch>
   </edge>
+  <sib>
+    <id>ff9aa943-2166-4ac4-9bd2-800284974087</id>
+    <name>OpenUrl</name>
+    <label>OpenUrl</label>
+    <sib-uid>selenium/driver/openurl</sib-uid>
+    <taxonomy>de.jabc.sib.selenium.driver.OpenUrl</taxonomy>
+    <position>15.0,18.0</position>
+    <parameter name="url">
+      <string>http://localhost:8080/shoutcrowd/home</string>
+    </parameter>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$START">
+      <boolean>true</boolean>
+    </userobject>
+  </sib>
+  <edge>
+    <source>ff9aa943-2166-4ac4-9bd2-800284974087</source>
+    <target>5ad38e0c-b8d5-480f-9407-c5db0c46ee0c</target>
+    <point>45.0,45.0</point>
+    <point>136.0,92.0</point>
+    <branch>default</branch>
+  </edge>
   <values/>
   <branch>
     <name>error</name>
@@ -372,5 +392,10 @@
     <name>error</name>
     <branch>error</branch>
     <sib>a10dece7-0a7e-45c2-ad2b-6c92cf4474ed</sib>
+  </branch>
+  <branch>
+    <name>error</name>
+    <branch>error</branch>
+    <sib>ff9aa943-2166-4ac4-9bd2-800284974087</sib>
   </branch>
 </model>

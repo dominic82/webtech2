@@ -3,6 +3,7 @@ package de.webtech2.pages;
 
 import de.webtech2.dao.UserDAO;
 import de.webtech2.entities.User;
+import de.webtech2.services.Authenticator;
 import java.util.List;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectComponent;
@@ -14,6 +15,8 @@ import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 public class WipeAllData {
+    @Inject
+    private Authenticator authenticator;
     @Inject
     private UserDAO userDAO;
     @Inject
@@ -33,6 +36,7 @@ public class WipeAllData {
 
     @CommitAfter
     Object onSuccessFromResetForm() {
+        authenticator.logout();
         List<User> userList = userDAO.list();
         for (User user : userList) {
             userDAO.delete(user);

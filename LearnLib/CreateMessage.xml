@@ -2,7 +2,7 @@
 <model version="2.1">
   <id>e2651d54-c611-4d86-8ea1-f0fec9037308</id>
   <name>CreateMessage</name>
-  <changecounter>6</changecounter>
+  <changecounter>7</changecounter>
   <sib>
     <id>3b48fd11-f367-4405-9923-f0f61d0c0d6b</id>
     <name>OpenUrl</name>

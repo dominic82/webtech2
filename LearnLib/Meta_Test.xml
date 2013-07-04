@@ -2,7 +2,7 @@
 <model version="2.1">
   <id>3dac03a7-0591-472e-a939-b06cd86203ed</id>
   <name>Meta-Test</name>
-  <changecounter>30</changecounter>
+  <changecounter>48</changecounter>
   <sib>
     <id>4e174500-5d39-491f-985b-16eb0aca5797</id>
     <name>OpenBrowser</name>
@@ -35,57 +35,9 @@
     <label>CloseBrowser</label>
     <sib-uid>selenium/CloseBrowser</sib-uid>
     <taxonomy>de.jabc.sib.selenium.CloseBrowser</taxonomy>
-    <position>706.0,573.0</position>
+    <position>706.0,678.0</position>
     <finalbranches>default</finalbranches>
     <finalbranches>error</finalbranches>
-  </sib>
-  <sib>
-    <id>889bdcef-6d2f-4eb9-b1aa-7763fdbca29b</id>
-    <name>MacroSIB</name>
-    <label>CreateUser1</label>
-    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
-    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
-    <position>125.0,151.0</position>
-    <finalbranches>default</finalbranches>
-    <finalbranches>error</finalbranches>
-    <userobject key="ABC$GRAPHSIB$MODELID">
-      <string>af364d44-138d-4750-93fe-f9646af81621</string>
-    </userobject>
-    <userobject key="ABC$GRAPHSIB$MODELNAME">
-      <string>CreateUser1</string>
-    </userobject>
-  </sib>
-  <sib>
-    <id>e52d9130-7f21-44b1-b9d3-2ada1dfdf121</id>
-    <name>MacroSIB_1</name>
-    <label>LogoutUser</label>
-    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
-    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
-    <position>278.5,151.0</position>
-    <finalbranches>default</finalbranches>
-    <finalbranches>error</finalbranches>
-    <userobject key="ABC$GRAPHSIB$MODELID">
-      <string>0155064d-51a7-42a9-aa80-22c1b53a97dd</string>
-    </userobject>
-    <userobject key="ABC$GRAPHSIB$MODELNAME">
-      <string>LogoutUser</string>
-    </userobject>
-  </sib>
-  <sib>
-    <id>72e7ddfc-62e5-414f-8bcd-df8756a66b2c</id>
-    <name>MacroSIB_2</name>
-    <label>CreateUser2</label>
-    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
-    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
-    <position>125.0,271.0</position>
-    <finalbranches>default</finalbranches>
-    <finalbranches>error</finalbranches>
-    <userobject key="ABC$GRAPHSIB$MODELID">
-      <string>67faea5f-dca4-482c-8f8f-17ce86d92350</string>
-    </userobject>
-    <userobject key="ABC$GRAPHSIB$MODELNAME">
-      <string>CreateUser2</string>
-    </userobject>
   </sib>
   <sib>
     <id>a3ad08ac-59f8-46bf-9ada-8d412a988244</id>
@@ -122,17 +74,17 @@
   <sib>
     <id>5de143e4-a00d-49e7-87db-aada1584eab7</id>
     <name>MacroSIB_5</name>
-    <label>LogoutUser</label>
+    <label>LogoutUser2</label>
     <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
     <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
-    <position>713.5,271.0</position>
+    <position>710.0,271.0</position>
     <finalbranches>default</finalbranches>
     <finalbranches>error</finalbranches>
     <userobject key="ABC$GRAPHSIB$MODELID">
-      <string>0155064d-51a7-42a9-aa80-22c1b53a97dd</string>
+      <string>cdc01eeb-e3b3-4f1d-8393-bae7c06581f7</string>
     </userobject>
     <userobject key="ABC$GRAPHSIB$MODELNAME">
-      <string>LogoutUser</string>
+      <string>LogoutUser2</string>
     </userobject>
   </sib>
   <sib>
@@ -154,17 +106,17 @@
   <sib>
     <id>51345727-2419-4ba9-b856-4f149644d3ed</id>
     <name>MacroSIB_8</name>
-    <label>LogoutUser</label>
+    <label>LogoutUser1</label>
     <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
     <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
-    <position>713.5,376.0</position>
+    <position>710.0,376.0</position>
     <finalbranches>default</finalbranches>
     <finalbranches>error</finalbranches>
     <userobject key="ABC$GRAPHSIB$MODELID">
       <string>0155064d-51a7-42a9-aa80-22c1b53a97dd</string>
     </userobject>
     <userobject key="ABC$GRAPHSIB$MODELNAME">
-      <string>LogoutUser</string>
+      <string>LogoutUser1</string>
     </userobject>
   </sib>
   <sib>
@@ -199,20 +151,6 @@
       <string>LoginUser1</string>
     </userobject>
   </sib>
-  <edge>
-    <source>e52d9130-7f21-44b1-b9d3-2ada1dfdf121</source>
-    <target>72e7ddfc-62e5-414f-8bcd-df8756a66b2c</target>
-    <point>334.0,247.0</point>
-    <point>169.0,367.0</point>
-    <branch>default</branch>
-  </edge>
-  <edge>
-    <source>72e7ddfc-62e5-414f-8bcd-df8756a66b2c</source>
-    <target>a3ad08ac-59f8-46bf-9ada-8d412a988244</target>
-    <point>169.0,367.0</point>
-    <point>334.0,367.0</point>
-    <branch>default</branch>
-  </edge>
   <edge>
     <source>a3ad08ac-59f8-46bf-9ada-8d412a988244</source>
     <target>a182dc7d-3ee1-420e-b307-8b2f2b963e8b</target>
@@ -254,7 +192,7 @@
     <label>WipeAllData</label>
     <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
     <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
-    <position>278.5,46.0</position>
+    <position>128.5,151.0</position>
     <finalbranches>default</finalbranches>
     <finalbranches>error</finalbranches>
     <userobject key="ABC$GRAPHSIB$MODELID">
@@ -273,16 +211,10 @@
   </edge>
   <edge>
     <source>ad035c68-0599-4636-92a5-d8ea36ea1084</source>
-    <target>889bdcef-6d2f-4eb9-b1aa-7763fdbca29b</target>
-    <point>315.0,75.0</point>
-    <point>166.0,221.0</point>
-    <branch>default</branch>
-  </edge>
-  <edge>
-    <source>889bdcef-6d2f-4eb9-b1aa-7763fdbca29b</source>
-    <target>e52d9130-7f21-44b1-b9d3-2ada1dfdf121</target>
-    <point>165.0,180.0</point>
-    <point>339.0,190.0</point>
+    <target>f38cb74f-9ef2-4517-8605-f1a53fbb5139</target>
+    <point>315.0,86.0</point>
+    <point>315.0,151.0</point>
+    <labelposition>500.0,0.0</labelposition>
     <branch>default</branch>
   </edge>
   <sib>
@@ -350,17 +282,17 @@
   <sib>
     <id>cc828658-575b-4e12-8cfc-00d486214caf</id>
     <name>MacroSIB_14</name>
-    <label>LogoutUser</label>
+    <label>LogoutUser2</label>
     <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
     <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
-    <position>713.5,481.0</position>
+    <position>710.0,481.0</position>
     <finalbranches>default</finalbranches>
     <finalbranches>error</finalbranches>
     <userobject key="ABC$GRAPHSIB$MODELID">
-      <string>0155064d-51a7-42a9-aa80-22c1b53a97dd</string>
+      <string>cdc01eeb-e3b3-4f1d-8393-bae7c06581f7</string>
     </userobject>
     <userobject key="ABC$GRAPHSIB$MODELNAME">
-      <string>LogoutUser</string>
+      <string>LogoutUser2</string>
     </userobject>
   </sib>
   <sib>
@@ -385,7 +317,7 @@
     <label>UnfollowUser2</label>
     <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
     <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
-    <position>285.0,571.0</position>
+    <position>345.0,571.0</position>
     <finalbranches>default</finalbranches>
     <finalbranches>error</finalbranches>
     <userobject key="ABC$GRAPHSIB$MODELID">
@@ -398,17 +330,17 @@
   <sib>
     <id>25897520-cde7-422c-9b2b-58735f8d44dd</id>
     <name>MacroSIB_17</name>
-    <label>LogoutUser</label>
+    <label>LogoutUser1</label>
     <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
     <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
-    <position>428.5,571.0</position>
+    <position>710.0,571.0</position>
     <finalbranches>default</finalbranches>
     <finalbranches>error</finalbranches>
     <userobject key="ABC$GRAPHSIB$MODELID">
       <string>0155064d-51a7-42a9-aa80-22c1b53a97dd</string>
     </userobject>
     <userobject key="ABC$GRAPHSIB$MODELNAME">
-      <string>LogoutUser</string>
+      <string>LogoutUser1</string>
     </userobject>
   </sib>
   <edge>
@@ -460,5 +392,52 @@
     <point>779.0,579.0</point>
     <branch>default</branch>
   </edge>
+  <sib>
+    <id>f85b3155-9246-4d10-8f20-ac48074474e3</id>
+    <name>MacroSIB_18</name>
+    <label>LoginUser2</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>129.0,271.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>bb4bafdf-8863-488f-8068-2373c172b2e6</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>LoginUser2</string>
+    </userobject>
+  </sib>
+  <edge>
+    <source>f38cb74f-9ef2-4517-8605-f1a53fbb5139</source>
+    <target>f85b3155-9246-4d10-8f20-ac48074474e3</target>
+    <point>415.0,194.44444444444446</point>
+    <point>185.0,283.8888888888889</point>
+    <labelposition>500.0,0.0</labelposition>
+    <branch>default</branch>
+  </edge>
+  <edge>
+    <source>f85b3155-9246-4d10-8f20-ac48074474e3</source>
+    <target>a3ad08ac-59f8-46bf-9ada-8d412a988244</target>
+    <point>165.0,300.0</point>
+    <point>308.0,283.0</point>
+    <branch>default</branch>
+  </edge>
+  <sib>
+    <id>f38cb74f-9ef2-4517-8605-f1a53fbb5139</id>
+    <name>MacroSIB</name>
+    <label>CreateUsers</label>
+    <sib-uid>c0a80801:2d383935393038373037:1172579262297</sib-uid>
+    <taxonomy>de.metaframe.jabc.sib.MacroSIB</taxonomy>
+    <position>275.0,151.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$GRAPHSIB$MODELID">
+      <string>66a47c03-c58a-45f3-8008-d7f9238000ac</string>
+    </userobject>
+    <userobject key="ABC$GRAPHSIB$MODELNAME">
+      <string>CreateUsers</string>
+    </userobject>
+  </sib>
   <values/>
 </model>

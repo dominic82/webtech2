@@ -2,14 +2,14 @@
 <model version="2.1">
   <id>bb4bafdf-8863-488f-8068-2373c172b2e6</id>
   <name>LoginUser2</name>
-  <changecounter>5</changecounter>
+  <changecounter>13</changecounter>
   <sib>
     <id>cf9d271f-0d3e-496f-be1a-4d3b1ae13d8c</id>
     <name>FindElement</name>
-    <label>FindUsername</label>
+    <label>FindLoginname</label>
     <sib-uid>selenium/driver/FindElement</sib-uid>
     <taxonomy>de.jabc.sib.selenium.driver.FindElement</taxonomy>
-    <position>280.0,138.0</position>
+    <position>277.0,138.0</position>
     <parameter name="argument">
       <de.metaframe.common.sib.parameter.ContextExpression>
         <ContextExpressionFoundation>
@@ -141,10 +141,10 @@
   <sib>
     <id>262584b2-03a9-4473-9bbf-7663e80709ee</id>
     <name>Click</name>
-    <label>ClockLogin</label>
+    <label>ClickLogin</label>
     <sib-uid>selenium/webelement/click</sib-uid>
     <taxonomy>de.jabc.sib.selenium.webelement.Click</taxonomy>
-    <position>441.0,378.0</position>
+    <position>443.0,378.0</position>
     <parameter name="webelement">
       <de.metaframe.jabc.framework.sib.parameter.ContextKey>
         <ContextKeyFoundation>
@@ -188,10 +188,10 @@
   <sib>
     <id>d590a0c4-3fa9-4dbd-b339-3a1dc50ee434</id>
     <name>SendKeys_1</name>
-    <label>TypeUsername</label>
+    <label>TypeLoginname</label>
     <sib-uid>selenium/webelement/sendKeys</sib-uid>
     <taxonomy>de.jabc.sib.selenium.webelement.SendKeys</taxonomy>
-    <position>428.5,138.0</position>
+    <position>425.5,138.0</position>
     <parameter name="argument">
       <de.metaframe.common.sib.parameter.ContextExpression>
         <ContextExpressionFoundation>
@@ -271,6 +271,58 @@
     <point>480.0,375.0</point>
     <branch>default</branch>
   </edge>
+  <sib>
+    <id>5b393bdf-1ef6-4f1d-ab39-b5a221bee1b9</id>
+    <name>FindElement_3</name>
+    <label>FindUsername</label>
+    <sib-uid>selenium/driver/FindElement</sib-uid>
+    <taxonomy>de.jabc.sib.selenium.driver.FindElement</taxonomy>
+    <position>430.0,498.0</position>
+    <parameter name="argument">
+      <de.metaframe.common.sib.parameter.ContextExpression>
+        <ContextExpressionFoundation>
+          <expression>//span[contains(text(),&apos;Gustav&apos;)]</expression>
+          <clazz>java.lang.String</clazz>
+          <classMutable>true</classMutable>
+        </ContextExpressionFoundation>
+      </de.metaframe.common.sib.parameter.ContextExpression>
+    </parameter>
+    <parameter name="by">
+      <de.metaframe.common.sib.parameter.ListBox>
+        <ListBoxFoundation>
+          <list>
+            <string>className</string>
+            <string>cssSelector</string>
+            <string>id</string>
+            <string>linkText</string>
+            <string>name</string>
+            <string>partialLinkText</string>
+            <string>tagName</string>
+            <string>xpath</string>
+          </list>
+          <selected>7</selected>
+        </ListBoxFoundation>
+      </de.metaframe.common.sib.parameter.ListBox>
+    </parameter>
+    <parameter name="result">
+      <de.metaframe.jabc.framework.sib.parameter.ContextKey>
+        <ContextKeyFoundation>
+          <key>webelement</key>
+          <scope>GLOBAL</scope>
+          <scopeMutable>false</scopeMutable>
+        </ContextKeyFoundation>
+      </de.metaframe.jabc.framework.sib.parameter.ContextKey>
+    </parameter>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+  </sib>
+  <edge>
+    <source>262584b2-03a9-4473-9bbf-7663e80709ee</source>
+    <target>5b393bdf-1ef6-4f1d-ab39-b5a221bee1b9</target>
+    <point>480.0,405.0</point>
+    <point>481.0,512.0</point>
+    <branch>default</branch>
+  </edge>
   <values/>
   <branch>
     <name>error</name>
@@ -310,6 +362,11 @@
   <branch>
     <name>default</name>
     <branch>default</branch>
-    <sib>262584b2-03a9-4473-9bbf-7663e80709ee</sib>
+    <sib>5b393bdf-1ef6-4f1d-ab39-b5a221bee1b9</sib>
+  </branch>
+  <branch>
+    <name>error</name>
+    <branch>error</branch>
+    <sib>5b393bdf-1ef6-4f1d-ab39-b5a221bee1b9</sib>
   </branch>
 </model>

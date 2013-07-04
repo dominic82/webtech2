@@ -2,14 +2,14 @@
 <model version="2.1">
   <id>295583b2-c0ec-4186-9052-81527e9b336e</id>
   <name>LoginUser1</name>
-  <changecounter>7</changecounter>
+  <changecounter>14</changecounter>
   <sib>
     <id>52e48b7e-86ff-43de-968b-65bfa2782452</id>
     <name>FindElement</name>
-    <label>FindUsername</label>
+    <label>FindLoginname</label>
     <sib-uid>selenium/driver/FindElement</sib-uid>
     <taxonomy>de.jabc.sib.selenium.driver.FindElement</taxonomy>
-    <position>190.0,108.0</position>
+    <position>187.0,108.0</position>
     <parameter name="argument">
       <de.metaframe.common.sib.parameter.ContextExpression>
         <ContextExpressionFoundation>
@@ -99,7 +99,7 @@
     <label>FindSubmit</label>
     <sib-uid>selenium/driver/FindElement</sib-uid>
     <taxonomy>de.jabc.sib.selenium.driver.FindElement</taxonomy>
-    <position>215.0,348.0</position>
+    <position>200.0,348.0</position>
     <parameter name="argument">
       <de.metaframe.common.sib.parameter.ContextExpression>
         <ContextExpressionFoundation>
@@ -141,10 +141,10 @@
   <sib>
     <id>31146b7b-6060-4f6b-839c-e68e434f79c7</id>
     <name>Click</name>
-    <label>ClockLogin</label>
+    <label>ClickLogin</label>
     <sib-uid>selenium/webelement/click</sib-uid>
     <taxonomy>de.jabc.sib.selenium.webelement.Click</taxonomy>
-    <position>351.0,348.0</position>
+    <position>353.0,348.0</position>
     <parameter name="webelement">
       <de.metaframe.jabc.framework.sib.parameter.ContextKey>
         <ContextKeyFoundation>
@@ -188,10 +188,10 @@
   <sib>
     <id>2f0109a5-0104-44aa-b010-d72347f2e97e</id>
     <name>SendKeys_1</name>
-    <label>TypeUsername</label>
+    <label>TypeLoginname</label>
     <sib-uid>selenium/webelement/sendKeys</sib-uid>
     <taxonomy>de.jabc.sib.selenium.webelement.SendKeys</taxonomy>
-    <position>338.5,108.0</position>
+    <position>335.5,108.0</position>
     <parameter name="argument">
       <de.metaframe.common.sib.parameter.ContextExpression>
         <ContextExpressionFoundation>
@@ -271,6 +271,58 @@
     <point>387.0,357.0</point>
     <branch>default</branch>
   </edge>
+  <sib>
+    <id>747e09b0-85c8-4633-ad16-54a10f646618</id>
+    <name>FindElement_4</name>
+    <label>FindUsername</label>
+    <sib-uid>selenium/driver/FindElement</sib-uid>
+    <taxonomy>de.jabc.sib.selenium.driver.FindElement</taxonomy>
+    <position>340.0,483.0</position>
+    <parameter name="argument">
+      <de.metaframe.common.sib.parameter.ContextExpression>
+        <ContextExpressionFoundation>
+          <expression>//span[contains(text(),&apos;Karl&apos;)]</expression>
+          <clazz>java.lang.String</clazz>
+          <classMutable>true</classMutable>
+        </ContextExpressionFoundation>
+      </de.metaframe.common.sib.parameter.ContextExpression>
+    </parameter>
+    <parameter name="by">
+      <de.metaframe.common.sib.parameter.ListBox>
+        <ListBoxFoundation>
+          <list>
+            <string>className</string>
+            <string>cssSelector</string>
+            <string>id</string>
+            <string>linkText</string>
+            <string>name</string>
+            <string>partialLinkText</string>
+            <string>tagName</string>
+            <string>xpath</string>
+          </list>
+          <selected>7</selected>
+        </ListBoxFoundation>
+      </de.metaframe.common.sib.parameter.ListBox>
+    </parameter>
+    <parameter name="result">
+      <de.metaframe.jabc.framework.sib.parameter.ContextKey>
+        <ContextKeyFoundation>
+          <key>webelement</key>
+          <scope>GLOBAL</scope>
+          <scopeMutable>false</scopeMutable>
+        </ContextKeyFoundation>
+      </de.metaframe.jabc.framework.sib.parameter.ContextKey>
+    </parameter>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+  </sib>
+  <edge>
+    <source>31146b7b-6060-4f6b-839c-e68e434f79c7</source>
+    <target>747e09b0-85c8-4633-ad16-54a10f646618</target>
+    <point>390.0,375.0</point>
+    <point>391.0,500.0</point>
+    <branch>default</branch>
+  </edge>
   <values/>
   <branch>
     <name>error</name>
@@ -310,6 +362,11 @@
   <branch>
     <name>default</name>
     <branch>default</branch>
-    <sib>31146b7b-6060-4f6b-839c-e68e434f79c7</sib>
+    <sib>747e09b0-85c8-4633-ad16-54a10f646618</sib>
+  </branch>
+  <branch>
+    <name>error</name>
+    <branch>error</branch>
+    <sib>747e09b0-85c8-4633-ad16-54a10f646618</sib>
   </branch>
 </model>

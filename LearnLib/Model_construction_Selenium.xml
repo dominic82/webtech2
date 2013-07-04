@@ -2,7 +2,7 @@
 <model version="2.1">
   <id>bc973cce-afa7-4824-9abf-3bd148f061b7</id>
   <name>Basic model construction</name>
-  <changecounter>39</changecounter>
+  <changecounter>46</changecounter>
   <edge>
     <source>b0e5c5a1-bb9b-4aed-b757-ee6947f20815</source>
     <target>0e923077-88ff-43f2-8d3c-049c029858f3</target>
@@ -185,6 +185,23 @@
     <point>516.3461538461538,363.0</point>
     <labelposition>356.0,-86.0</labelposition>
     <branch>error</branch>
+  </edge>
+  <sib>
+    <id>4d6bf70a-ddb5-4695-bd59-79d451dacece</id>
+    <name>CloseBrowser</name>
+    <label>CloseBrowser</label>
+    <sib-uid>selenium/CloseBrowser</sib-uid>
+    <taxonomy>de.jabc.sib.selenium.CloseBrowser</taxonomy>
+    <position>256.0,663.0</position>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+  </sib>
+  <edge>
+    <source>edcc1fad-d4cc-4ea4-adba-11d90e67ca37</source>
+    <target>4d6bf70a-ddb5-4695-bd59-79d451dacece</target>
+    <point>135.0,690.0</point>
+    <point>285.0,678.0</point>
+    <branch>default</branch>
   </edge>
   <values/>
 </model>

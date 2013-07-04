@@ -2,7 +2,7 @@
 <model version="2.1">
   <id>8cbbb552-5a9e-46d7-a2f5-980caf7f6eec</id>
   <name>UnfollowUser1</name>
-  <changecounter>3</changecounter>
+  <changecounter>7</changecounter>
   <sib>
     <id>11fdd98d-7518-476f-8387-0a0fb3acf866</id>
     <name>FindElement</name>
@@ -47,9 +47,6 @@
     </parameter>
     <finalbranches>default</finalbranches>
     <finalbranches>error</finalbranches>
-    <userobject key="ABC$START">
-      <boolean>true</boolean>
-    </userobject>
   </sib>
   <sib>
     <id>a06ac1b2-19ea-49e7-9aaf-6ba396c1551c</id>
@@ -57,7 +54,7 @@
     <label>FindSearchButton</label>
     <sib-uid>selenium/driver/FindElement</sib-uid>
     <taxonomy>de.jabc.sib.selenium.driver.FindElement</taxonomy>
-    <position>163.5,198.0</position>
+    <position>103.5,213.0</position>
     <parameter name="argument">
       <de.metaframe.common.sib.parameter.ContextExpression>
         <ContextExpressionFoundation>
@@ -102,7 +99,7 @@
     <label>FindUsernameInList</label>
     <sib-uid>selenium/driver/FindElement</sib-uid>
     <taxonomy>de.jabc.sib.selenium.driver.FindElement</taxonomy>
-    <position>142.5,318.0</position>
+    <position>97.5,333.0</position>
     <parameter name="argument">
       <de.metaframe.common.sib.parameter.ContextExpression>
         <ContextExpressionFoundation>
@@ -147,7 +144,7 @@
     <label>FindUnfollow</label>
     <sib-uid>selenium/driver/FindElement</sib-uid>
     <taxonomy>de.jabc.sib.selenium.driver.FindElement</taxonomy>
-    <position>133.5,423.0</position>
+    <position>118.5,453.0</position>
     <parameter name="argument">
       <de.metaframe.common.sib.parameter.ContextExpression>
         <ContextExpressionFoundation>
@@ -220,7 +217,7 @@
     <label>ClickSearchButton</label>
     <sib-uid>selenium/webelement/click</sib-uid>
     <taxonomy>de.jabc.sib.selenium.webelement.Click</taxonomy>
-    <position>297.0,198.0</position>
+    <position>267.0,213.0</position>
     <parameter name="webelement">
       <de.metaframe.jabc.framework.sib.parameter.ContextKey>
         <ContextKeyFoundation>
@@ -236,10 +233,10 @@
   <sib>
     <id>5204427a-e87b-4fa0-a0e4-50ef40a0b8cf</id>
     <name>Click_1</name>
-    <label>ClickInvite</label>
+    <label>ClickUnfollow</label>
     <sib-uid>selenium/webelement/click</sib-uid>
     <taxonomy>de.jabc.sib.selenium.webelement.Click</taxonomy>
-    <position>277.5,423.0</position>
+    <position>282.0,453.0</position>
     <parameter name="webelement">
       <de.metaframe.jabc.framework.sib.parameter.ContextKey>
         <ContextKeyFoundation>
@@ -258,7 +255,7 @@
     <label>ClickUsername</label>
     <sib-uid>selenium/webelement/click</sib-uid>
     <taxonomy>de.jabc.sib.selenium.webelement.Click</taxonomy>
-    <position>263.5,318.0</position>
+    <position>278.5,333.0</position>
     <parameter name="webelement">
       <de.metaframe.jabc.framework.sib.parameter.ContextKey>
         <ContextKeyFoundation>
@@ -327,6 +324,29 @@
     <labelposition>500.0,0.0</labelposition>
     <branch>default</branch>
   </edge>
+  <sib>
+    <id>ad26b70f-a99b-4566-b2ef-63e903d33a57</id>
+    <name>OpenUrl</name>
+    <label>OpenUrl</label>
+    <sib-uid>selenium/driver/openurl</sib-uid>
+    <taxonomy>de.jabc.sib.selenium.driver.OpenUrl</taxonomy>
+    <position>15.0,93.0</position>
+    <parameter name="url">
+      <string>http://localhost:8080/shoutcrowd/home</string>
+    </parameter>
+    <finalbranches>default</finalbranches>
+    <finalbranches>error</finalbranches>
+    <userobject key="ABC$START">
+      <boolean>true</boolean>
+    </userobject>
+  </sib>
+  <edge>
+    <source>ad26b70f-a99b-4566-b2ef-63e903d33a57</source>
+    <target>11fdd98d-7518-476f-8387-0a0fb3acf866</target>
+    <point>45.0,120.0</point>
+    <point>165.0,117.0</point>
+    <branch>default</branch>
+  </edge>
   <values/>
   <branch>
     <name>error</name>
@@ -372,5 +392,10 @@
     <name>default</name>
     <branch>default</branch>
     <sib>5204427a-e87b-4fa0-a0e4-50ef40a0b8cf</sib>
+  </branch>
+  <branch>
+    <name>error</name>
+    <branch>error</branch>
+    <sib>ad26b70f-a99b-4566-b2ef-63e903d33a57</sib>
   </branch>
 </model>
