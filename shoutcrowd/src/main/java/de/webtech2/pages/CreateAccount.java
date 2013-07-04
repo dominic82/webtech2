@@ -1,6 +1,6 @@
 package de.webtech2.pages;
 
-import de.webtech2.dao.UserDAO;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,13 +10,14 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.PasswordField;
 import org.apache.tapestry5.corelib.components.TextField;
+import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.Messages;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+import de.webtech2.dao.UserDAO;
 import de.webtech2.entities.User;
 import de.webtech2.security.AuthenticationException;
 import de.webtech2.services.Authenticator;
-import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 
 /**
  * Start page of application shoutcrowd.
@@ -46,6 +47,8 @@ public class CreateAccount {
     @InjectComponent(value = "passwordRepeat")
     private PasswordField passwordRepeatField;
     @InjectComponent(value = "username")
+    private TextField loginnameField;
+    @InjectComponent(value = "loginname")
     private TextField usernameField;
     @InjectComponent(value = "email")
     private TextField emailField;
@@ -54,9 +57,21 @@ public class CreateAccount {
         validatePassword();
         validateEmail();
         validateUsername();
+        validateLoginname();
     }
 
-    private void validatePassword() {
+    private void validateLoginname() {
+    	if (username == null) {
+            entryForm.recordError(loginnameField, messages.get("error-usernametoshort"));
+        } else {
+            if (username.length() < 4) {
+                entryForm.recordError(loginnameField, messages.get("error-usernametoshort"));
+            }
+
+        }
+	}
+
+	private void validatePassword() {
         if (password == null) {
             entryForm.recordError(passwordField, messages.get("error-passwordtoshort"));
         } else if (passwordRepeat == null) {
@@ -72,21 +87,31 @@ public class CreateAccount {
     }
 
     private void validateUsername() {
-        if (username == null) {
+        if (!isValidUsername(username)) {
             entryForm.recordError(usernameField, messages.get("error-usernametoshort"));
         } else {
-            if (username.length() < 4) {
-                entryForm.recordError(usernameField, messages.get("error-usernametoshort"));
-            }
-            // TODO: username already exists?
+        	List<User> usernameUsers = userDAO.searchByUsername(username);
+        	if (usernameUsers != null && !usernameUsers.isEmpty()) {
+        		entryForm.recordError(usernameField, messages.get("error-doubleusername"));
+        	}
         }
     }
 
-    private void validateEmail() {
+    private boolean isValidUsername(String username2) {
+    	return (username != null && username.length() >= 4);
+	}
+
+	private void validateEmail() {
         if (!isValidEmailAddress(email)) {
             entryForm.recordError(emailField, messages.get("error-emailinvalid"));
         } else {
-            // TODO: email already in use?
+        	List<User> allUsers = userDAO.list();
+        	for (User user : allUsers) {
+        		if (user != null && user.getEmail().equals(email)) {
+        			entryForm.recordError(usernameField, messages.get("error-doubleemail"));
+        			break;
+        		}
+        	}
         }
     }
 
