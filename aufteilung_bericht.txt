@@ -3,9 +3,22 @@ Aufteilung über Bereiche des Berichtes:
 [Dominic] 
 (Spezielles/Datanbank)
 - Authentifizierung (Annotation)
-- Datebank (Entities, DAOs, Bilder in DB)
+	- Generelle Notwendigkeit
+	- Generelles Verfahren (Session)
+	- zwei mögliche Lösungen (Component / Typestry Way mit Annotation und App-Module)
+	- Erweiterungsmöglichkeiten
+- Datenbank (Entities, DAOs, Bilder in DB)
+	- Generelles Verfahren (Hibernate, POJOs mit Annotationen)
+	- Spezielles: Inverse Relationen + Bilder als Byte-Array
+	- Notwedigkeit von DAOs (duplizierter Code)
+- Dartellung der Bilder
+	- Die spezielle Page für User-Avatare (Idee/Verwendung)
+	- Umsetzung mit Streams und Graphics2d für die Skalierung
 - Pagination
-
+	- Generelle Notwendigkeit
+	- zwei mögliche Lösungen (Tapestry unabhängig mittels Ajax / eigene Tapestry-Component)
+	- Funktionsweise
+	- Erweiterungsmöglichkeiten
 
 [Dominik]
 (LeanLib-Testen)

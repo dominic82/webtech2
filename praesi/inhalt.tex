@@ -1,8 +1,83 @@
-\section{Einleitung}
+\section{Live-Demo}
 
 \subsection*{}
-\begin{frame}{Blabla Unterkapitel}
-
+\begin{frame}{Live-Demo}
+\begin{itemize}
+\item Account erstellen
+\item Account bearbeiten
+\item Fan einladen
+\item Fan werden
+\item Shouts erstellen
+\end{itemize}
 \end{frame}
 
+\section{Pagination}
+\subsection*{}
+\begin{frame}{Pagination}
+Pagination bei Tapestry nur über Grid-Komponente \\
+\begin{itemize}
+\item Darstellung als Tabelle $\rightarrow$ lässt sich schlecht designen
+\item mögliche Lösung: DOM per JavaScript verändern 
+\end{itemize}
+\pause
+Ansonsten keine fertige Lösung! $\rightarrow$ Also: selber bauen... \\
+\pause
+\begin{itemize}
+\item Erweiterung der Loop-Komponente
+\item zusätzliche Parameter: aktuelle Seite, Anzahl Items pro Seite
+\item Format-Parameter: \texttt{first,previous,pages,next,last,bottom,top}
+\end{itemize}
+\end{frame}
+
+\section{Testen und Selenium}
+\subsection*{}
+\begin{frame}{Testen und Selenium}
+unsere Test-Strategie:
+\begin{itemize}
+\item keine JUnit-Tests genutzt (nur für DAOs sinnvoll?)
+\item Integrations-Tests im Tapestry-Kontext $\rightarrow$ per Hand! :-(
+\end{itemize}
+\pause
+Testen mit Selenium:
+\begin{itemize}
+\item Integrations-Tests werden schneller und wiederholbar! 
+\item können "`nebenher"' per Hand angelegt werden
+\item müssen aber auch per Hand angepasst werden $\rightarrow$ aufwendig! :-(
+\end{itemize}
+\end{frame}
+
+\section{LearnLib}
+\subsection*{}
+\begin{frame}{LearnLib}
+unsere Erwartung:
+\begin{itemize}
+\item Nutzung vorhandener modellbasierter Selenium-Tests
+\item automatischer Vergleich zwischen Software und Spezifikation
+\item übersichtliches Modell der Software
+\end{itemize}
+\pause
+die Realität sieht anders aus:
+\begin{itemize}
+\item Alphabet muss gut überlegt sein
+\item nur ein "`triviales"' Modell erzeugt: Zwei-User-Login
+\item "`interessante"' Abläufe in der Form nicht darstellbar! \\ $\rightarrow$ benötigt Gegenbeispiele!
+\end{itemize}
+\end{frame}
+
+\section{Feature-Ausblick}
+\subsection*{}
+\begin{frame}{Feature-Ausblick}
+\begin{itemize}
+\item Backend (Administration) inkl. Rechtesystem
+\item mehr JavaScript
+	\begin{itemize}
+	\item Anzeige neuer Shouts, Einladungen, Fans/Idols
+	\item Pagination oder dynamisches Nachladen
+	\end{itemize}
+\pause	
+\item Suche erweitern: Auto-Completion, Nachrichten, Hash-Tags
+\item Organisation der Idols in Gruppen
+\item Recommender-System für Idols	
+\end{itemize}
+\end{frame}
 
